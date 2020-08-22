@@ -1,0 +1,22 @@
+
+--- Job biodieselprocess.gms Start 08/13/19 14:45:02 WEX-VS8 23.5.1 x86/MS Windows        
+GAMS Rev 235  Copyright (C) 1987-2010 GAMS Development. All rights reserved
+Licensee: Gary Goldstein                                 G010614:2121CA-WIN
+          Decision Ware, Inc.                                        DC2807
+--- Starting compilation
+--- biodieselprocess.gms(1563) 3 Mb 1 Error
+*** Error 282 in C:\Users\ghosh.117\Google Drive\box\Research_compile\P2PTES\Spatial\Co2\Supply Chain P2P TES\biodieselprocess.gms
+    Unable to open include file
+--- biodieselprocess.gms(1573) 3 Mb 5 Errors
+*** Error 140 in C:\Users\ghosh.117\Google Drive\box\Research_compile\P2PTES\Spatial\Co2\Supply Chain P2P TES\biodieselprocess.gms
+    Unknown symbol
+*** Error 140 in C:\Users\ghosh.117\Google Drive\box\Research_compile\P2PTES\Spatial\Co2\Supply Chain P2P TES\biodieselprocess.gms
+    Unknown symbol
+*** Error 140 in C:\Users\ghosh.117\Google Drive\box\Research_compile\P2PTES\Spatial\Co2\Supply Chain P2P TES\biodieselprocess.gms
+    Unknown symbol
+*** Error 140 in C:\Users\ghosh.117\Google Drive\box\Research_compile\P2PTES\Spatial\Co2\Supply Chain P2P TES\biodieselprocess.gms
+    Unknown symbol
+--- biodieselprocess.gms(1620) 3 Mb 5 Errors
+*** Status: Compilation error(s)
+--- Job biodieselprocess.gms Stop 08/13/19 14:45:02 elapsed 0:00:00.106
+Exit code = 2

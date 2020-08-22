@@ -1,0 +1,2406 @@
+
+--- Job biodieselmodel.gms Start 08/13/19 14:44:20 WEX-VS8 23.5.1 x86/MS Windows        
+GAMS Rev 235  Copyright (C) 1987-2010 GAMS Development. All rights reserved
+Licensee: Gary Goldstein                                 G010614:2121CA-WIN
+          Decision Ware, Inc.                                        DC2807
+--- Starting compilation
+--- biodieselmodel.gms(1515) 3 Mb 2 Errors
+*** Error 140 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unknown symbol
+*** Error  36 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    '=' or '..' or ':=' or '$=' operator expected
+    rest of statement ignored
+--- biodieselmodel.gms(1521) 3 Mb 6 Errors
+*** Error 120 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unknown identifier entered as set
+*** Error 148 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Dimension different - The symbol is referenced with more/less
+       indices as declared
+*** Error 316 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Implied type inconsistent with previous use of symbol
+*** Error 121 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Set expected
+--- biodieselmodel.gms(1535) 3 Mb 7 Errors
+*** Error 120 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unknown identifier entered as set
+--- biodieselmodel.gms(1539) 3 Mb 8 Errors
+*** Error 120 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unknown identifier entered as set
+--- biodieselmodel.gms(1565) 3 Mb 11 Errors
+*** Error 148 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Dimension different - The symbol is referenced with more/less
+       indices as declared
+*** Error 316 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Implied type inconsistent with previous use of symbol
+*** Error 121 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Set expected
+--- biodieselmodel.gms(1609) 3 Mb 13 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1610) 3 Mb 15 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1611) 3 Mb 17 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1612) 3 Mb 19 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1613) 3 Mb 21 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1614) 3 Mb 23 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1615) 3 Mb 25 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1616) 3 Mb 27 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1617) 3 Mb 29 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1707) 3 Mb 32 Errors
+*** Error 148 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Dimension different - The symbol is referenced with more/less
+       indices as declared
+*** Error 316 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Implied type inconsistent with previous use of symbol
+*** Error 121 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Set expected
+--- biodieselmodel.gms(1715) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\VCMake.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1715) 3 Mb 33 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1716) 3 Mb 34 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1722) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\VCUse.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1722) 3 Mb 35 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1723) 3 Mb 36 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1729) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\VCUpstcut.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1729) 3 Mb 37 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1730) 3 Mb 38 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1737) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\EconMake.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1737) 3 Mb 39 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1738) 3 Mb 40 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1744) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\EconUse.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1744) 3 Mb 41 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1745) 3 Mb 42 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1751) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\VCpF.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1751) 3 Mb 43 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1752) 3 Mb 44 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1759) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\VCpP.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1759) 3 Mb 45 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1760) 3 Mb 46 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1765) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\VCMake_USD.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1765) 3 Mb 47 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1766) 3 Mb 48 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1772) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\VCUse_USD.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1772) 3 Mb 49 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1773) 3 Mb 50 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1779) 3 Mb
+*** GDXIN failed C:\Users\ghosh.117\Documents\gamsdir\projdir\EconEnvInt.gdx
+*** Msg: No such file or directory
+--- biodieselmodel.gms(1779) 3 Mb 51 Errors
+*** Error 510 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Unable to open gdx file for $GDXIN
+--- biodieselmodel.gms(1780) 3 Mb 52 Errors
+*** Error 502 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    GDXIN  file not open - ignore rest of line
+--- biodieselmodel.gms(1788) 3 Mb 53 Errors
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- biodieselmodel.gms(1789) 3 Mb 54 Errors
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- biodieselmodel.gms(1791) 3 Mb 55 Errors
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- biodieselmodel.gms(1792) 3 Mb 56 Errors
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- biodieselmodel.gms(1793) 3 Mb 57 Errors
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- biodieselmodel.gms(1794) 3 Mb 58 Errors
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- biodieselmodel.gms(1795) 3 Mb 59 Errors
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- biodieselmodel.gms(1798) 3 Mb 60 Errors
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- biodieselmodel.gms(1799) 3 Mb 61 Errors
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- biodieselmodel.gms(1800) 3 Mb 68 Errors
+*** Error 316 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Implied type inconsistent with previous use of symbol
+*** Error 121 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Set expected
+*** Error 148 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Dimension different - The symbol is referenced with more/less
+       indices as declared
+*** Error 141 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+*** Error 316 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Implied type inconsistent with previous use of symbol
+*** Error 121 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Set expected
+*** Error 148 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    Dimension different - The symbol is referenced with more/less
+       indices as declared
+--- biodieselmodel.gms(1808) 3 Mb 69 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1809) 3 Mb 70 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1810) 3 Mb 71 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1811) 3 Mb 72 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1812) 3 Mb 73 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1813) 3 Mb 74 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1814) 3 Mb 75 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1815) 3 Mb 76 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1816) 3 Mb 77 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1817) 3 Mb 78 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1818) 3 Mb 79 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1819) 3 Mb 80 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1820) 3 Mb 81 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1821) 3 Mb 82 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1822) 3 Mb 83 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1823) 3 Mb 84 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1824) 3 Mb 85 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1825) 3 Mb 86 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1851) 3 Mb 92 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1852) 3 Mb 98 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1861) 3 Mb 106 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1862) 3 Mb 114 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1897) 3 Mb 116 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1898) 3 Mb 118 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1899) 3 Mb 120 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1900) 3 Mb 122 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1901) 3 Mb 124 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1902) 3 Mb 126 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1903) 3 Mb 128 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1904) 3 Mb 130 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1905) 3 Mb 132 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1906) 3 Mb 134 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1907) 3 Mb 136 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1908) 3 Mb 138 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1909) 3 Mb 140 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1910) 3 Mb 142 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1911) 3 Mb 144 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1912) 3 Mb 146 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1913) 3 Mb 148 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1914) 3 Mb 150 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1915) 3 Mb 152 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1916) 3 Mb 154 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1917) 3 Mb 156 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1918) 3 Mb 158 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1919) 3 Mb 160 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1920) 3 Mb 162 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1921) 3 Mb 164 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1922) 3 Mb 166 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1923) 3 Mb 168 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1924) 3 Mb 170 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1925) 3 Mb 172 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1926) 3 Mb 174 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1927) 3 Mb 176 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1928) 3 Mb 178 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1929) 3 Mb 180 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1930) 3 Mb 182 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1931) 3 Mb 184 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1932) 3 Mb 186 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1933) 3 Mb 188 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1934) 3 Mb 190 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1935) 3 Mb 192 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1936) 3 Mb 194 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1937) 3 Mb 196 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1938) 3 Mb 198 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1939) 3 Mb 200 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1940) 3 Mb 202 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1941) 3 Mb 204 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1942) 3 Mb 206 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1943) 3 Mb 208 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1944) 3 Mb 210 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1945) 3 Mb 212 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1946) 3 Mb 214 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1947) 3 Mb 216 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1948) 3 Mb 218 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1949) 3 Mb 220 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1950) 3 Mb 222 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1951) 3 Mb 224 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1952) 3 Mb 226 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1953) 3 Mb 228 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1954) 3 Mb 230 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1955) 3 Mb 232 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1956) 3 Mb 234 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1957) 3 Mb 236 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1958) 3 Mb 238 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1959) 3 Mb 240 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1960) 3 Mb 242 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1961) 3 Mb 244 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1962) 3 Mb 246 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1963) 3 Mb 248 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1964) 3 Mb 250 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1965) 3 Mb 252 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1966) 3 Mb 254 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1967) 3 Mb 256 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1968) 3 Mb 258 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1969) 3 Mb 260 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(1970) 3 Mb 262 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2055) 4 Mb 264 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2056) 4 Mb 266 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2057) 4 Mb 268 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2058) 4 Mb 270 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2059) 4 Mb 272 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2060) 4 Mb 274 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2061) 4 Mb 276 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2062) 4 Mb 278 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2063) 4 Mb 280 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2064) 4 Mb 282 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2065) 4 Mb 284 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2066) 4 Mb 286 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2067) 4 Mb 288 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2068) 4 Mb 290 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2069) 4 Mb 292 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2070) 4 Mb 294 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2071) 4 Mb 296 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2072) 4 Mb 298 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2073) 4 Mb 300 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2074) 4 Mb 302 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2075) 4 Mb 304 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2076) 4 Mb 306 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2077) 4 Mb 308 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2078) 4 Mb 310 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2079) 4 Mb 312 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2080) 4 Mb 314 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2081) 4 Mb 316 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2082) 4 Mb 318 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2083) 4 Mb 320 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2084) 4 Mb 322 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2085) 4 Mb 324 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2086) 4 Mb 326 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2087) 4 Mb 328 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2088) 4 Mb 330 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2089) 4 Mb 332 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2090) 4 Mb 334 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2091) 4 Mb 336 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2092) 4 Mb 338 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2093) 4 Mb 340 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2094) 4 Mb 342 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2095) 4 Mb 344 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2096) 4 Mb 346 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2097) 4 Mb 348 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2098) 4 Mb 350 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2099) 4 Mb 352 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2100) 4 Mb 354 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2101) 4 Mb 356 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2102) 4 Mb 358 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2103) 4 Mb 360 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2104) 4 Mb 362 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2105) 4 Mb 364 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2106) 4 Mb 366 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2107) 4 Mb 368 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2108) 4 Mb 370 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2109) 4 Mb 372 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2110) 4 Mb 374 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2111) 4 Mb 376 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2112) 4 Mb 378 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2113) 4 Mb 380 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2114) 4 Mb 382 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2115) 4 Mb 384 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2116) 4 Mb 386 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2117) 4 Mb 388 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2118) 4 Mb 390 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2119) 4 Mb 392 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2120) 4 Mb 394 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2121) 4 Mb 396 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2122) 4 Mb 398 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2123) 4 Mb 400 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2124) 4 Mb 402 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2125) 4 Mb 404 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2126) 4 Mb 406 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2127) 4 Mb 408 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2128) 4 Mb 410 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2129) 4 Mb 412 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2130) 4 Mb 414 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2131) 4 Mb 416 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2132) 4 Mb 418 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2133) 4 Mb 420 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2134) 4 Mb 422 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2135) 4 Mb 424 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2136) 4 Mb 426 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2137) 4 Mb 428 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2138) 4 Mb 430 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2139) 4 Mb 432 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2140) 4 Mb 434 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2141) 4 Mb 436 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2142) 4 Mb 438 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2143) 4 Mb 440 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2144) 4 Mb 442 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2145) 4 Mb 444 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2146) 4 Mb 446 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2147) 4 Mb 448 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2148) 4 Mb 450 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2149) 4 Mb 452 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2150) 4 Mb 454 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2151) 4 Mb 456 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2152) 4 Mb 458 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2153) 4 Mb 460 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2154) 4 Mb 462 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2155) 4 Mb 464 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2156) 4 Mb 466 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2157) 4 Mb 468 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2158) 4 Mb 470 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2159) 4 Mb 472 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2160) 4 Mb 474 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2161) 4 Mb 476 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2162) 4 Mb 478 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2163) 4 Mb 480 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2164) 4 Mb 482 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2165) 4 Mb 484 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2166) 4 Mb 486 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2167) 4 Mb 488 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2168) 4 Mb 490 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2169) 4 Mb 492 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2170) 4 Mb 494 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2171) 4 Mb 496 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2172) 4 Mb 498 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2173) 4 Mb 500 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2174) 4 Mb 502 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2175) 4 Mb 504 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2176) 4 Mb 506 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2177) 4 Mb 508 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2178) 4 Mb 510 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2179) 4 Mb 512 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2180) 4 Mb 514 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2181) 4 Mb 516 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2182) 4 Mb 518 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2183) 4 Mb 520 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2184) 4 Mb 522 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2185) 4 Mb 524 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2186) 4 Mb 526 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2187) 4 Mb 528 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2188) 4 Mb 530 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2189) 4 Mb 532 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2190) 4 Mb 534 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2191) 4 Mb 536 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2192) 4 Mb 538 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2193) 4 Mb 540 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2194) 4 Mb 542 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2195) 4 Mb 544 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2196) 4 Mb 546 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2197) 4 Mb 548 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2198) 4 Mb 550 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2199) 4 Mb 552 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2200) 4 Mb 554 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2201) 4 Mb 556 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2202) 4 Mb 558 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2203) 4 Mb 560 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2204) 4 Mb 562 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2205) 4 Mb 564 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2206) 4 Mb 566 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2207) 4 Mb 568 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2208) 4 Mb 570 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2209) 4 Mb 572 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2210) 4 Mb 574 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2211) 4 Mb 576 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2212) 4 Mb 578 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2213) 4 Mb 580 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2214) 4 Mb 582 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2215) 4 Mb 584 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2216) 4 Mb 586 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2217) 4 Mb 588 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2218) 4 Mb 590 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2219) 4 Mb 592 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2220) 4 Mb 594 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2221) 4 Mb 596 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2222) 4 Mb 598 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2223) 4 Mb 600 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2224) 4 Mb 602 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2225) 4 Mb 604 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2226) 4 Mb 606 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2227) 4 Mb 608 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2228) 4 Mb 610 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2229) 4 Mb 612 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2230) 4 Mb 614 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2231) 4 Mb 616 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2232) 4 Mb 618 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2233) 4 Mb 620 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2234) 4 Mb 622 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2235) 4 Mb 624 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2236) 4 Mb 626 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2237) 4 Mb 628 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2238) 4 Mb 630 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2239) 4 Mb 632 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2240) 4 Mb 634 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2241) 4 Mb 636 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2242) 4 Mb 638 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2243) 4 Mb 640 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2244) 4 Mb 642 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2245) 4 Mb 644 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2246) 4 Mb 646 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2247) 4 Mb 648 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2248) 4 Mb 650 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2249) 4 Mb 652 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2250) 4 Mb 654 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2251) 4 Mb 656 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2252) 4 Mb 658 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2253) 4 Mb 660 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2254) 4 Mb 662 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2255) 4 Mb 664 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2256) 4 Mb 666 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2257) 4 Mb 668 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2258) 4 Mb 670 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2259) 4 Mb 672 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2260) 4 Mb 674 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2261) 4 Mb 676 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2262) 4 Mb 678 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2263) 4 Mb 680 Errors
+Sending Stop signal
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+    The domain for this index position is unknown and the element
+       cannot be checked at this point. Missing data statement.
+--- biodieselmodel.gms(2264) 4 Mb 682 Errors
+*** Error 353 in C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+Exit code = -1073741510

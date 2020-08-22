@@ -1,0 +1,64 @@
+[RP:2_CGEP2P]
+1=
+
+[RP:UNTITLED_1]
+1=
+
+[RP:ECOSYSTEM]
+1=
+
+[RP:NLPCORNETHANOL]
+1=
+
+[RP:UREAP2PRCOT-ECON_V1-TJ]
+1=
+
+[RP:CORNETOH_GAMS_MODEL]
+1=
+
+[RP:BYPRODUCT]
+1=
+
+[RP:GEMMCP]
+1=
+
+[RP:UREA]
+1=
+
+[RP:BARONLINEAR]
+1=
+
+[RP:CASINOROYALE]
+1=
+
+[RP:SPECTRE]
+1=
+
+[RP:CORNP2P]
+1=
+
+[RP:BIODIESELMODEL]
+1=
+
+[RP:BIODIESELPROCESS]
+1=
+
+[MRUFILES]
+1=C:\Users\ghosh.117\Documents\gamsdir\projdir\biodieselmodel.lst
+2=C:\Users\ghosh.117\Google Drive\box\Research_compile\PseudoEquilibrium\biodieselmodel.gms
+3=C:\Users\ghosh.117\Documents\gamsdir\projdir\cornp2p.lst
+4=C:\Users\ghosh.117\Documents\gamsdir\projdir\casinoroyale.lst
+5=C:\Users\ghosh.117\Documents\gamsdir\projdir\cornp2p.gms
+6=C:\Users\ghosh.117\Documents\gamsdir\projdir\Spectre.lst
+7=C:\Users\ghosh.117\Google Drive\box\Research_compile\Corn_ethanol_study\projdir\Spectre.gms
+8=C:\Users\ghosh.117\Google Drive\box\Research_compile\Corn_ethanol_study\projdir\casinoroyale.gms
+
+[OPENWINDOW_1]
+FILE0=C:\Users\ghosh.117\Documents\gamsdir\projdir\biodieselprocess.lst
+FILE1=C:\Users\ghosh.117\Google Drive\box\Research_compile\P2PTES\Spatial\Co2\Supply Chain P2P TES\biodieselprocess.gms
+FILE2=C:\Users\ghosh.117\Google Drive\box\Research_compile\P2PTES\Spatial\Co2\Supply Chain P2P TES\biodieselprocess.gms
+MAXIM=0
+TOP=0
+LEFT=0
+HEIGHT=747
+WIDTH=1280

@@ -1,0 +1,635 @@
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      01/28/20 18:20:38 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  sets
+   2     i substances /S1*S35/
+   3     j reactions  /R1*R40/
+   4     li(j,i) limitingsets /R1.S1, R2.S1, R3.S1, R4.S2, R5.S2, R6.S2, R7.S7, R8.S8, R9.S3, R10.S6, R11.S4, R12.S6, R13.S1, R14.S1,
+   5             R15.S1, R16.S9, R17.S12, R18.S12, R19.S16, R20.S10, R21.S10, R22.S13, R23.S17, R24.S11, R25.S14, R26.S18, R27.S15/
+   6     posb(i) positive products /S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,S12,S13,S14,S15,S16,S17,S18,S22,S23,S24,S30,S31,S32,S33,S35/
+   7     p /Vk, Cost, CO2/
+   8   
+   9  parameter A(i,j);
+  10   
+  11  *$call GDXXRW indata.xlsx trace=3 par=A rng=StoichMatrix!B1 rdim=1 cdim=1
+  12  *$GDXIN indata.gdx
+  13  *$LOAD A
+  14  *$GDXIN
+  15   
+1419  display A;
+1420   
+1421  positive variables
+1422       f reaction flow;
+1423   
+1424  parameter
+1425       yei(j) Yield /R1 0.97, R2 0.97, R3 0.97, R4 0.97, R5 0.97, R6 0.97, R7 0.97, R8 0.97, R9 0.97, R10 0.97, R11 0.97, R12 0.97, R13 0.97, R14 0.97,
+1426             R15 0.97, R16 0.97, R17 0.97, R18 0.97, R19 0.97, R20 0.97, R21 0.97, R22 0.97, R23 0.97, R24 0.97, R25 0.97, R26 0.97, R27 0.97/
+1427       v(p) sustainability metrix;
+1428   
+1429       v('CO2')=4
+1430  variable
+1431       z    objective variable
+1432       b(i) pruduct flow
+1433       f(j) reaction flow
+1434   
+1435   
+1436   
+1437  equations
+1438   
+1439       mobal mole balance
+1440       FI feedstock input
+1441       objproduct  objective pruduct(3-MTFH)
+1442       carboncapture carbon capture
+1443       carbon  carbon emission objective
+1444       cost  cost objective
+1445   
+1446       constraintY yield constraint
+1447   
+1448       constraintS  nonnegative constraint;
+1449   
+1450       mobal(i) .. b(i) =e=sum(j,A(i,j)*f(j));
+1451       FI .. f('R38') =e= 1;
+1452       objproduct .. b('S5') =e= 1;
+1453       carboncapture .. f('R40') =e= 0;
+1454       carbon .. b('S29') =l= v('CO2');
+1455   
+1456       cost .. z =e= b('S24') ;
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      01/28/20 18:20:38 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+1457   
+1458   
+1459       alias(j,k);
+1460       constraintY(i,j)$li(j,i).. f(j) =l= yei(j)*sum(k,A(i,k)*f(k))/(1+(A(i,j)*yei(j)));
+1461       constraintS(i)$posb(i).. b(i) =g= 0;
+1462   
+1463   
+1464   
+1465  Model transport /all/ ;
+1466  Solve transport using lp maximizing z;
+1467   
+1468  v('Vk') = -b.l('S29')/(-A('S29','R39')*f.l('R39')-A('S29','R40')*f.l('R40')+b.l('S29'));
+1469  v('Cost')=100-z.l;
+1470   
+1471  Display b.l;
+1472  Display f.l;
+1473  Display z.l;
+1474   
+1475   
+1476   
+1477  Execute_Unload 'outdata.gdx';
+1478  *Execute 'GDXXRW outdata.gdx par=z rng=Sheet1!A1';
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      01/28/20 18:20:38 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/RNFA_VT_Final.gms
+     2       17 INCLUDE        1      17  ./home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/indata.inc
+
+
+COMPILATION TIME     =        0.002 SECONDS      3 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      01/28/20 18:20:38 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----   1419 PARAMETER A  
+
+             R1          R2          R3          R4          R5          R6          R7          R8          R9         R10         R11         R12         R13         R14         R15         R16         R17         R18         R19         R20         R21
+
+S1       -1.000      -1.000      -1.000                                                                                                                  -1.000      -1.000      -1.000
+S2        1.000                              -1.000      -1.000      -1.000
+S3                                            1.000                                                      -1.000
+S4                                                                                                        1.000       1.000      -1.000
+S5                                                                                                                                1.000       1.000
+S6                    1.000                               1.000                               1.000                  -1.000                  -1.000                                                                                           1.000
+S7                                1.000                                          -1.000
+S8                                                                    1.000       1.000      -1.000
+S9                                                                                                                                                        1.000                              -1.000
+S10                                                                                                                                                                                           1.000                                          -1.000      -1.000
+S11                                                                                                                                                                                                                                                       1.000
+S12                                                                                                                                                                   1.000                              -1.000      -1.000
+S13                                                                                                                                                                                                       1.000
+S15                                                                                                                                                                                                                   1.000
+S16                                                                                                                                                                               1.000                                          -1.000
+S17                                                                                                                                                                                                                               1.000
+S19                                                                                                                                                                                                                              -1.000
+S20                                                                                                                                                      -1.000                                                                               1.000       1.000
+S21      -1.000      -3.000                  -2.000      -2.000                  -1.000      -2.000      -2.000      -2.000                  -2.000                                          -2.000                                          -1.000
+S22                   2.000       1.000       1.000       2.000       1.000                   1.000       1.000                   1.000       1.000       1.000                               1.000       1.000                   1.000
+S23      -0.121                                                                  -0.105                              -0.065                                           0.008       0.095                                                       0.086
+S24      -0.221      -0.221      -0.221                                                                                                                  -0.221      -0.221      -0.221
+
+  +         R22         R23         R24         R25         R26         R27         R28         R29         R30         R31         R32         R33         R34         R35         R36         R37         R38         R39         R40
+
+S1                                                                                                                                0.727       0.202       0.433
+S6                                1.000
+S11                              -1.000       1.000
+S13      -1.000                                           1.000       1.000
+S14       1.000                              -1.000
+S15                                                                  -1.000
+S17                  -1.000
+S18                   1.000                              -1.000
+S19                  -1.000
+S21      -2.000                  -1.000
+S22       1.000       1.000                                           1.000
+S23                               0.105                                          17.000      21.440       9.600      15.120                                         -15.910      -2.990      -5.036                              -0.705
+S24                                                                              -0.765      -0.563      -0.055      -0.907      -1.600      -6.880      -9.980      -0.321      -0.061      -0.102       5.000      -0.004      -0.107
+S25                                                                              -1.000
+S26                                                                                          -1.000
+S27                                                                                                      -1.000
+S28                                                                                                                  -1.000
+S29                                                                               3.188       3.055       2.280       1.852                                                                                          -0.200      -1.000
+S30                                                                                                                              -1.000                               1.000
+S31                                                                                                                                          -1.000                               1.000
+S32                                                                                                                                                      -1.000                               1.000
+S33                                                                                                                                                                  -0.630      -0.294      -0.182       5.000      -1.000
+S35                                                                                                                                                                                                                   1.000
+
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      01/28/20 18:20:38 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE transport Using LP From line 1466
+
+
+---- mobal  =E=  mole balance
+
+mobal(S1)..  f(R1) + f(R2) + f(R3) + f(R13) + f(R14) + f(R15) - 0.7275*f(R32) - 0.2019*f(R33) - 0.4327*f(R34) + b(S1) =E= 0 ; (LHS = 0)
+     
+mobal(S2)..  - f(R1) + f(R4) + f(R5) + f(R6) + b(S2) =E= 0 ; (LHS = 0)
+     
+mobal(S3)..  - f(R4) + f(R9) + b(S3) =E= 0 ; (LHS = 0)
+     
+REMAINING 32 ENTRIES SKIPPED
+
+
+---- FI  =E=  feedstock input
+
+FI..  f(R38) =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+
+---- objproduct  =E=  objective pruduct(3-MTFH)
+
+objproduct..  b(S5) =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+
+---- carboncapture  =E=  carbon capture
+
+carboncapture..  f(R40) =E= 0 ; (LHS = 0)
+     
+
+---- carbon  =L=  carbon emission objective
+
+carbon..  b(S29) =L= 4 ; (LHS = 0)
+     
+
+---- cost  =E=  cost objective
+
+cost..  z - b(S24) =E= 0 ; (LHS = 0)
+     
+
+---- constraintY  =L=  yield constraint
+
+constraintY(S1,R1)..  33.3333333333333*f(R1) + 32.3333333333333*f(R2) + 32.3333333333333*f(R3) + 32.3333333333333*f(R13) + 32.3333333333333*f(R14) + 32.3333333333333*f(R15) - 23.5225*f(R32) - 6.52809999999999*f(R33) - 13.9906333333333*f(R34) =L= 0 ;
+     
+      (LHS = 0)
+     
+constraintY(S1,R2)..  32.3333333333333*f(R1) + 33.3333333333333*f(R2) + 32.3333333333333*f(R3) + 32.3333333333333*f(R13) + 32.3333333333333*f(R14) + 32.3333333333333*f(R15) - 23.5225*f(R32) - 6.52809999999999*f(R33) - 13.9906333333333*f(R34) =L= 0 ;
+     
+      (LHS = 0)
+     
+constraintY(S1,R3)..  32.3333333333333*f(R1) + 32.3333333333333*f(R2) + 33.3333333333333*f(R3) + 32.3333333333333*f(R13) + 32.3333333333333*f(R14) + 32.3333333333333*f(R15) - 23.5225*f(R32) - 6.52809999999999*f(R33) - 13.9906333333333*f(R34) =L= 0 ;
+     
+      (LHS = 0)
+     
+REMAINING 24 ENTRIES SKIPPED
+
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      01/28/20 18:20:38 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE transport Using LP From line 1466
+
+
+---- constraintS  =G=  nonnegative constraint
+
+constraintS(S1)..  b(S1) =G= 0 ; (LHS = 0)
+     
+constraintS(S2)..  b(S2) =G= 0 ; (LHS = 0)
+     
+constraintS(S3)..  b(S3) =G= 0 ; (LHS = 0)
+     
+REMAINING 23 ENTRIES SKIPPED
+
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      01/28/20 18:20:38 Page 7
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE transport Using LP From line 1466
+
+
+---- f  reaction flow
+
+f(R1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       mobal(S1)
+       -1       mobal(S2)
+        1       mobal(S21)
+        0.1209  mobal(S23)
+        0.221   mobal(S24)
+       33.3333  constraintY(S1,R1)
+       32.3333  constraintY(S1,R2)
+       32.3333  constraintY(S1,R3)
+       32.3333  constraintY(S1,R13)
+       32.3333  constraintY(S1,R14)
+       32.3333  constraintY(S1,R15)
+      -32.3333  constraintY(S2,R4)
+      -32.3333  constraintY(S2,R5)
+      -32.3333  constraintY(S2,R6)
+
+f(R2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       mobal(S1)
+       -1       mobal(S6)
+        3       mobal(S21)
+       -2       mobal(S22)
+        0.221   mobal(S24)
+       32.3333  constraintY(S1,R1)
+       33.3333  constraintY(S1,R2)
+       32.3333  constraintY(S1,R3)
+       32.3333  constraintY(S1,R13)
+       32.3333  constraintY(S1,R14)
+       32.3333  constraintY(S1,R15)
+      -32.3333  constraintY(S6,R10)
+      -32.3333  constraintY(S6,R12)
+
+f(R3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       mobal(S1)
+       -1       mobal(S7)
+       -1       mobal(S22)
+        0.221   mobal(S24)
+       32.3333  constraintY(S1,R1)
+       32.3333  constraintY(S1,R2)
+       33.3333  constraintY(S1,R3)
+       32.3333  constraintY(S1,R13)
+       32.3333  constraintY(S1,R14)
+       32.3333  constraintY(S1,R15)
+      -32.3333  constraintY(S7,R7)
+
+REMAINING 37 ENTRIES SKIPPED
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      01/28/20 18:20:38 Page 8
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE transport Using LP From line 1466
+
+
+---- z  objective variable
+
+z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       cost
+
+
+---- b  pruduct flow
+
+b(S1)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       mobal(S1)
+        1       constraintS(S1)
+
+b(S2)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       mobal(S2)
+        1       constraintS(S2)
+
+b(S3)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       mobal(S3)
+        1       constraintS(S3)
+
+REMAINING 32 ENTRIES SKIPPED
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      01/28/20 18:20:38 Page 9
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE transport Using LP From line 1466
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           8     SINGLE EQUATIONS           93
+BLOCKS OF VARIABLES           3     SINGLE VARIABLES           76
+NON ZERO ELEMENTS           335
+
+
+GENERATION TIME      =        0.067 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
+
+
+EXECUTION TIME       =        0.084 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     01/28/20 18:20:38 Page 10
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE transport Using LP From line 1466
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   transport           OBJECTIVE  z
+     TYPE    LP                  DIRECTION  MAXIMIZE
+     SOLVER  CPLEX               FROM LINE  1466
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE                1.6637
+
+ RESOURCE USAGE, LIMIT          0.231      1000.000
+ ITERATION COUNT, LIMIT        24    2000000000
+
+IBM ILOG CPLEX   24.7.4 r58773 Released Sep 19, 2016 LEG x86 64bit/Linux      
+Cplex 12.6.3.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+LP status(1): optimal
+Cplex Time: 0.07sec (det. 0.20 ticks)
+Optimal solution found.
+Objective :           1.663692
+
+
+---- EQU mobal  mole balance
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+S1           .              .              .             EPS         
+S2           .              .              .             EPS         
+S3           .              .              .             EPS         
+S4           .              .              .             EPS         
+S5           .              .              .             4.3948      
+S6           .              .              .             EPS         
+S7           .              .              .             EPS         
+S8           .              .              .             EPS         
+S9           .              .              .             EPS         
+S10          .              .              .             EPS         
+S11          .              .              .             EPS         
+S12          .              .              .             EPS         
+S13          .              .              .             EPS         
+S14          .              .              .             EPS         
+S15          .              .              .             EPS         
+S16          .              .              .             EPS         
+S17          .              .              .             EPS         
+S18          .              .              .             EPS         
+S19          .              .              .             EPS         
+S20          .              .              .             EPS         
+S21          .              .              .             EPS         
+S22          .              .              .             EPS         
+S23          .              .              .             0.0570      
+S24          .              .              .             1.0000      
+S25          .              .              .             EPS         
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     01/28/20 18:20:38 Page 11
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE transport Using LP From line 1466
+
+
+     EQU mobal  mole balance
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+S26          .              .              .             EPS         
+S27          .              .              .             EPS         
+S28          .              .              .             EPS         
+S29          .              .              .            -0.2158      
+S30          .              .              .             1.2523      
+S31          .              .              .             EPS         
+S32          .              .              .             EPS         
+S33          .              .              .             0.0391      
+S34          .              .              .             EPS         
+S35          .              .              .             EPS         
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU FI                 1.0000         1.0000         1.0000         5.1953      
+---- EQU objproduct         1.0000         1.0000         1.0000        -4.3948      
+---- EQU carboncap~          .              .              .             0.0686      
+---- EQU carbon            -INF            4.0000         4.0000         0.2158      
+---- EQU cost                .              .              .             1.0000      
+
+  FI  feedstock input
+  objproduct  objective pruduct(3-MTFH)
+  carboncapture  carbon capture
+  carbon  carbon emission objective
+  cost  cost objective
+
+---- EQU constraintY  yield constraint
+
+               LOWER          LEVEL          UPPER         MARGINAL
+
+S1 .R1         -INF           -1.0309          .              .          
+S1 .R2         -INF             .              .             0.1213      
+S1 .R3         -INF           -1.0309          .              .          
+S1 .R13        -INF           -1.0309          .              .          
+S1 .R14        -INF           -1.0309          .              .          
+S1 .R15        -INF           -1.0309          .              .          
+S2 .R4         -INF             .              .       -2.77556E-16      
+S2 .R5         -INF             .              .             0.1279      
+S2 .R6         -INF             .              .              .          
+S3 .R9         -INF             .              .             0.1279      
+S4 .R11        -INF             .              .             0.1318      
+S6 .R10        -INF           -1.0000          .              .          
+S6 .R12        -INF             .              .             0.1318      
+S7 .R7         -INF             .              .             0.1239      
+S8 .R8         -INF             .              .             0.1279      
+S9 .R16        -INF             .              .             0.1242      
+S10.R20        -INF             .              .             0.1275      
+S10.R21        -INF             .              .             0.0005      
+S11.R24        -INF             .              .             0.1281      
+S12.R17        -INF             .              .             0.1169      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     01/28/20 18:20:38 Page 12
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE transport Using LP From line 1466
+
+
+     EQU constraintY  yield constraint
+
+               LOWER          LEVEL          UPPER         MARGINAL
+
+S12.R18        -INF             .              .              .          
+S13.R22        -INF             .              .             0.1205      
+S14.R25        -INF             .              .             0.1242      
+S15.R27        -INF             .              .             0.1169      
+S16.R19        -INF             .              .             0.1100      
+S17.R23        -INF             .              .             0.1134      
+S18.R26        -INF             .              .             0.1169      
+
+---- EQU constraintS  nonnegative constraint
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+S1           .             0.0319        +INF             .          
+S2           .              .            +INF             .          
+S3           .              .            +INF             .          
+S4           .              .            +INF             .          
+S5           .             1.0000        +INF             .          
+S6           .             0.0309        +INF             .          
+S7           .              .            +INF             .          
+S8           .              .            +INF             .          
+S9           .              .            +INF             .          
+S10          .              .            +INF             .          
+S11          .              .            +INF             .          
+S12          .              .            +INF             .          
+S13          .              .            +INF             .          
+S14          .              .            +INF             .          
+S15          .              .            +INF             .          
+S16          .              .            +INF             .          
+S17          .              .            +INF             .          
+S18          .              .            +INF             .          
+S22          .             3.0619        +INF             .          
+S23          .              .            +INF           -0.0570      
+S24          .             1.6637        +INF             .          
+S30          .              .            +INF           -1.2523      
+S31          .              .            +INF             .          
+S32          .              .            +INF             .          
+S33          .              .            +INF           -0.0391      
+S35          .             4.0796        +INF             .          
+
+---- VAR f  reaction flow
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+R1           .              .            +INF           -0.0135      
+R2           .             1.0309        +INF             .          
+R3           .              .            +INF           -0.1365      
+R4           .              .            +INF             .          
+R5           .              .            +INF             .          
+R6           .              .            +INF      -1.77636E-15      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     01/28/20 18:20:38 Page 13
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE transport Using LP From line 1466
+
+
+     VAR f  reaction flow
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+R7           .              .            +INF             .          
+R8           .              .            +INF             .          
+R9           .              .            +INF             .          
+R10          .              .            +INF           -0.0037      
+R11          .              .            +INF             .          
+R12          .             1.0000        +INF             .          
+R13          .              .            +INF           -0.1256      
+R14          .              .            +INF           -0.3620      
+R15          .              .            +INF           -0.5804      
+R16          .              .            +INF             .          
+R17          .              .            +INF             .          
+R18          .              .            +INF            EPS         
+R19          .              .            +INF             .          
+R20          .              .            +INF             .          
+R21          .              .            +INF             .          
+R22          .              .            +INF             .          
+R23          .              .            +INF             .          
+R24          .              .            +INF             .          
+R25          .              .            +INF             .          
+R26          .              .            +INF             .          
+R27          .              .            +INF             .          
+R28          .              .            +INF           -0.4838      
+R29          .             0.3458        +INF             .          
+R30          .             1.6489        +INF             .          
+R31          .              .            +INF           -0.4450      
+R32          .             1.4609        +INF             .          
+R33          .              .            +INF           -6.0884      
+R34          .              .            +INF           -8.2835      
+R35          .             1.4609        +INF             .          
+R36          .              .            +INF           -0.2429      
+R37          .              .            +INF           -0.3957      
+R38          .             1.0000        +INF             .          
+R39          .             4.0796        +INF             .          
+R40          .              .            +INF             .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR z                 -INF            1.6637        +INF             .          
+
+  z  objective variable
+
+---- VAR b  pruduct flow
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+S1         -INF            0.0319        +INF             .          
+S2         -INF             .            +INF             .          
+S3         -INF             .            +INF             .          
+S4         -INF             .            +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     01/28/20 18:20:38 Page 14
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE transport Using LP From line 1466
+
+
+     VAR b  pruduct flow
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+S5         -INF            1.0000        +INF             .          
+S6         -INF            0.0309        +INF             .          
+S7         -INF             .            +INF             .          
+S8         -INF             .            +INF             .          
+S9         -INF             .            +INF             .          
+S10        -INF             .            +INF             .          
+S11        -INF             .            +INF             .          
+S12        -INF             .            +INF             .          
+S13        -INF             .            +INF             .          
+S14        -INF             .            +INF             .          
+S15        -INF             .            +INF             .          
+S16        -INF             .            +INF             .          
+S17        -INF             .            +INF             .          
+S18        -INF             .            +INF             .          
+S19        -INF             .            +INF             .          
+S20        -INF             .            +INF             .          
+S21        -INF           -5.0928        +INF             .          
+S22        -INF            3.0619        +INF             .          
+S23        -INF             .            +INF             .          
+S24        -INF            1.6637        +INF             .          
+S25        -INF             .            +INF             .          
+S26        -INF           -0.3458        +INF             .          
+S27        -INF           -1.6489        +INF             .          
+S28        -INF             .            +INF             .          
+S29        -INF            4.0000        +INF             .          
+S30        -INF             .            +INF             .          
+S31        -INF             .            +INF             .          
+S32        -INF             .            +INF             .          
+S33        -INF             .            +INF             .          
+S34        -INF             .            +INF             .          
+S35        -INF            4.0796        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     01/28/20 18:20:38 Page 15
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----   1471 VARIABLE b.L  pruduct flow
+
+S1   0.032,    S5   1.000,    S6   0.031,    S21 -5.093,    S22  3.062,    S24  1.664,    S26 -0.346,    S27 -1.649,    S29  4.000,    S35  4.080
+
+
+----   1472 VARIABLE f.L  reaction flow
+
+R2  1.031,    R12 1.000,    R29 0.346,    R30 1.649,    R32 1.461,    R35 1.461,    R38 1.000,    R39 4.080
+
+
+----   1473 VARIABLE z.L                   =        1.664  objective variable
+
+
+EXECUTION TIME       =        0.002 SECONDS      3 MB  24.7.4 r58773 LEX-LEG
+
+
+USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
+      The Ohio State University, Chemical and Biomolecular EnginDC12543
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/RNFA_VT_Final.gms
+Output     /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/RNFA_VT_Final.lst

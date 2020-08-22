@@ -1,0 +1,21 @@
+--- Job gemmcp.gms Start 06/05/19 14:04:07 26.1.0 rf2b37b9 WEX-WEI x86 64bit/MS Windows
+GAMS 26.1.0   Copyright (C) 1987-2019 GAMS Development. All rights reserved
+Licensee: GAMS Development Corporation, USA              G871201/0000CA-ANY
+          Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
+--- Starting compilation
+--- gemmcp.gms(1274) 3 Mb 3 Errors
+*** Error 234 in C:\Users\ghosh.117\Documents\GAMSStudio\workspace\gemmcp.gms
+    Illegal type in model list - equation or equation.variable
+      or another model list
+*** Error 234 in C:\Users\ghosh.117\Documents\GAMSStudio\workspace\gemmcp.gms
+    Illegal type in model list - equation or equation.variable
+      or another model list
+*** Error 234 in C:\Users\ghosh.117\Documents\GAMSStudio\workspace\gemmcp.gms
+    Illegal type in model list - equation or equation.variable
+      or another model list
+--- gemmcp.gms(1277) 3 Mb 4 Errors
+*** Error 257 in C:\Users\ghosh.117\Documents\GAMSStudio\workspace\gemmcp.gms
+    Solve statement not checked because of previous errors
+--- gemmcp.gms(1281) 3 Mb 4 Errors
+*** Status: Compilation error(s)
+--- Job gemmcp.gms Stop 06/05/19 14:04:07 elapsed 0:00:00.014

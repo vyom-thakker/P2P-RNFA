@@ -1,0 +1,82 @@
+B 2 C o m p i l a t i o n
+B 34 E x e c u t i o n
+I 37 zchk
+I 40 labmkt
+I 42 capmkt
+I 44 pmchk
+I 69 gbdgt
+I 76 pctbudget
+I 114 bdgtbal
+I 151 pmchk
+I 169 gbdgt
+I 178 profit
+I 203 excess
+I 229 bdgtbal
+I 266 pctprofit
+I 292 pctva
+I 318 pctexcess
+I 344 pctbudget
+I 382 government
+I 401 taxpayment
+I 426 tau
+I 434 tauave
+I 441 govsav
+I 443 saving
+I 452 popshr
+I 459 bdgtbal
+I 494 pctbudget
+I 530 share
+I 565 government
+I 586 gbdgt
+I 596 tiave
+I 598 tlave
+I 600 tikave
+I 602 tkave
+I 604 gbench
+I 605 tauave
+I 611 taubmk
+I 617 el
+B 627 Model Statistics    SOLVE gemtap Using MCP From line 1207
+B 645 Solution Report     SOLVE gemtap Using MCP From line 1207
+B 703 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 726 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 787 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 810 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 880 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 903 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 970 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 993 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1063 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1086 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1153 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1176 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1243 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1266 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1333 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1356 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1420 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1443 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1507 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1530 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1594 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1617 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1681 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1704 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1768 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1791 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1855 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1878 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 1942 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 1965 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 2029 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 2052 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 2116 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 2139 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 2203 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 2226 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 2290 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 2313 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 2380 Model Statistics    SOLVE gemtap Using MCP From line 1259
+B 2403 Solution Report     SOLVE gemtap Using MCP From line 1259
+B 2467 E x e c u t i o n
+I 2468 summary

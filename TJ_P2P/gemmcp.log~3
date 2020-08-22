@@ -1,0 +1,15 @@
+--- Job gemmcp.gms Start 06/05/19 14:01:38 26.1.0 rf2b37b9 WEX-WEI x86 64bit/MS Windows
+GAMS 26.1.0   Copyright (C) 1987-2019 GAMS Development. All rights reserved
+Licensee: GAMS Development Corporation, USA              G871201/0000CA-ANY
+          Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
+--- Starting compilation
+--- gemmcp.gms(1271) 3 Mb
+--- Starting execution: elapsed 0:00:00.013
+--- gemmcp.gms(1195) 4 Mb
+--- Generating MCP model gemtap
+--- gemmcp.gms(1197) 6 Mb
+---   264 rows  267 columns  2,667 non-zeroes
+---   7,020 nl-code  1,420 nl-non-zeroes
+*** Status: Terminated due to a licensing error
+***         Inspect listing file for more information
+--- Job gemmcp.gms Stop 06/05/19 14:01:38 elapsed 0:00:00.035
