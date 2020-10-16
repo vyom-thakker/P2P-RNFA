@@ -8,20 +8,20 @@ $OffText
 Sets
 i rows                    /1*485/          
 j columns                 /1*490/
-econ_r(i) commodities     /1*385/
-vc_r(i) elements          /386*450/  
+econ_r(i) commodities     /1*405/
+vc_r(i) elements          /406*450/  
 rnfa_r(i) chemicals       /450*485/
-econ_c(j) sectors         /1*385/
-vc_c(j) processes         /386*450/  
+econ_c(j) sectors         /1*405/
+vc_c(j) processes         /406*450/  
 rnfa_c(j) reactions       /450*490/;
 
 Variables
-econmake(econ_r,econ_c)
-econuse(econ_r,econ_c)
-vcmake(vc_r,vc_c)
-vcuse(vc_r,vc_c)
-rnfamake(rnfa_r,rnfa_c)
-rnfause(rnfa_r,rnfa_c);
+underbarV(vc_c,vc_r)
+underbarU(vc_r,vc_c)
+overbarV(econ_c,econ_r)
+overbarU(econ_r,econ_c)
+rnfaV(rnfa_c,rnfa_u)
+rnfaU(rnfa_r,rnfa_c);
 
 parameter rnfa(rnfa_r,rnfa_c);
 
@@ -31,37 +31,37 @@ $onlisting
 display rnfa;
 
 parameter econmake(econ_r,econ_c);
+
 $offlisting
 $include econmake.inc
 $onlisting
 display econmake;
 
 parameter econuse(econ_r,econ_c);
+
 $offlisting
 $include econuse.inc
 $onlisting
 display econuse;
 
-parameter vcmake(vc_r,vc_c);
-$offlisting
-$include vcmake.inc
-$onlisting
-display vcmake;
+*parameter vcmake(vc_r,vc_c);
+*$offlisting
+*$include vcmake.inc
+*$onlisting
+*display vcmake;
 
-parameter vcuse(vc_r,vc_c);
-$offlisting
-$include vcuse.inc
-$onlisting
-display vcuse;
+*parameter vcuse(vc_r,vc_c);
+*$offlisting
+*$include vcuse.inc
+*$onlisting
+*display vcuse;
 
-parameter P_ve_pdt();
-
-
-variable ecomakestar;
-equation disagg_econ;
-disagg_econ.. econmakestar=e=econmake-
+*parameter P_ve_pdt();
 
 
+*variable ecomakestar;
+*equation disagg_econ;
+*disagg_econ.. econmakestar=e=econmake-
 
 
 
@@ -104,7 +104,8 @@ disagg_econ.. econmakestar=e=econmake-
 
 
 
-$ontext
+
+
 
 variables
 vcmakeusd(i,k)
@@ -402,7 +403,6 @@ equations
 equat1, equat2, equat3, equat4, equat5, equat6, equat7, equat8, equat9, equat10, equat11, equat12, equat13, equat14, equat15, equat16, equat17, equat18, equat19, equat20, equat21, equat22, equat23, equat24, equat25, equat26, equat27, equat28, equat29, equat30, equat31, equat32, equat33, equat34, equat35, equat36, equat37, equat38, equat39, equat40, equat41, equat42, equat43, equat44, equat45, equat46, equat47, equat48, equat49, equat50, equat51, equat52, equat53, equat54, equat55, equat56, equat57, equat58, equat59, equat60, equat61, equat62, equat63, equat64, equat65, equat66, equat67, equat68, equat69, equat70, equat71, equat72, equat73, equat74, equat75, equat76, equat77, equat78, equat79, equat80, equat81, equat82, equat83, equat84, equat85, equat86, equat87, equat88, equat89, equat90, equat91;
 
 equat1 ..    p2pf('1') =E= lstar('1','1')*s('1')+lstar('1','2')*s('2')+lstar('1','3')*s('3')+lstar('1','4')*s('4')+lstar('1','5')*s('5')+lstar('1','6')*s('6')+lstar('1','7')*s('7')+lstar('1','8')*s('8')+lstar('1','9')*s('9')+lstar('1','10')*s('10')+lstar('1','11')*s('11')+lstar('1','12')*s('12')+lstar('1','13')*s('13')+lstar('1','14')*s('14')+lstar('1','15')*s('15')+lstar('1','16')*s('16')+lstar('1','17')*s('17')+lstar('1','18')*s('18')+lstar('1','19')*s('19')+lstar('1','20')*s('20')+lstar('1','21')*s('21')+lstar('1','22')*s('22')+lstar('1','23')*s('23')+lstar('1','24')*s('24')+lstar('1','25')*s('25')+lstar('1','26')*s('26')+lstar('1','27')*s('27')+lstar('1','28')*s('28')+lstar('1','29')*s('29')+lstar('1','30')*s('30')+lstar('1','31')*s('31')+lstar('1','32')*s('32')+lstar('1','33')*s('33')+lstar('1','34')*s('34')+lstar('1','35')*s('35')+lstar('1','36')*s('36')+lstar('1','37')*s('37')+lstar('1','38')*s('38')+lstar('1','39')*s('39')+lstar('1','40')*s('40')+lstar('1','41')*s('41')+lstar('1','42')*s('42')+lstar('1','43')*s('43')+lstar('1','44')*s('44')+lstar('1','45')*s('45')+lstar('1','46')*s('46')+lstar('1','47')*s('47')+lstar('1','48')*s('48')+lstar('1','49')*s('49')+lstar('1','50')*s('50')+lstar('1','51')*s('51')+lstar('1','52')*s('52')+lstar('1','53')*s('53')+lstar('1','54')*s('54')+lstar('1','55')*s('55')+lstar('1','56')*s('56')+lstar('1','57')*s('57')+lstar('1','58')*s('58')+lstar('1','59')*s('59')+lstar('1','60')*s('60')+lstar('1','61')*s('61')+lstar('1','62')*s('62')+lstar('1','63')*s('63')+lstar('1','64')*s('64')+lstar('1','65')*s('65')+lstar('1','66')*s('66')+lstar('1','67')*s('67')+lstar('1','68')*s('68')+lstar('1','69')*s('69')+lstar('1','70')*s('70')+lstar('1','71')*s('71')+lstar('1','72')*s('72')+lstar('1','73')*s('73')+lstar('1','74')*s('74')-vcupstcut('1','1')*s('75')-vcupstcut('1','2')*s('76')-vcupstcut('1','3')*s('77')-vcupstcut('1','4')*s('78')-vcupstcut('1','5')*s('79')-vcupstcut('1','6')*s('80')-vcupstcut('1','7')*s('81')-vcupstcut('1','8')*s('82')-vcupstcut('1','9')*s('83')-vcupstcut('1','10')*s('84')-vcupstcut('1','11')*s('85')-vcupstcut('1','12')*s('86')-vcupstcut('1','13')*s('87')-vcupstcut('1','14')*s('88')-vcupstcut('1','15')*s('89')-vcupstcut('1','16')*s('90')-eqeconupstcut('1')*s('91');
-$offtext
 
 
 

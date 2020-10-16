@@ -1,12 +1,12 @@
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/20 20:52:23 Page 1
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      08/22/20 17:26:45 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
 
 
-COMPILATION TIME     =        0.028 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/20 20:52:23 Page 2
+COMPILATION TIME     =        0.027 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      08/22/20 17:26:45 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE TRANS Using NLP From line 13692
 
@@ -23,13 +23,13 @@ DERIVATIVE POOL              20     CONSTANT POOL              99
 CODE LENGTH           1,578,769
 
 
-GENERATION TIME      =        0.941 SECONDS     96 MB  24.7.4 r58773 LEX-LEG
+GENERATION TIME      =        0.712 SECONDS     96 MB  24.7.4 r58773 LEX-LEG
 
 
-EXECUTION TIME       =        0.972 SECONDS     96 MB  24.7.4 r58773 LEX-LEG
+EXECUTION TIME       =        0.770 SECONDS     96 MB  24.7.4 r58773 LEX-LEG
                L O O P S             lcount 1
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/20 20:52:23 Page 3
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      08/22/20 17:26:45 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE TRANS Using NLP From line 13692
 
@@ -44,7 +44,7 @@ Solution Report     SOLVE TRANS Using NLP From line 13692
 **** MODEL STATUS      12 Error Unknown            
 **** OBJECTIVE VALUE               NA
 
- RESOURCE USAGE, LIMIT          4.040      1000.000
+ RESOURCE USAGE, LIMIT          3.180      1000.000
  ITERATION COUNT, LIMIT        NA    2000000000
  EVALUATION ERRORS              0             0
 
@@ -55,7 +55,7 @@ Parts of the BARON software were created at the
 University of Illinois at Urbana-Champaign.
 
 --- Using Option File
-*** Error Cannot open parameter file "/home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/baron.opt"
+*** Error Cannot open parameter file "/home/vyom/P2P-RNFA/P2P-RNFA/baron.opt"
 *** Error Error code = 2; No such file or directory
 *** no solution found
 
@@ -75,10 +75,9 @@ University of Illinois at Urbana-Champaign.
  For LP/MIP: ILOG CPLEX                                      
  For NLP: MINOS, SNOPT, GAMS external NLP, IPOPT, FILTERSD
 ===========================================================================
-*** Could not extract solution on /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/225a/res.dat file
 
 No solution returned
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/20 20:52:23 Page 4
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      08/22/20 17:26:45 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE TRANS Using NLP From line 13692
 
@@ -93,9 +92,9 @@ Solution Report     SOLVE TRANS Using NLP From line 13692
 =CUniversity of Illinois at Urbana-Champaign.
 =C
 =C--- Using Option File
-=C*** Error Cannot open parameter file "/home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/baron.opt"
+=C*** Error Cannot open parameter file "/home/vyom/P2P-RNFA/P2P-RNFA/baron.opt"
 =C*** Error Error code = 2; No such file or directory
- /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/225a/sum.dat    = problem    61523 75236 0 592978 -.100000000000E+52 0.100000000000E+52 6 5 -1 -3 -3 0 4.04 0.09   
+ /home/vyom/P2P-RNFA/P2P-RNFA/225a/sum.dat    = problem    61523 75236 0 592978 -.100000000000E+52 0.100000000000E+52 6 5 -1 -3 -3 0 3.18 0.33   
  skip       = 61523
  skip       = 75236
  skip       = 0
@@ -108,7 +107,7 @@ Solution Report     SOLVE TRANS Using NLP From line 13692
  itera      = -3
  nodeopt    = -3
  nodememmax = 0
- totaltime  = 4.04
+ totaltime  = 3.18
 =9_
 _2
 ===========================================================================
@@ -136,7 +135,7 @@ _2
        firstfeas      =       0
        cutoff         =  0.1000E+52
        epsa           =  0.1000E+00
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/20 20:52:23 Page 5
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      08/22/20 17:26:45 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE TRANS Using NLP From line 13692
 
@@ -194,7 +193,7 @@ _9=
 =C
 =C If you use this software, please cite:
 =C Tawarmalani, M. and N. V. Sahinidis, A polyhedral
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/20 20:52:23 Page 6
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      08/22/20 17:26:45 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE TRANS Using NLP From line 13692
 
@@ -211,9 +210,8 @@ Solution Report     SOLVE TRANS Using NLP From line 13692
 =C For NLP: MINOS, SNOPT, GAMS external NLP, IPOPT, FILTERSD
 =C===========================================================================
 
-=C*** Could not extract solution on /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/225a/res.dat file
 **** SOLVER STATUS FILE LISTED ABOVE
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/20 20:52:23 Page 7
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      08/22/20 17:26:45 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -231,13 +229,13 @@ E x e c u t i o n
 ----  13700 VARIABLE ru1.L                 =        0.100  
 
 ----  13701 VARIABLE ru2.L                 =        0.100  
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/20 20:52:23 Page 8
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      08/22/20 17:26:45 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Analysis      SOLVE TRANS Using NLP From line 13692
 
 
 **** Exec Error at line 13041: Execution halted: Triggered by pending CtrlC event
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/20 20:52:23 Page 9
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      08/22/20 17:26:45 Page 9
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE TRANS Using NLP From line 13692
 
@@ -254,17 +252,17 @@ DERIVATIVE POOL              20     CONSTANT POOL              65
 CODE LENGTH             334,098
 
 
-GENERATION TIME      =        0.116 SECONDS     28 MB  24.7.4 r58773 LEX-LEG
+GENERATION TIME      =        0.092 SECONDS     28 MB  24.7.4 r58773 LEX-LEG
 
 **** SOLVE from line 13692 ABORTED, EXECERROR = 1
 
 **** REPORT FILE SUMMARY
 
-fx /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/results.txt
-gx /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/variables.txt
+fx /home/vyom/P2P-RNFA/P2P-RNFA/results.txt
+gx /home/vyom/P2P-RNFA/P2P-RNFA/variables.txt
 
 
-EXECUTION TIME       =        0.133 SECONDS     28 MB  24.7.4 r58773 LEX-LEG
+EXECUTION TIME       =        0.132 SECONDS     28 MB  24.7.4 r58773 LEX-LEG
 
 
 USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
@@ -274,7 +272,7 @@ USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
 
 **** FILE SUMMARY
 
-Input      /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/cornp2p.gms
-Output     /home/psegroup_1/Data/GAMS_Codes/P2P-RNFA/cornp2p.lst
+Input      /home/vyom/P2P-RNFA/P2P-RNFA/cornp2p.gms
+Output     /home/vyom/P2P-RNFA/P2P-RNFA/cornp2p.lst
 
 **** USER ERROR(S) ENCOUNTERED
