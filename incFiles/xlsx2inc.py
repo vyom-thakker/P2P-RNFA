@@ -5,7 +5,7 @@ name=sys.argv[2];
 xlsx = pd.read_excel('./'+sys.argv[1],sheet_name=sys.argv[2])
 xlsx=xlsx.fillna(0);
 print(xlsx)
-x1=2;
+x1=1;
 y1=2;
 x2=int(sys.argv[3]);
 y2=int(sys.argv[4]);
