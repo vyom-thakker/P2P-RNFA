@@ -193,14 +193,14 @@ equation dumm;
 variable dum;
 dumm.. dum=e=10;
 	Model P2PRNFA /ALL/;
-	Option LP=Gurobi;
+*Option LP=Gurobi;
 	Solve P2PRNFA using LP maximizing dum; 
 
 
 
-*execute_unload 'Astar.gdx', econ_r,Astar; 
-*execute 'gdxdump Astar.gdx output=Astar.csv symb=Astar format=csv'
-*execute 'rm Astar.gdx'
+execute_unload 'X.gdx', X; 
+execute 'gdxdump X.gdx output=X.csv symb=X format=csv'
+execute 'rm X.gdx'
 
 *Display Astar;
 *display rank, piv;

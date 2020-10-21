@@ -1,4 +1,4 @@
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:42:21 Page 1
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:47:42 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -56,7 +56,7 @@ C o m p i l a t i o n
   53  *p(vc_c)
   54  *phat(vc_c,vc_c)
   55  *Pf(econ_rJ,vc_r)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:42:21 Page 2
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:47:42 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -114,7 +114,7 @@ C o m p i l a t i o n
 337887     npr(econ_rJ) 'non pivot rows'
 337888     s(econ_c)   'pivot column candidates'
 337889     nps(econ_c) 'non pivot columns';
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:42:21 Page 3
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:47:42 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -172,7 +172,7 @@ C o m p i l a t i o n
 337940  RNFA(i,j)=rnfaU(i,j)-rnfaVT(i,j);
 337941   
 337942  parameter X(i,j);
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:42:21 Page 4
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:47:42 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -194,26 +194,26 @@ C o m p i l a t i o n
 337957  variable dum;
 337958  dumm.. dum=e=10;
 337959          Model P2PRNFA /ALL/;
-337960          Option LP=Gurobi;
+337960  *Option LP=Gurobi;
 337961          Solve P2PRNFA using LP maximizing dum;
 337962   
 337963   
 337964   
-337965  *execute_unload 'Astar.gdx', econ_r,Astar;
-337966  *execute 'gdxdump Astar.gdx output=Astar.csv symb=Astar format=csv'
-337967  *execute 'rm Astar.gdx'
+337965  execute_unload 'X.gdx', X;
+337966  execute 'gdxdump X.gdx output=X.csv symb=X format=csv'
+337967  execute 'rm X.gdx'
 337968   
 337969  *Display Astar;
 337970  *display rank, piv;
 337971   
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:42:21 Page 5
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:47:42 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Include File Summary
 
 
    SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
 
-     1        1 INPUT          0       0  /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa_trial1.gms
+     1        1 INPUT          0       0  /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa.gms
      2       60 INCLUDE        1      60  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/vcV.inc
      3      169 INCLUDE        1      61  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/vcU.inc
      4      278 INCLUDE        1      62  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/econV.inc
@@ -232,8 +232,8 @@ Include File Summary
     17   333219 INCLUDE        1      75  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/Pp.inc
 
 
-COMPILATION TIME     =        0.443 SECONDS     28 MB  24.7.4 r58773 LEX-LEG
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:42:21 Page 6
+COMPILATION TIME     =        0.463 SECONDS     28 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:47:42 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -291,7 +291,7 @@ E x e c u t i o n
 91                                                                                                                                            0.010                   0.006       0.013                   0.003      -0.001      -0.001       0.020       0.010
 92                                                                                                                                                                    0.007                   0.001       0.007                  -0.003                   0.001
 93                                                                                                                                                                    0.005                   0.003       0.014      -0.001      -0.003                   0.003
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:42:21 Page 7
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:47:42 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -349,7 +349,7 @@ E x e c u t i o n
 175                                                                                                                                                                                                                              -0.001
 180                                                                                                                                                                   0.007                               0.002      -0.001                   0.021       0.012
 181                                                                                                                                           0.008
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:42:21 Page 8
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:47:42 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -407,7 +407,7 @@ E x e c u t i o n
 314       0.005       0.005       0.007       0.004       0.010       0.007       0.006       0.002       0.002       0.001       0.006                   0.002       0.008       0.010       0.004       0.002       0.009       0.016       0.040       0.015
 316                               0.001       0.001                                                                                                       0.001       0.002       0.007       0.001       0.002       0.004       0.002       0.008       0.016
 317       0.001       0.001       0.001       0.001                   0.001       0.001       0.001       0.002       0.001                               0.004       0.008       0.007       0.003       0.017       0.005       0.010       0.050       0.010
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:42:21 Page 9
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 23:47:42 Page 9
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -465,7 +465,7 @@ E x e c u t i o n
 24        0.031       0.001       0.988                   0.001                   0.001                                                                   0.001                   0.001                                           0.001
 25        0.021       0.004      -0.042       1.000                                                                                                                                           0.001       0.001       0.002       0.003       0.001       0.001
 26                               -0.013                   1.000
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 10
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 10
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -523,7 +523,7 @@ E x e c u t i o n
 93        0.001                   0.008                                                       0.001                                                                                                                              -0.001
 94                                                                                                                                                                                                                               -0.001
 95        0.001                   0.012                                                                                                                                                       0.002       0.007                  -0.005
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 11
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 11
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -581,7 +581,7 @@ E x e c u t i o n
 157                                           0.010       0.009       0.006       0.001       0.001       0.004       0.001       0.003       0.005       0.006       0.004       0.005
 158                   0.004      -0.001       0.004       0.001       0.004       0.008                   0.003       0.004       0.004       0.013       0.002       0.001       0.002                                          -0.001
 160                                           0.005       0.008       0.004       0.013       0.002       0.009       0.004       0.003       0.002       0.004       0.001       0.003
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 12
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 12
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -639,7 +639,7 @@ E x e c u t i o n
 284       0.015       0.008       0.001                                                                                                                                                      -0.001                   0.002       0.009
 285                   0.001       0.001                                                                                                                                                      -0.001
 286                                                                                                                                                                                          -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 13
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 13
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -697,7 +697,7 @@ E x e c u t i o n
 371                               0.005       0.003       0.002       0.001       0.002       0.004       0.001       0.004       0.002       0.004       0.001       0.001       0.002       0.001       0.001       0.002       0.002       0.001       0.001
 372                   0.001      -0.002                                                       0.001                   0.001
 379                   0.001                                           0.001                   0.001                               0.001       0.001       0.001                   0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 14
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 14
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -755,7 +755,7 @@ E x e c u t i o n
 63                                                                                                                                                                                                       -0.001                              -0.001       0.913
 64                                                                                                                                                                                                                                                       -0.009
 71                                                                                                                                            0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 15
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 15
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -813,7 +813,7 @@ E x e c u t i o n
 243                                                                   0.001                   0.001                                           0.001       0.001                                                                   0.001       0.001       0.001
 274      -0.001       0.010       0.019                   0.007       0.016       0.001       0.005       0.001                   0.010       0.001       0.008       0.028                              -0.001      -0.001       0.001       0.003       0.008
 278                   0.001                                                       0.001                   0.001       0.001       0.001       0.004       0.002                   0.001       0.003       0.002       0.001       0.001       0.001       0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 16
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 16
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -871,7 +871,7 @@ E x e c u t i o n
 6                     0.054       0.252       0.021
 10                                0.039       0.026                                           0.010
 11                               -0.001                                                                   0.005       0.002       0.384       0.154      -0.011       0.010       0.073       0.057       0.081                  -0.006                  -0.040
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 17
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 17
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -929,7 +929,7 @@ E x e c u t i o n
 106                              -0.003       0.017       0.010                               0.001                   0.001                   0.030       0.005                   0.004       0.005       0.003       0.016       0.083       0.041       0.047
 107                              -0.001       0.043                                          -0.001                   0.017                                           0.006
 109                                                                                                                                                                                           0.001                   0.012       0.017       0.011      -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 18
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 18
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -987,7 +987,7 @@ E x e c u t i o n
 176                                                                                                       0.001
 182                                                                                                                                                                   0.003
 183                                                                                                                                                                   0.010
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 19
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 19
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1045,7 +1045,7 @@ E x e c u t i o n
 305                                                                                                                               0.001
 306                                                                                                                                                                   0.001
 307       0.002      -0.007      -0.001       0.001       0.001                   0.002       0.002       0.001       0.003                                           0.001       0.001                                                       0.001       0.003
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 20
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 20
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1103,7 +1103,7 @@ E x e c u t i o n
 16                                                                                                        0.016       0.071       0.003                                                                                                                   0.001
 17                                                                                                        0.015       0.075       0.031                                           0.011                                                                   0.004
 18                                                        0.002       0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 21
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 21
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1161,7 +1161,7 @@ E x e c u t i o n
 104                                                                                                                                                                                          -0.005       0.151       0.122       0.256       0.697
 105                   0.001                                                                                           0.001                                                                                                                               0.985
 106       0.008       0.006      -0.001                                           0.001                               0.004       0.004       0.004                   0.005                   0.003
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 22
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 22
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1219,7 +1219,7 @@ E x e c u t i o n
 197                                                                                                                                                                  -0.002                                                      -0.001
 200                   0.013       0.015                   0.001       0.007       0.003                   0.002       0.011       0.002       0.003       0.003       0.004       0.004       0.012                                                       0.006
 201       0.007       0.004       0.005                               0.002       0.001                   0.001       0.004       0.001       0.001       0.001       0.003       0.001       0.004                                                       0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 23
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 23
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1277,7 +1277,7 @@ E x e c u t i o n
 323                                                                                                      -0.001                                                                                          -0.001      -0.001      -0.001      -0.001
 324                   0.001       0.001       0.001       0.001                                                       0.003       0.002       0.002                   0.003                               0.004       0.008       0.007       0.003
 325                                                                                                                                                                                                      -0.002      -0.001      -0.001      -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 24
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 24
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1335,7 +1335,7 @@ E x e c u t i o n
 52                    0.002       0.003
 58                               -0.001
 66                                                                   -0.001                                                                                                      -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 25
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 25
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1393,7 +1393,7 @@ E x e c u t i o n
 125                                                                                                                                           0.003                                                                                           0.995
 126                                                                                                      -0.001                               0.005                                                                               0.001       0.007       0.995
 127                                                                                                                                           0.001                                                       0.002       0.004
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 26
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 26
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1451,7 +1451,7 @@ E x e c u t i o n
 202       0.002       0.001       0.001       0.001       0.001       0.001       0.001       0.001                                           0.002                   0.001       0.001                   0.001       0.001       0.001       0.002       0.001
 206                                                                                                                                           0.003
 209                               0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 27
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 27
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1509,7 +1509,7 @@ E x e c u t i o n
 323                                                                                                                                           0.001                                                                               0.001                   0.001
 324                              -0.001       0.001                                                       0.006                               0.002                                           0.002       0.001       0.001       0.001       0.004       0.002
 325                                                                                                       0.001                                                                                                                               0.001       0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 28
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 28
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1567,7 +1567,7 @@ E x e c u t i o n
 41                                                                                            0.001                              -0.001
 58                                                                                                                                0.001
 66                   -0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 29
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 29
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1625,7 +1625,7 @@ E x e c u t i o n
 132                   0.001       0.002                               0.901                   0.002                              -0.001       0.001
 133                   0.005                   0.017       0.003                   0.840       1.316                   0.004       0.001      -0.001      -0.002       0.038       0.074      -0.003       0.603       0.207       0.268       0.143       0.275
 134                  -0.003                                                       0.013       1.002                                                                   0.001                              -0.001                   0.003       0.005       0.034
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 30
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 30
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1683,7 +1683,7 @@ E x e c u t i o n
 202                                           0.002       0.001                   0.001       0.002       0.001       0.001     473.530    -289.204       0.001       0.002       0.001       0.001                   0.001       0.001                   0.001
 206       0.002                                                                                                                   0.021      -0.013
 214                  -0.001      -0.001                                                       0.019                              -0.008       0.005                                                                                                      -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 31
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 31
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1741,7 +1741,7 @@ E x e c u t i o n
 321                                                                                                                                                                                                                                           0.001
 322       0.001       0.001       0.002       0.002       0.002       0.002       0.001                   0.001       0.001    3309.687   -2021.356       0.001       0.001       0.001       0.003       0.001       0.001       0.001       0.002       0.001
 323                                                                                                                             473.531    -289.204                                           0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 32
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 32
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1799,7 +1799,7 @@ E x e c u t i o n
 80        0.001       0.001       0.001       0.001       0.001       0.003       0.001       0.002       0.001       0.001       0.001       0.001       0.001       0.001       0.008       0.001       0.001       0.001       0.003                   0.001
 81        0.003       0.005       0.005       0.004       0.009       0.008       0.003       0.005       0.003       0.038       0.009       0.003       0.004       0.029       0.002       0.001       0.001       0.001       0.004                   0.002
 82                                                                                                                                                                                                                                0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 33
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 33
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1857,7 +1857,7 @@ E x e c u t i o n
 149                   0.939       0.003                                           0.003      -0.001                                                                                                                                                       0.001
 150                   0.008       0.988                                           0.002      -0.001                                                                                                                                                       0.001
 151                   0.009       0.002       0.889       0.002       0.002       0.001       0.001       0.002       0.003       0.003                   0.003       0.005                                           0.009       0.002                   0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 34
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 34
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1915,7 +1915,7 @@ E x e c u t i o n
 228                                                                  -0.001
 232                                                                                                                                                                                                                   0.013       0.002
 233                                                                                                                                                                                                                   0.003
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 35
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 35
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1973,7 +1973,7 @@ E x e c u t i o n
 331       0.019       0.014       0.015       0.007       0.039       0.025       0.034       0.020       0.016       0.023       0.012       0.020       0.013       0.008       0.020       0.013       0.020       0.023       0.009                   0.041
 332                                                                                                                                                                                                                                                       0.001
 333       0.002                   0.003                   0.001                   0.002                               0.001       0.002       0.002                   0.001       0.001                                           0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 36
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 36
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2031,7 +2031,7 @@ E x e c u t i o n
 77     1186.069   -7614.889                               0.001                   0.001       0.002                               0.004       0.001                                           0.009
 79     3049.408  -19578.034                   0.015                   0.001                   0.002
 80     7623.755  -48946.593       0.001       0.002       0.001       0.001       0.001       0.001       0.002       0.002       0.002       0.001       0.004       0.001       0.002       0.001       0.002       0.002       0.001       0.001       0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 37
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 37
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2089,7 +2089,7 @@ E x e c u t i o n
 134   39305.789 -252353.904                              -0.001                   0.002                               0.001      -0.001      -0.001                                                                              -0.001      -0.001       0.001
 135    4743.808  -30456.546       0.004      -0.001                   0.003       0.001       0.009       0.006       0.001                                                                               0.006       0.005       0.003                   0.009
 136   15756.294 -101159.717       0.002                               0.001       0.017       0.006       0.017       0.015      -0.001       0.004       0.004       0.002       0.004                   0.002       0.005       0.001                   0.003
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 38
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 38
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2147,7 +2147,7 @@ E x e c u t i o n
 185  146718.396 -941972.199                  -0.004      -0.003                               0.002                   0.007      -0.005      -0.003                                                       0.947                  -0.002                   0.005
 186   15247.982  -97896.214                               0.019                                                       0.001      -0.001                                                                   0.003       0.994
 187     338.870   -2175.643                                           0.001                   0.001                                                                                                                               0.988
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 39
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 39
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2205,7 +2205,7 @@ E x e c u t i o n
 264    3049.410  -19578.044                                                                                                                                                                                           0.001                               0.001
 268                  -0.002
 273   73697.826 -473160.183       0.013       0.037       0.009       0.017       0.003       0.006                   0.003      -0.003      -0.002       0.016                               0.007       0.011       0.013       0.017                   0.007
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 40
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 40
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2263,7 +2263,7 @@ E x e c u t i o n
 338    8640.354  -55473.435       0.003       0.001       0.002       0.002       0.001       0.002       0.004       0.003       0.001       0.003       0.001       0.006       0.003       0.002       0.001       0.002       0.001       0.002       0.002
 339    2033.272  -13054.161       0.001                                                                                           0.001                   0.001       0.003                               0.001                   0.001       0.002
 340    4066.009  -26104.893       0.001                   0.001       0.001                   0.001       0.001       0.001       0.001       0.001       0.001                   0.001       0.001       0.001       0.001       0.001                   0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 41
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 41
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2321,7 +2321,7 @@ E x e c u t i o n
 105                   0.011       0.007                                                                                                                               0.005       0.001
 106                                                                                                                                           0.001       0.001       0.005
 110      -0.001       0.007       0.003      -0.001       0.003                   0.001                   0.001                   0.002       0.010       0.014       0.001                                                                   0.011
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 42
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 42
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2379,7 +2379,7 @@ E x e c u t i o n
 171                                                                                                                                                                              -0.001
 173      -0.001       0.002       0.005                                                                                                                                                       0.001       0.001       0.001
 175                                                                                                                                                                                          -0.002      -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 43
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 43
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2437,7 +2437,7 @@ E x e c u t i o n
 248                                                                                          -0.004                                                                              -0.004
 255                                                                   0.005                                                       0.001
 259                                                                                           0.001       0.003                                                                   0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 44
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 44
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2495,7 +2495,7 @@ E x e c u t i o n
 340       0.001       0.001                  -0.001                              -0.001      -0.001      -0.001
 365       0.001       0.001                  -0.001                                                      -0.001                                                                                           0.001
 366                   0.001                               0.001                                          -0.001       0.001                               0.001                               0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 45
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 45
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2553,7 +2553,7 @@ E x e c u t i o n
 115                                                                                                                                                                                                                                           0.001       0.001
 117       0.004       0.040       0.005       0.007       0.017       0.019       0.010                   0.033       0.004       0.002                               0.024       0.002       0.001      -0.001                   0.001       0.019       0.025
 118                                                                                                                                                                                                                                           0.010       0.015
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 46
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 46
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2611,7 +2611,7 @@ E x e c u t i o n
 185                                                                                                                                                                                                       0.002
 187                               0.001       0.001       0.001                                                                                                                                           0.001
 191      -0.001                                                                                                                  -0.003      -0.002       0.097                                          -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 47
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 47
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2669,7 +2669,7 @@ E x e c u t i o n
 273      -0.001                                                                                                                   0.009       0.010       0.082                                                                  -0.001       0.002       0.002
 274                               0.073       0.026       0.010       0.002                   0.002                   0.013       0.010       0.020       0.013                   0.002       0.008       0.017       0.012       0.028       0.001       0.001
 278                  -0.002                   0.001                                                                                                                                           0.001                               0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 48
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 48
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2727,7 +2727,7 @@ E x e c u t i o n
 365                  -0.001                   0.001       0.001                                                                                                                                                                   0.002
 366                  -0.001                   0.001                                                       0.001                                                                   0.001                                           0.001
 367                               0.001                                                       0.001                                                                                                                               0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 49
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 49
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2785,7 +2785,7 @@ E x e c u t i o n
 113                                           0.001       0.001                                           0.001                                                                   0.001                                           0.001       0.001
 115                                                                              -0.001                   0.031
 117       0.010       0.001       0.009       0.012       0.010       0.022       0.044       0.006       0.018       0.021       0.026       0.009       0.005      -0.001       0.032       0.006      -0.003                   0.004
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 50
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 50
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2843,7 +2843,7 @@ E x e c u t i o n
 169                                                                                                                                                                                                      -0.003
 170                                                                                                                                                                                                      -0.002
 173                                                                   0.001                   0.001                               0.001                                                                   0.002                               0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 51
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 51
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2901,7 +2901,7 @@ E x e c u t i o n
 240       0.056      -0.024       0.001                                          -0.005                   0.805                  -0.004                   0.002
 241       0.027       0.026      -0.001                  -0.001       0.045       0.014       0.040      -0.001       0.997       0.095       0.041
 242       0.021       0.008       0.154       0.012       0.100       0.024       0.017       0.020       0.007       0.005       0.893       0.007       0.009                   0.002                  -0.002       0.003       0.003       0.050
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 52
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 52
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -2959,7 +2959,7 @@ E x e c u t i o n
 325                                                                                                                                                      -0.001                              -0.002      -0.002
 326                  -0.001      -0.001      -0.001                  -0.001      -0.001      -0.001      -0.001      -0.001      -0.001      -0.002      -0.003      -0.002      -0.002      -0.007      -0.009                   0.001                  -0.001
 327                   0.003                   0.003       0.002      -0.001      -0.001                              -0.001                  -0.001      -0.001      -0.001                  -0.004      -0.005      -0.001       0.001       0.008
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 53
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 53
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3017,7 +3017,7 @@ E x e c u t i o n
 79                                                                                0.001                                           0.002       0.003                   0.001                                           0.001       0.002      -0.002
 80                    0.001       0.002       0.001       0.001       0.003       0.001       0.001       0.001       0.001       0.001       0.002       0.001                                           0.001       0.019       0.002       0.024       0.002
 81                    0.008       0.018       0.017       0.035       0.010       0.016       0.019       0.017       0.005       0.006       0.008       0.009       0.008       0.001       0.002       0.019       0.027       0.061       0.007       0.014
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 54
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 54
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3075,7 +3075,7 @@ E x e c u t i o n
 145                                           0.006                   0.003       0.008       0.017       0.014                               0.001       0.001                                                                               0.001       0.001
 146                   0.001                                                       0.003       0.004       0.001                   0.001       0.001       0.002                                                                               0.002       0.002
 147       0.020       0.001                                                       0.002       0.002       0.001                                           0.001                                           0.003                                           0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 55
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 55
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3133,7 +3133,7 @@ E x e c u t i o n
 253       0.753
 254                   0.942
 255                               0.992                              -0.001                  -0.001       0.017                                                                                                                              -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 56
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 56
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3191,7 +3191,7 @@ E x e c u t i o n
 320                                           0.005       0.004                   0.014                   0.006                   0.005                                           0.001       0.001       0.007       0.004       0.001      -0.003       0.001
 321                                                                  -0.001
 322                               0.002       0.001       0.001       0.004       0.004       0.001       0.003       0.002       0.002       0.002       0.002       0.004       0.003       0.002       0.003       0.002       0.002                   0.004
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 57
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 57
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3249,7 +3249,7 @@ E x e c u t i o n
 40                                                                                                                                                                                           -0.004       0.004
 42        0.001                  -0.001
 44                               -0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 58
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 58
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3307,7 +3307,7 @@ E x e c u t i o n
 120                  -0.004                                                                                                                                                                  -0.001       0.001                              -0.001
 121                   0.001
 122                  -0.002                                                                                                                               0.001                              -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 59
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 59
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3365,7 +3365,7 @@ E x e c u t i o n
 233                  -0.001
 237       0.001       0.012                                                                   0.006                                           0.002                   0.004                   0.001                               0.008
 238       0.001       0.004       0.002                                                                                                                               0.013       0.001      -0.002      -0.002                   0.034
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 60
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 60
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3423,7 +3423,7 @@ E x e c u t i o n
 308       0.001       0.002       0.001       0.001                                                       0.018       0.001       0.004                               0.003       0.002                               0.001       0.002      -0.001       0.003
 310       0.005       0.003       0.006       0.010       0.006       0.031       0.007       0.004       0.042       0.003       0.004       0.032       0.002       0.007       0.008       0.019       0.011       0.014       0.016       0.001       0.007
 312       0.039       0.052       0.068       0.049       0.002       0.001       0.004       0.010       0.009       0.009       0.013       0.022       0.012       0.133       0.088      -0.082      -0.010       0.023                   0.014       0.025
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 61
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 61
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3476,7 +3476,7 @@ E x e c u t i o n
 376       0.001                                                                                                                               0.004                                          -0.005      -0.002       0.001       0.003
 379                                                                   0.001                                                                   0.001                               0.001                   0.001       0.001       0.001
 382       0.001       0.001       0.001       0.001                                                                                           0.004                   0.004       0.001      -0.002      -0.001       0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 62
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 62
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3534,7 +3534,7 @@ E x e c u t i o n
 121                  -0.001       0.021       0.003                  -0.001       0.001
 122                  -0.001       0.001                                                      -0.001      -0.001                                                                                                                   0.001
 124                                                       0.001                   0.006                                                                                                                                                       0.004
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 63
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 63
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3592,7 +3592,7 @@ E x e c u t i o n
 226                                           0.002       0.015       0.003                                                                                                                                                                   0.002
 227                                                                               0.003                                                                                                                                                       0.003
 237                                                                                          -0.001                  -0.001                                                                                                       0.005
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 64
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 64
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3650,7 +3650,7 @@ E x e c u t i o n
 318       0.003      -0.004       0.012       0.006       0.014       0.010       0.006       0.014       0.001       0.004       0.012       0.009       0.014       0.002       0.011       0.005                   0.005       0.003       0.004       0.004
 319                  -0.001       0.001       0.007       0.058       0.014       0.002       0.001      -0.001                  -0.001       0.010                               0.005                               0.035       0.001       0.002
 320                  -0.022       0.017                   0.004       0.001                  -0.011                   0.002       0.001       0.001       0.001                               0.002                   0.001                   0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 65
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 65
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3708,7 +3708,7 @@ E x e c u t i o n
 15                                                                                                                                0.001
 16                                            0.001
 17                                                                                                                                0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 66
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 66
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3766,7 +3766,7 @@ E x e c u t i o n
 124                                           0.002                                          -0.001                               0.001
 125                                           0.002
 126                                           0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 67
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 67
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3824,7 +3824,7 @@ E x e c u t i o n
 226                                           0.004                               0.015      -0.006                                                                               0.004                   0.001       0.007                   0.001
 228                               0.001                                                                                                                                           0.011                   0.002                               0.001
 237                                                                                                                                                                                                                                           0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 68
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 68
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3882,7 +3882,7 @@ E x e c u t i o n
 316       0.991       0.004       0.008       0.003       0.001       0.002                   0.014       0.011       0.004       0.007       0.005       0.002                   0.007       0.023       0.003       0.007       0.002       0.004       0.014
 317       0.003       0.990       0.008       0.008       0.007       0.018       0.004       0.020       0.010       0.006       0.022       0.008       0.003       0.003       0.009       0.019       0.010       0.003       0.006       0.020       0.009
 318       0.003       0.008       0.987       0.008       0.013       0.010       0.006       0.011       0.018       0.008       0.006       0.003       0.008       0.007       0.010       0.012       0.026       0.005       0.011       0.013       0.011
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 69
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 69
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3940,7 +3940,7 @@ E x e c u t i o n
 5                     0.011
 10                                                                   -0.001
 12                                                        0.001      -0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 70
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 70
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3998,7 +3998,7 @@ E x e c u t i o n
 93                                            0.001                                           0.001                   0.004                   0.002       0.001       0.002       0.001
 94                                                                                                                    0.001                   0.001                   0.001
 95                    0.004                   0.001                                           0.001                   0.003       0.002       0.009       0.004       0.010       0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 71
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 71
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4056,7 +4056,7 @@ E x e c u t i o n
 164       0.001       0.001
 165                                           0.005
 166                                           0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 72
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 72
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4114,7 +4114,7 @@ E x e c u t i o n
 267                                                                                                       0.058
 269                                                       0.002                   0.001                                                                                                                                           0.001
 270                                                                                                                                                                                                                   0.004       0.003
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 73
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 73
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4172,7 +4172,7 @@ E x e c u t i o n
 330       0.004       0.001                   0.001       0.002       0.002       0.002       0.002       0.001                   0.002       0.004       0.001       0.001       0.002       0.003       0.001       0.004       0.002       0.007
 331       0.028       0.022       0.036       0.029       0.001                   0.016       0.033       0.027       0.016       0.017       0.019       0.016       0.022       0.010       0.018       0.016       0.015       0.006       0.014       0.010
 332       0.002       0.003       0.004       0.002                  -0.001       0.003       0.004       0.002       0.003       0.003       0.004       0.007       0.002       0.006       0.005       0.002       0.003                   0.001       0.003
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 74
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 74
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4230,7 +4230,7 @@ E x e c u t i o n
 5                                                         0.001       0.001                                                                                                                                                                   0.001
 10                                                        0.003       0.001       0.004      -0.001       0.001       0.003       0.001
 12                                                                                0.002       0.003       0.008       0.005       0.002                                                                                                       0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 75
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 75
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4288,7 +4288,7 @@ E x e c u t i o n
 89                                                                                                        0.001
 91                                                                                            0.001                   0.001       0.001       0.003                                                                                           0.001
 92                                                                                                                                                                    0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 76
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 76
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4346,7 +4346,7 @@ E x e c u t i o n
 161                                                                                                                                                                               0.017
 162                                                                               0.001       0.006       0.001                                                                               0.001                                           0.001
 163       0.001                                                                                                                                                       0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 77
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 77
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4404,7 +4404,7 @@ E x e c u t i o n
 258                                                       0.005                   0.003                                                                                                       0.001
 260                   0.006                                                       0.006                                                                                           0.005
 268                                                                                                       0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 78
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 78
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4462,7 +4462,7 @@ E x e c u t i o n
 331       0.036       0.008      -0.004      -0.003      -0.010       0.009       0.008       0.091       0.080       0.066       0.106       0.017       0.023       0.015       0.012       0.023                   0.023       0.016
 332                   0.001       0.002       0.002                               0.001       0.001       0.001       0.001                               0.002       0.002                   0.001                               0.001                   0.004
 333                               0.001       0.001       0.001                                                                   0.001                   0.001       0.001                                                       0.001                   0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 79
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 79
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4520,7 +4520,7 @@ E x e c u t i o n
 19                               -0.001      -0.017                               0.001
 22        0.009                  -0.005      -0.051       0.001                              -0.360                                          -0.300
 23        0.001                   0.017                   0.001       0.001       0.004                              -0.563
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 80
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 80
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4578,7 +4578,7 @@ E x e c u t i o n
 95                               -0.001      -0.007       0.001                   0.001
 96                               -0.004       0.021                   0.001       0.004
 99                                            0.011                   0.001       0.003
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 81
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 81
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4636,7 +4636,7 @@ E x e c u t i o n
 183                                           0.001
 184                                           0.001
 186                                           0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 82
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 82
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4694,7 +4694,7 @@ E x e c u t i o n
 285                              -0.002                                           0.001
 286       0.001                               0.002
 287       0.001                  -0.023      -0.007                   0.001       0.002
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 83
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 83
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4752,7 +4752,7 @@ E x e c u t i o n
 343       0.018                   0.010                   0.003                   0.004
 346                                                                               0.001
 347                                                                   0.001
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 84
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 84
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4810,7 +4810,7 @@ E x e c u t i o n
 399                                                                                                                  -1.000      -1.000
 400      -1.000                              -1.000                              -1.000                   1.000                   1.000                                                                                          -1.000
 401                  -1.000                                           1.000
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 85
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 85
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -4850,7 +4850,7 @@ E x e c u t i o n
 416      -1.000                                          -1.000
 417                  -0.105
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 86
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 86
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE P2PRNFA Using LP From line 337961
 
@@ -4878,7 +4878,7 @@ REMAINING 414 ENTRIES SKIPPED
 
 dumm..  dum =E= 10 ; (LHS = 0, INFES = 10 ****)
      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 87
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 87
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE P2PRNFA Using LP From line 337961
 
@@ -4936,7 +4936,7 @@ m(2)
         0.001   LCModel(10)
         0.099   LCModel(13)
         0.005   LCModel(18)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 88
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 88
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE P2PRNFA Using LP From line 337961
 
@@ -4994,7 +4994,7 @@ m(3)
         0.065   LCModel(100)
         0.001   LCModel(111)
         0.001   LCModel(118)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 89
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 89
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE P2PRNFA Using LP From line 337961
 
@@ -5048,7 +5048,7 @@ dum
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       dumm
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 90
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 90
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE P2PRNFA Using LP From line 337961
 
@@ -5060,11 +5060,11 @@ BLOCKS OF VARIABLES           3     SINGLE VARIABLES          843
 NON ZERO ELEMENTS        27,253
 
 
-GENERATION TIME      =        0.022 SECONDS     51 MB  24.7.4 r58773 LEX-LEG
+GENERATION TIME      =        0.026 SECONDS     51 MB  24.7.4 r58773 LEX-LEG
 
 
-EXECUTION TIME       =        9.605 SECONDS     51 MB  24.7.4 r58773 LEX-LEG
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:42:21 Page 91
+EXECUTION TIME       =        9.448 SECONDS     51 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 91
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE P2PRNFA Using LP From line 337961
 
@@ -5073,7 +5073,7 @@ Solution Report     SOLVE P2PRNFA Using LP From line 337961
 
      MODEL   P2PRNFA             OBJECTIVE  dum
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  GUROBI              FROM LINE  337961
+     SOLVER  CPLEX               FROM LINE  337961
 
 **** SOLVER STATUS     7 Licensing Problems        
 **** MODEL STATUS      11 Licensing Problem        
@@ -5081,6 +5081,8 @@ Solution Report     SOLVE P2PRNFA Using LP From line 337961
 
  RESOURCE USAGE, LIMIT         NA          1000.000
  ITERATION COUNT, LIMIT        NA    2000000000
+
+IBM ILOG CPLEX   24.7.4 r58773 Released Sep 19, 2016 LEG x86 64bit/Linux      
 *** No license found
 *** To update your license, please contact your distributor.
 *** Too many equations for demo mode
@@ -5094,9 +5096,12 @@ Solution Report     SOLVE P2PRNFA Using LP From line 337961
 ***   Maximum allowed              : 2000
 
 No solution returned
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     10/20/20 23:47:42 Page 92
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
 
 
-EXECUTION TIME       =        0.008 SECONDS     23 MB  24.7.4 r58773 LEX-LEG
+EXECUTION TIME       =        0.060 SECONDS     24 MB  24.7.4 r58773 LEX-LEG
 
 
 USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
@@ -5106,5 +5111,5 @@ USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
 
 **** FILE SUMMARY
 
-Input      /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa_trial1.gms
-Output     /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa_trial1.lst
+Input      /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa.gms
+Output     /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa.lst
