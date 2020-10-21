@@ -91,16 +91,87 @@ econVstar(econ_c,econ_r)=econV(econ_c,econ_r)-sum(jd1$vc_c(jd1),PpT(econ_c,jd1)*
 
 econUstar(econ_r,econ_c)=econU(econ_r,econ_c)-(sum(id1$vc_r(id1),Pf(econ_r,id1)*sum(jd1$vc_c(jd1),vcU(id1,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*Pp(jd2,econ_c))))+sum(id2$vc_r(id2),Pf(econ_r,id2)*dcUvc(id2,econ_c))+sum(jd3$vc_c(jd3),ucUvc(econ_r,jd3)*Pp(jd3,econ_c)));
 
-parameter econVstarInv(econ_r,econ_c);
+parameter econVTstar(econ_r,econ_c);
+econVTstar(econ_r,econ_c)=econVstar(econ_c,econ_r);
+
+parameter econVTstarInv(econ_c,econ_r);
 *execute_unload 'econVstar.gdx', i,j,econVstar;
 *execute '=invert.exe econVstar.gdx i j econVstar econVstarInv.gdx econVstarInv';
 *execute_load 'econVstarInv.gdx', econVstarInv;
 
-$offlisting
-$include inverseMat.gms
-$onlisting
+*$offlisting
+*$include inverseMat.gms
+*$onlisting
 
-econVstarInv(econ_r,econ_c)=round(econVstarInv(econ_r,econ_c),4);
+Alias (econ_r,ip), (econ_c,jp);
 
-Display econVstarInv;
+
+Parameter
+   bp(econ_r,econ_c)   'permuted and transposed inverse of a'
+   pair(econ_r,econ_c) 'pivoting sequence and permutation'
+   rank      'rank of matrix a'
+   adet      'absolute value of determinant of matrix a'
+   piv
+   big
+   tol;
+
+Set
+   r(econ_r)   'pivot row candidates'
+   npr(econ_r) 'non pivot rows'
+   s(econ_c)   'pivot column candidates'
+   nps(econ_c) 'non pivot columns';
+
+r(econ_r)    = yes;
+s(econ_c)    = yes;
+bp(econ_r,econ_c) = econVTstar(econ_r,econ_c);
+rank    = 0;
+adet    = 1;
+tol     = 1e-5;
+
+loop(econ_c,
+   big = smax((r,s), abs(bp(r,s)));
+   big$(big < tol) = 0;
+   npr(econ_r)   = yes;
+   nps(jp)  = yes;
+   loop((r,s)$(big and big = abs(bp(r,s))),
+      rank = rank + 1;
+      pair(r,s) = rank;
+      piv    = 1/bp(r,s);
+      big    = 0;
+      adet   = adet/piv;
+      npr(r) = no;
+      nps(s) = no;
+
+      bp(  r,nps)  =  bp(r,nps)*piv;
+      bp(npr,nps)  =  bp(npr,nps) - bp(r,nps)*bp(npr,s);
+      bp(npr,  s)  = -bp(npr,s)*piv;
+      bp(  r,  s)  =  piv;
+   );
+   r(r) = npr(r);
+   s(s) = nps(s);
+);
+
+econVTstarInv(econ_c,econ_r) = sum((ip,jp)$(pair(econ_r,jp) and pair(ip,econ_c)), bp(ip,jp));
+
+*econVTstarInv(econ_c,econ_r)=round(econVTstarInv(econ_c,econ_r),4);
+
+Alias(econ_c,econ_c_d1);
+parameter Astar(econ_r,econ_r);
+Astar(econ_r,econ_r)=sum(econ_c_d1,econUstar(econ_r,econ_c_d1)*econVTstarInv(econ_c_d1,econ_r));
+
+Alias(econ_r,econ_r_d1,econ_r_d2);
+parameter L(i,i);
+L(econ_r_d1,econ_r_d2)=Astar(econ_r_d1,econ_r_d2) $(ord(econ_r_d1)<>ord(econ_r_d2))+(1-Astar(econ_r_d1,econ_r_d2)) $(ord(econ_r_d1)=ord(econ_r_d2));
+
+
+
+parameter X(i,j);
+
+
+*execute_unload 'Astar.gdx', econ_r,Astar; 
+*execute 'gdxdump Astar.gdx output=Astar.csv symb=Astar format=csv'
+*execute 'rm Astar.gdx'
+
+*Display Astar;
+*display rank, piv;
 

@@ -1,0 +1,217 @@
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 17:11:41 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+      Preparing the RNFA-P2P for 3-MTHF Example
+      Author: Vyom
+      Date: 02/02/2020
+   6   
+   7   
+   8  Sets
+   9  i rows                    /1*417/
+  10  j columns                 /1*425/
+  11  k rowsOfB                 /1*24/
+  12  econ_r(i) commodities I     /1*385/
+  13  vc_r(i) elements K          /386*394/
+  14  rnfa_r(i) chemicals M       /395*417/
+  15  econ_c(j) sectors J         /1*385/
+  16  vc_c(j) processes L        /386*397/
+  17  rnfa_c(j) reactions N        /398*425/
+  18  econ_int(k) interventions /1*21/
+  19  vc_int(k) vc interventions/22*24/;
+  20   
+  21  parameters
+  22  vcV(j,i)
+  23  vcU(i,j)
+  24  econV(j,i)
+  25  econU(i,j)
+  26  rnfaV(j,i)
+  27  rnfaU(i,j)
+  28  dcUvc(i,j)
+  29  dcUrnfa(i,j)
+  30  dcVCrnfa(i,j)
+  31  ucUvc(i,j)
+  32  ucUrnfa(i,j)
+  33  ucVCrnfa(i,j)
+  34  p(j)
+  35  phat(j,j)
+  36  Pf(i,i)
+  37  Pp(j,j);
+  38   
+  39  *vcV(vc_c,vc_r)
+  40  *vcU(vc_r,vc_c)
+  41  *econV(econ_c,econ_r)
+  42  *econU(econ_r,econ_c)
+  43  *rnfaV(rnfa_c,rnfa_r)
+  44  *rnfaU(rnfa_r,rnfa_c)
+  45  *dcUvc(vc_r,econ_c)
+  46  *dcUrnfa(rnfa_r,econ_c)
+  47  *dcVCrnfa(rnfa_r,vc_c)
+  48  *ucUvc(econ_r,vc_c)
+  49  *ucUrnfa(econ_r,rnfa_c)
+  50  *ucVCrnfa(vc_r,rnfa_c)
+  51  *p(vc_c)
+  52  *phat(vc_c,vc_c)
+  53  *Pf(econ_r,vc_r)
+  54  *Pp(vc_c,econ_c);
+  55   
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 17:11:41 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+334372   
+334373  parameters
+334374  vcVstar(j,i)
+334375  vcUstar(i,j)
+334376  econVstar(j,i)
+334377  econUstar(i,j);
+334378   
+334379  parameters
+334380  PfT(i,i)
+334381  PpT(j,j);
+334382   
+334383  PfT(vc_r,econ_r)=Pf(econ_r,vc_r);
+334384  PpT(econ_c,vc_c)=Pp(vc_c,econ_c);
+334385  phat(vc_c,vc_c)=p(vc_c);
+334386  alias(i,id1,id2);
+334387  alias(j,jd1,jd2,jd3);
+334388  econVstar(econ_c,econ_r)=econV(econ_c,econ_r)-sum(jd1$vc_c(jd1),PpT(econ_c,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*sum(id1$vc_r(id1),vcV(jd2,id1)*PfT(id1,econ_r))));
+334389   
+334390   
+334391  econUstar(econ_r,econ_c)=econU(econ_r,econ_c)-(sum(id1$vc_r(id1),Pf(econ_r,id1)*sum(jd1$vc_c(jd1),vcU(id1,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*Pp(jd2,econ_c))))+sum(id2$vc_r(id2),Pf(econ_r,id2)*dcUvc(id2,econ_c))+sum(jd3$vc_c(jd3),ucUvc(econ_r,jd3
+        )*Pp(jd3,econ_c)));
+334392   
+334393  parameter econVTstar(econ_r,econ_c);
+334394  econVTstar(econ_r,econ_c)=econVstar(econ_c,econ_r);
+334395   
+334396  parameter econVTstarInv(econ_c,econ_r);
+334397  *execute_unload 'econVstar.gdx', i,j,econVstar;
+334398  *execute '=invert.exe econVstar.gdx i j econVstar econVstarInv.gdx econVstarInv';
+334399  *execute_load 'econVstarInv.gdx', econVstarInv;
+334400   
+334401  *$offlisting
+334402  *$include inverseMat.gms
+334403  *$onlisting
+334404   
+334405  Alias (econ_r,ip), (econ_c,jp);
+334406   
+334407   
+334408  Parameter
+334409     bp(econ_r,econ_c)   'permuted and transposed inverse of a'
+334410     pair(econ_r,econ_c) 'pivoting sequence and permutation'
+334411     rank      'rank of matrix a'
+334412     adet      'absolute value of determinant of matrix a'
+334413     piv
+334414     big
+334415     tol;
+334416   
+334417  Set
+334418     r(econ_r)   'pivot row candidates'
+334419     npr(econ_r) 'non pivot rows'
+334420     s(econ_c)   'pivot column candidates'
+334421     nps(econ_c) 'non pivot columns';
+334422   
+334423  r(econ_r)    = yes;
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 17:11:41 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+334424  s(econ_c)    = yes;
+334425  bp(econ_r,econ_c) = econVTstar(econ_r,econ_c);
+334426  rank    = 0;
+334427  adet    = 1;
+334428  tol     = 1e-5;
+334429   
+334430  loop(econ_c,
+334431     big = smax((r,s), abs(bp(r,s)));
+334432     big$(big < tol) = 0;
+334433     npr(econ_r)   = yes;
+334434     nps(jp)  = yes;
+334435     loop((r,s)$(big and big = abs(bp(r,s))),
+334436        rank = rank + 1;
+334437        pair(r,s) = rank;
+334438        piv    = 1/bp(r,s);
+334439        big    = 0;
+334440        adet   = adet/piv;
+334441        npr(r) = no;
+334442        nps(s) = no;
+334443   
+334444        bp(  r,nps)  =  bp(r,nps)*piv;
+334445        bp(npr,nps)  =  bp(npr,nps) - bp(r,nps)*bp(npr,s);
+334446        bp(npr,  s)  = -bp(npr,s)*piv;
+334447        bp(  r,  s)  =  piv;
+334448     );
+334449     r(r) = npr(r);
+334450     s(s) = nps(s);
+334451  );
+334452   
+334453  econVTstarInv(econ_c,econ_r) = sum((ip,jp)$(pair(econ_r,jp) and pair(ip,econ_c)), bp(ip,jp));
+334454   
+334455  *econVTstarInv(econ_c,econ_r)=round(econVTstarInv(econ_c,econ_r),4);
+334456   
+334457  Alias(econ_c,econ_c_d1);
+334458  parameter Astar(econ_r,econ_r);
+334459  Astar(econ_r,econ_r)=sum(econ_c_d1,econUstar(econ_r,econ_c_d1)*econVTstarInv(econ_c_d1,econ_r));
+334460   
+334461  Alias(econ_r,econ_r_d1,econ_r_d2);
+334462  parameter L(i,i);
+334463  L(econ_r_d1,econ_r_d2)=Astar(econ_r_d1,econ_r_d2) $(ord(econ_r_d1)<>ord(econ_r_d2))+(1-Astar(econ_r_d1,econ_r_d2)) $(ord(econ_r_d1)=ord(econ_r_d2));
+334464   
+334465  *execute_unload 'Astar.gdx', econ_r,Astar;
+334466  *execute 'gdxdump Astar.gdx output=Astar.csv symb=Astar format=csv'
+334467  *execute 'rm Astar.gdx'
+334468   
+334469  *Display Astar;
+334470  *display rank, piv;
+334471   
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 17:11:41 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa.gms
+     2       57 INCLUDE        1      57  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/vcV.inc
+     3      166 INCLUDE        1      58  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/vcU.inc
+     4      275 INCLUDE        1      59  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/econV.inc
+     5   148501 INCLUDE        1      60  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/econU.inc
+     6   296727 INCLUDE        1      61  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/rnfaV.inc
+     7   297372 INCLUDE        1      62  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/rnfaU.inc
+     8   298017 INCLUDE        1      63  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/dcUvc.inc
+     9   301483 INCLUDE        1      64  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/dcUrnfa.inc
+    10   310339 INCLUDE        1      65  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/dcVCrnfa.inc
+    11   310616 INCLUDE        1      66  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/ucUvc.inc
+    12   315237 INCLUDE        1      67  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/ucUrnfa.inc
+    13   326018 INCLUDE        1      68  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/ucVCrnfa.inc
+    14   326271 INCLUDE        1      69  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/p.inc
+    15   326284 INCLUDE        1      70  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/Pf.inc
+    16   329750 INCLUDE        1      71  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/Pp.inc
+
+
+COMPILATION TIME     =        1.275 SECONDS     28 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      10/20/20 17:11:41 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+**** Exec Error at line 334440: overflow in / operation (divop)
+
+
+EXECUTION TIME       =       24.804 SECONDS     47 MB  24.7.4 r58773 LEX-LEG
+
+
+USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
+      The Ohio State University, Chemical and Biomolecular EnginDC12543
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa.gms
+Output     /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa.lst
+
+**** USER ERROR(S) ENCOUNTERED
