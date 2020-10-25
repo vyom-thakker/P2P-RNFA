@@ -22,8 +22,10 @@ vc_int(k) vc interventions/22*24/;
 parameters
 vcV(j,i)
 vcU(i,j)
+vcB(k,j)
 econV(j,j)
 econU(i,j)
+econB(k,j)
 rnfaV(j,i)
 rnfaU(i,j)
 dcUvc(i,j)
@@ -40,8 +42,10 @@ Pp(j,j);
 
 *vcV(vc_c,vc_r)
 *vcU(vc_r,vc_c)
+*vcB(k,vc_c)
 *econV(econ_c,econ_r)
 *econU(econ_r,econ_c)
+*econB(k,econ_rJ)
 *rnfaV(rnfa_c,rnfa_r)
 *rnfaU(rnfa_r,rnfa_c)
 *dcUvc(vc_r,econ_c)
@@ -59,8 +63,10 @@ Pp(j,j);
 $offlisting
 $include ./incFiles/vcV.inc
 $include ./incFiles/vcU.inc
+$include ./incFiles/vcB.inc
 $include ./incFiles/econV.inc
 $include ./incFiles/econU.inc
+$include ./incFiles/econB.inc
 $include ./incFiles/rnfaV.inc
 $include ./incFiles/rnfaU.inc
 $include ./incFiles/dcUvc.inc
@@ -91,6 +97,9 @@ phat(vc_c,vc_c)=p(vc_c);
 alias(i,id1,id2);
 alias(j,jd1,jd2,jd3);
 econVstar(econ_c,econ_rJ)=econV(econ_c,econ_rJ)-sum(jd1$vc_c(jd1),PpT(econ_c,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*sum(id1$vc_r(id1),vcV(jd2,id1)*PfT(id1,econ_rJ))));
+
+parameter diffCalc(econ_c,econ_rJ);
+diffCalc(econ_c,econ_rJ)=econVstar(econ_c,econ_rJ)-econV(econ_c,econ_rj);
 
 
 econUstar(econ_r,econ_c)=econU(econ_r,econ_c)-(sum(id1$vc_r(id1),PfU(econ_r,id1)*sum(jd1$vc_c(jd1),vcU(id1,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*Pp(jd2,econ_c))))+sum(id2$vc_r(id2),PfU(econ_r,id2)*dcUvc(id2,econ_c))+sum(jd3$vc_c(jd3),ucUvc(econ_r,jd3)*Pp(jd3,econ_c)));
@@ -162,45 +171,82 @@ Astar(econ_r,econ_rJ)=sum(econ_c_d1,econUstar(econ_r,econ_c_d1)*econVTstarInv(ec
 
 Alias(econ_r,econ_r_d1);
 Alias(econ_rJ,econ_rJ_d1);
+parameter ident(econ_r,econ_rJ);
+ident(econ_r,econ_rj)$(ord(econ_r)=ord(econ_rJ))=1;
+
 parameter L(i,j);
-L(econ_r_d1,econ_rJ_d1)=Astar(econ_r_d1,econ_rJ_d1) $(ord(econ_r_d1)<>ord(econ_rJ_d1))+(1-Astar(econ_r_d1,econ_rJ_d1)) $(ord(econ_r_d1)=ord(econ_rJ_d1));
+L(econ_r,econ_rJ)=ident(econ_r,econ_rJ)-Astar(econ_r,econ_rJ);
 
 parameter vcVT(i,j);
 vcVT(i,j)=vcV(j,i);
 parameter VCstar(i,j);
-VCstar(i,j)=vcU(i,j)-vcVT(i,j);
+VCstar(i,j)=vcVT(i,j)-vcU(i,j);
 
 parameter rnfaVT(i,j);
 rnfaVT(i,j)=rnfaV(j,i);
 parameter RNFA(i,j);
-RNFA(i,j)=rnfaU(i,j)-rnfaVT(i,j);
+RNFA(i,j)=rnfaVT(i,j)-rnfaU(i,j);
 
 parameter X(i,j);
 X(i,j)=round(L(i,j),3)+dcUvc(i,j)+dcUrnfa(i,j)+ucUvc(i,j)+ucUrnfa(i,j)+dcVCrnfa(i,j)+ucVCrnfa(i,j)+VCstar(i,j)+RNFA(i,j);
+parameter B(k,j);
+B(k,j)=round(econB(k,j),3)+vcB(k,j);
 
-Display X;
+*Display X;
+
+
+
+sets
+    li(j,i) limitingsets /399.395, 400.395, 401.395, 402.396, 403.396, 404.396, 405.401, 406.402, 407.397, 408.400, 409.398, 410.400, 411.395, 412.395, 413.395, 414.403, 415.406, 416.406, 417.410, 418.404, 419.404, 420.407, 421.411, 422.405, 423.408, 424.412, 425.409/
+    posb(i) positive products /395*411,416/;
+
+parameter yei(j) Yield /399 0.97, 400 0.97, 401 0.97, 402 0.97, 403 0.97, 404 0.97, 405 0.97, 406 0.97, 407 0.97, 408 0.97, 409 0.97, 410 0.97, 411 0.97, 412 0.97, 413 0.97, 414 0.97, 415 0.97, 416 0.97, 417 0.97, 418 0.97, 419 0.97, 420 0.97, 421 0.97, 422 0.97, 423 0.97, 424 0.97, 425 0.97/;
+
 
 positive variable m(j);
 variable f(i);
+variable g(k);
+
+f.lo(i)$(posb(i)) =0;
+f.fx(i)$(vc_r(i)) =0;
+f.lo(i)$(econ_r(i)) =0;
+f.fx('417')=0;
+*m.fx('397')=0;
 
 
 equation LCModel(i);
 
 LCModel(i).. sum(j,X(i,j)*m(j))=e=f(i);
 
+equation LCIntModel(k);
 
-equation dumm;
-variable dum;
-dumm.. dum=e=10;
+LCIntModel(k)..sum(j,B(k,j)*m(j))=e=g(k);
+
+equation yeildConstr(j,i);
+yeildConstr(j,i)$li(j,i).. m(j) =l= yei(j)*sum(jd1,X(i,jd1)*m(jd1))/(1+(X(i,j)*yei(j)));
+
+equation MTHFProd;
+MTHFProd.. f('399')=e=1;
+
+
+equation CO2EqConstr;
+variable CO2Eq;
+CO2EqConstr.. CO2Eq=e=g('4')+g('22');
 	Model P2PRNFA /ALL/;
-*Option LP=Gurobi;
-	Solve P2PRNFA using LP maximizing dum; 
+    Option LP=BARON;
+	Solve P2PRNFA using LP minimizing CO2Eq; 
 
+*Display econVTstarInv;
+*Display Astar,rank;
+Display m.l;
+Display f.l;
 
-
-execute_unload 'X.gdx', X; 
-execute 'gdxdump X.gdx output=X.csv symb=X format=csv'
-execute 'rm X.gdx'
+execute_unload 'XNEW.gdx', X,Astar,VCstar,RNFA;
+*execute 'gdxdump X.gdx output=X.csv symb=X format=csv'
+*execute 'gdxdump X.gdx output=Astar.csv symb=Astar format=csv'
+*execute 'gdxdump X.gdx output=VCstar.csv symb=VCstar format=csv'
+*execute 'gdxdump X.gdx output=RNFA.csv symb=RNFA format=csv'
+*execute 'rm X.gdx'
 
 *Display Astar;
 *display rank, piv;
