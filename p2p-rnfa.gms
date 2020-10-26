@@ -94,6 +94,8 @@ PpT(j,j);
 PfT(vc_r,econ_rJ)=Pf(econ_rJ,vc_r);
 PpT(econ_c,vc_c)=Pp(vc_c,econ_c);
 phat(vc_c,vc_c)=p(vc_c);
+*rnfaV(rnfa_c,'417')=0;
+
 alias(i,id1,id2);
 alias(j,jd1,jd2,jd3);
 econVstar(econ_c,econ_rJ)=econV(econ_c,econ_rJ)-sum(jd1$vc_c(jd1),PpT(econ_c,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*sum(id1$vc_r(id1),vcV(jd2,id1)*PfT(id1,econ_rJ))));
@@ -211,7 +213,8 @@ f.lo(i)$(posb(i)) =0;
 f.fx(i)$(vc_r(i)) =0;
 f.lo(i)$(econ_r(i)) =0;
 f.fx('417')=0;
-*m.fx('397')=0;
+m.fx('397')=0;
+m.fx('386')=0;
 
 
 equation LCModel(i);
@@ -223,7 +226,7 @@ equation LCIntModel(k);
 LCIntModel(k)..sum(j,B(k,j)*m(j))=e=g(k);
 
 equation yeildConstr(j,i);
-yeildConstr(j,i)$li(j,i).. m(j) =l= yei(j)*sum(jd1,X(i,jd1)*m(jd1))/(1+(X(i,j)*yei(j)));
+yeildConstr(j,i)$li(j,i).. m(j)=l= yei(j)*sum(jd1,X(i,jd1)*m(jd1))/(abs(X(i,j))*(1-yei(j)));
 
 equation MTHFProd;
 MTHFProd.. f('399')=e=1;
