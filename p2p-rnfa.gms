@@ -25,6 +25,7 @@ vcU(i,j)
 vcB(k,j)
 econV(j,j)
 econU(i,j)
+A(i,j)
 econB(k,j)
 rnfaV(j,i)
 rnfaU(i,j)
@@ -38,7 +39,8 @@ p(j)
 phat(j,j)
 Pf(j,i)
 PfU(i,i)
-Pp(j,j);
+Pp(j,j)
+Pb(k,k);
 
 *vcV(vc_c,vc_r)
 *vcU(vc_r,vc_c)
@@ -79,13 +81,18 @@ $include ./incFiles/p.inc
 $include ./incFiles/Pf.inc
 $include ./incFiles/PfU.inc
 $include ./incFiles/Pp.inc
+$include ./incFiles/Pb.inc
+$include ./incFiles/A.inc
 $onlisting
+
 
 parameters
 vcVstar(j,i)
 vcUstar(i,j)
 econVstar(j,j)
-econUstar(i,j);
+econUstar(i,j)
+econBstar(k,j)
+econR(k,j);
 
 parameters
 PfT(i,j)
@@ -97,19 +104,31 @@ phat(vc_c,vc_c)=p(vc_c);
 *rnfaV(rnfa_c,'417')=0;
 
 alias(i,id1,id2);
+alias(k,kd1,kd2);
 alias(j,jd1,jd2,jd3);
 econVstar(econ_c,econ_rJ)=econV(econ_c,econ_rJ)-sum(jd1$vc_c(jd1),PpT(econ_c,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*sum(id1$vc_r(id1),vcV(jd2,id1)*PfT(id1,econ_rJ))));
 
-parameter diffCalc(econ_c,econ_rJ);
-diffCalc(econ_c,econ_rJ)=econVstar(econ_c,econ_rJ)-econV(econ_c,econ_rj);
+econR(econ_int,econ_c)=econB(econ_int,econ_c)*sum(econ_rJ,econV(econ_c,econ_rJ)); 
+
 
 
 econUstar(econ_r,econ_c)=econU(econ_r,econ_c)-(sum(id1$vc_r(id1),PfU(econ_r,id1)*sum(jd1$vc_c(jd1),vcU(id1,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*Pp(jd2,econ_c))))+sum(id2$vc_r(id2),PfU(econ_r,id2)*dcUvc(id2,econ_c))+sum(jd3$vc_c(jd3),ucUvc(econ_r,jd3)*Pp(jd3,econ_c)));
 
+
 parameter econVTstar(econ_rJ,econ_c);
 econVTstar(econ_rJ,econ_c)=econVstar(econ_c,econ_rJ);
 
+parameter econVTstarOne(econ_c);
+econVTstarOne(econ_c)=sum(econ_rJ,econVTstar(econ_rJ,econ_c));
+
+
+econBstar(econ_int,econ_c)=(econR(econ_int,econ_c)-sum(kd1$vc_int(kd1),Pb(econ_int,kd1)*sum(jd1$vc_c(jd1),vcB(kd1,jd1)*Pp(jd1,econ_c))))/econVTstarOne(econ_c);
+
 parameter econVTstarInv(econ_c,econ_rJ);
+
+
+
+
 *execute_unload 'econVstar.gdx', i,j,econVstar;
 *execute '=invert.exe econVstar.gdx i j econVstar econVstarInv.gdx econVstarInv';
 *execute_load 'econVstarInv.gdx', econVstarInv;
@@ -171,13 +190,56 @@ Alias(econ_c,econ_c_d1);
 parameter Astar(econ_r,econ_rJ);
 Astar(econ_r,econ_rJ)=sum(econ_c_d1,econUstar(econ_r,econ_c_d1)*econVTstarInv(econ_c_d1,econ_rJ));
 
+
+
+parameter econVTInv(econ_c,econ_rJ);
+
+parameter econVT(econ_rJ,econ_c);
+econVT(econ_rJ,econ_c)=econV(econ_c,econ_rJ);
+
+r(econ_rJ)    = yes;
+s(econ_c)    = yes;
+bp(econ_rJ,econ_c) = econVT(econ_rJ,econ_c);
+rank    = 0;
+tol     = 1e-5;
+
+loop(econ_c,
+   big = smax((r,s), abs(bp(r,s)));
+   big$(big < tol) = 0;
+   npr(econ_rJ)   = yes;
+   nps(jp)  = yes;
+   loop((r,s)$(big and big = abs(bp(r,s))),
+      rank = rank + 1;
+      pair(r,s) = rank;
+      piv    = 1/bp(r,s);
+      big    = 0;
+      npr(r) = no;
+      nps(s) = no;
+
+      bp(  r,nps)  =  bp(r,nps)*piv;
+      bp(npr,nps)  =  bp(npr,nps) - bp(r,nps)*bp(npr,s);
+      bp(npr,  s)  = -bp(npr,s)*piv;
+      bp(  r,  s)  =  piv;
+   );
+   r(r) = npr(r);
+   s(s) = nps(s);
+);
+
+econVTInv(econ_c,econ_rJ) = sum((ip,jp)$(pair(econ_rJ,jp) and pair(ip,econ_c)), bp(ip,jp));
+
+parameter A1(econ_r,econ_rJ);
+A1(econ_r,econ_rJ)=sum(econ_c_d1,econU(econ_r,econ_c_d1)*econVTInv(econ_c_d1,econ_rJ));
+
+
 Alias(econ_r,econ_r_d1);
 Alias(econ_rJ,econ_rJ_d1);
 parameter ident(econ_r,econ_rJ);
 ident(econ_r,econ_rj)$(ord(econ_r)=ord(econ_rJ))=1;
 
 parameter L(i,j);
+parameter L1(i,j);
 L(econ_r,econ_rJ)=ident(econ_r,econ_rJ)-Astar(econ_r,econ_rJ);
+L1(econ_r,econ_rJ)=ident(econ_r,econ_rJ)-A1(econ_r,econ_rJ);
 
 parameter vcVT(i,j);
 vcVT(i,j)=vcV(j,i);
@@ -189,9 +251,14 @@ rnfaVT(i,j)=rnfaV(j,i);
 parameter RNFA(i,j);
 RNFA(i,j)=rnfaVT(i,j)-rnfaU(i,j);
 
+
+parameter XSTAR(i,j);
 parameter X(i,j);
-X(i,j)=round(L(i,j),3)+dcUvc(i,j)+dcUrnfa(i,j)+ucUvc(i,j)+ucUrnfa(i,j)+dcVCrnfa(i,j)+ucVCrnfa(i,j)+VCstar(i,j)+RNFA(i,j);
+XSTAR(i,j)=round(L(i,j),3)+dcUvc(i,j)+dcUrnfa(i,j)+ucUvc(i,j)+ucUrnfa(i,j)+dcVCrnfa(i,j)+ucVCrnfa(i,j)+VCstar(i,j)+RNFA(i,j);
+X(i,j)=round(L1(i,j),3)+dcUvc(i,j)+dcUrnfa(i,j)+ucUvc(i,j)+ucUrnfa(i,j)+dcVCrnfa(i,j)+ucVCrnfa(i,j)+VCstar(i,j)+RNFA(i,j);
+parameter BSTAR(k,j);
 parameter B(k,j);
+BSTAR(k,j)=round(econBSTAR(k,j),3)+vcB(k,j);
 B(k,j)=round(econB(k,j),3)+vcB(k,j);
 
 *Display X;
@@ -216,41 +283,198 @@ f.fx('417')=0;
 m.fx('397')=0;
 m.fx('386')=0;
 
+*positive variable y;
+*equation lineqn;
+binary variable y;
+equation bineqn1,bineqn2;
+bineqn1.. m('394')-1000=l=860000*(y);
+bineqn2.. m('394')=g=1000*y;
+*lineqn.. m('394')=g=511319*y;
+*binary variables z1,z2,z3;
+*equation bineqn2,bineqn3,bineqn4;
+*bineqn2.. (-0.05)*z1+0.05*z3=l=m('394');
+*bineqn3.. (-0.05)*z1+860000*z3=g=m('394');
+*bineqn4.. z1+z2+z3=e=1;
+*bineqn1.. y=e=1-z2;
+
+
+
+*Enter Bases in mol/sec
+$if not set basis $set basis 1
+
+parameter diffCalcV(econ_c,econ_rJ);
+parameter diffCalcU(econ_r,econ_c);
+parameter diffCalcB(econ_int,econ_c);
+diffCalcU(econ_r,econ_c)=econUstar(econ_r,econ_c)-econU(econ_r,econ_c);
+diffCalcV(econ_c,econ_rJ)=econVstar(econ_c,econ_rJ)-econV(econ_c,econ_rj);
+diffCalcB(econ_int,econ_c)=round(econBstar(econ_int,econ_c)-econB(econ_int,econ_c),5);
+parameter diffCalcX(i,j);
+diffCalcX(i,j)=round(Xstar(i,j)-X(i,j),3);
+
 
 equation LCModel(i);
 
-LCModel(i).. sum(j,X(i,j)*m(j))=e=f(i);
+LCModel(i).. sum(j,(y*Xstar(i,j)+(1-y)*X(i,j))*m(j))=e=f(i);
+*LCModel(i).. sum(j,(Xstar(i,j))*m(j))=e=f(i);
 
 equation LCIntModel(k);
 
-LCIntModel(k)..sum(j,B(k,j)*m(j))=e=g(k);
+LCIntModel(k)..sum(j,(y*Bstar(k,j)+(1-y)*B(k,j))*m(j))=e=g(k);
+*LCIntModel(k)..sum(j,Bstar(k,j)*m(j))=e=g(k);
 
 equation yeildConstr(j,i);
 yeildConstr(j,i)$li(j,i).. m(j)=l= yei(j)*sum(jd1,X(i,jd1)*m(jd1))/(abs(X(i,j))*(1-yei(j)));
 
+
+
 equation MTHFProd;
-MTHFProd.. f('399')=e=1;
+MTHFProd.. f('399')=e=%basis%;
 
 
 equation CO2EqConstr;
 variable CO2Eq;
 CO2EqConstr.. CO2Eq=e=g('4')+g('22');
-	Model P2PRNFA /ALL/;
+equation kgPConstr;
+variable kgP;
+kgPConstr.. kgP=e=g('23');
+
+set A1f1(j,i) /399.395, 400.395, 401.395, 417.413, 421.413, 411.414, #rnfa_c.415/;
+set A3f3(j,i) /409.399,410.399/;
+
+parameter Hcom(i) /395 0.731, 413 0.216, 414 0.236, 415 0.285, 399 0.218/;
+*parameter costVals(i) /395 , 399 , 413 , 414 , 415/;  
+
+
+equation DeltaEeq;
+variable DeltaE;
+DeltaEeq.. DeltaE=e=sum((j,i)$A1f1(j,i),abs(X(i,j))*m(j)*Hcom(i))-sum((j,i)$A3f3(j,i),abs(X(i,j))*m(j)*Hcom(i));
+
+equation ICEq;
+variable IC;
+ICEq.. IC=e=3*DeltaE*0.35;
+
+set U2RNFA(i,j) /#econ_r.#rnfa_c/;
+set U2VC(i,j) /#econ_r.#vc_c/;
+set IASource(j) /391*396/;
+parameter costIASource(j) /391 1.6, 392 6.88, 393 9.98, 394 0.321, 395 0.061, 396 0.101/;
+equation costInEq;
+variable costIn;
+CostInEq.. costIn=e=sum((i,j)$U2RNFA(i,j),abs(X(i,j))*m(j))+sum((i,j)$U2VC(i,j),abs(X(i,j))*m(j))+sum(j$IAsource(j),costIASource(j)*m(j));
+
+scalar intrate /0.05/;
+equation TARConstr;
+variable TAR;
+TARConstr.. TAR=e=(f('399')*5000*86*10**(-6))-costIn;
+
+variable NPV;
+equation NPVConstr;
+NPVConstr.. NPV=e= TAR*7.27 -IC;
+
+variable landArea;
+equation landAreaEq;
+landAreaEq.. landArea=e=g('14')+g('24');
+
+
+
+*equation fruitConstr1,fruitConstr2;
+*fruitConstr1.. m('395')=l=0.3*(m('394')+m('395')+m('396'));
+*fruitConstr2.. m('396')=l=0.3*(m('394')+m('395')+m('396'));
+
+equation LCCConstr;
+variable LCC;
+LCCConstr.. LCC=e=costIn;
+
+
+*equation TARPost;
+*TarPost.. TAR=g=0;
+
+*(IC*intrate/(1-(1+intrate)**(-5)))
+
+parameters LCCDummy,NPVDummy,CO2Dummy,co2;
+
+$if not set co2 $set co2 -1;
+co2=%co2%;
+equation eCons;
+eCons$(co2>0).. CO2Eq=l=co2;
+
+
+    Model P2PRNFA /ALL/;
+    Option MINLP=BARON;
     Option LP=BARON;
-	Solve P2PRNFA using LP minimizing CO2Eq; 
+    Option NLP=BARON;
+*    Solve P2PRNFA using MINLP maximizing NPV; 
+*     NPVDummy=NPV.l;
+*    NPV.lo=NPVDummy;
+*  Solve P2PRNFA using LP minimizing CO2Eq; 
+
+   Solve P2PRNFA using MINLP minimizing LCC;
+*     LCCDummy=LCC.l;
+*    LCC.up=LCCDummy;
+*   Solve P2PRNFA using MINLP minimizing CO2Eq; 
+*  Solve P2PRNFA using LP minimizing CO2Eq; 
+*  Solve P2PRNFA using LP minimizing kgP; 
+*   Solve P2PRNFA using LP minimizing landArea; 
+*  Solve P2PRNFA using MINLP minimizing CO2Eq; 
+*   CO2Dummy=CO2Eq.l;
+*   CO2Eq.up=CO2Dummy;
+*   Solve P2PRNFA using MINLP minimizing LCC; 
 
 *Display econVTstarInv;
 *Display Astar,rank;
 Display m.l;
 Display f.l;
+Display y.l;
 
-execute_unload 'XNEW.gdx', X,Astar,VCstar,RNFA;
+$if not set file $set file 0
+
+File pareto /pareto%file%.txt/;
+pareto.ap=1;
+pareto.nd=4;
+put pareto"";
+put %basis%",";
+put LCC.l",";
+put CO2Eq.l",";
+put kgP.l",";
+put landArea.l"";
+put /;
+
+File paretovc /paretovc%file%.txt/;
+paretovc.ap=1;
+paretovc.nd=4;
+put paretovc"";
+put %basis%",";
+put LCC.l",";
+put CO2Eq.l",";
+loop(j$vc_c(j),put m.l(j)",");
+put "";
+put /;
+
+File paretornfa /paretornfa%file%.txt/;
+paretornfa.ap=1;
+paretornfa.nd=4;
+put paretornfa"";
+put %basis%",";
+put LCC.l",";
+put CO2Eq.l",";
+loop(j$rnfa_c(j),put m.l(j)",");
+put "";
+put /;
+
+$ontext
+*execute_unload 'XNEW.gdx', X,Astar,VCstar,RNFA,m;
 *execute 'gdxdump X.gdx output=X.csv symb=X format=csv'
 *execute 'gdxdump X.gdx output=Astar.csv symb=Astar format=csv'
 *execute 'gdxdump X.gdx output=VCstar.csv symb=VCstar format=csv'
 *execute 'gdxdump X.gdx output=RNFA.csv symb=RNFA format=csv'
+*execute 'gdxdump XNEW.gdx output=m.csv symb=m format=csv'
 *execute 'rm X.gdx'
 
 *Display Astar;
 *display rank, piv;
 
+Display diffCalcU;
+Display diffCalcV;
+Display diffCalcB;
+Display diffCalcX;
+
+$offtext

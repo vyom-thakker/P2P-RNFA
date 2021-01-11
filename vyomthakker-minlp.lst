@@ -1,0 +1,483 @@
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/06/20 20:54:30 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+      Preparing the RNFA-P2P for 3-MTHF Example
+      Author: Vyom
+      Date: 02/02/2020
+   6   
+   7   
+   8  Sets
+   9  i rows                    /1*417/
+  10  j columns                 /1*425/
+  11  k rowsOfB                 /1*24/
+  12  econ_r(i) commodities I     /1*385/
+  13  econ_rJ(j) commodities I     /1*385/
+  14  vc_r(i) elements K          /386*394/
+  15  rnfa_r(i) chemicals M       /395*417/
+  16  econ_c(j) sectors J         /1*385/
+  17  vc_c(j) processes L        /386*397/
+  18  rnfa_c(j) reactions N        /398*425/
+  19  econ_int(k) interventions  /1*21/
+  20  vc_int(k) vc interventions /22*24/;
+  21   
+  22  parameters
+  23  vcV(j,i)
+  24  vcU(i,j)
+  25  vcB(k,j)
+  26  econV(j,j)
+  27  econU(i,j)
+  28  econB(k,j)
+  29  rnfaV(j,i)
+  30  rnfaU(i,j)
+  31  dcUvc(i,j)
+  32  dcUrnfa(i,j)
+  33  dcVCrnfa(i,j)
+  34  ucUvc(i,j)
+  35  ucUrnfa(i,j)
+  36  ucVCrnfa(i,j)
+  37  p(j)
+  38  phat(j,j)
+  39  Pf(j,i)
+  40  PfU(i,i)
+  41  Pp(j,j);
+  42   
+  43  *vcV(vc_c,vc_r)
+  44  *vcU(vc_r,vc_c)
+  45  *vcB(k,vc_c)
+  46  *econV(econ_c,econ_r)
+  47  *econU(econ_r,econ_c)
+  48  *econB(k,econ_rJ)
+  49  *rnfaV(rnfa_c,rnfa_r)
+  50  *rnfaU(rnfa_r,rnfa_c)
+  51  *dcUvc(vc_r,econ_c)
+  52  *dcUrnfa(rnfa_r,econ_c)
+  53  *dcVCrnfa(rnfa_r,vc_c)
+  54  *ucUvc(econ_r,vc_c)
+  55  *ucUrnfa(econ_r,rnfa_c)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/06/20 20:54:30 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+  56  *ucVCrnfa(vc_r,rnfa_c)
+  57  *p(vc_c)
+  58  *phat(vc_c,vc_c)
+  59  *Pf(econ_rJ,vc_r)
+  60  *PfU(econ_r,vc_r)
+  61  *Pp(vc_c,econ_c);
+  62   
+345945   
+345946  positive variable m(j);
+345947  variable f(i);
+345948  variable g(k);
+345949   
+345950   
+345951   
+345952  variables
+345953  vcVstar(j,i)
+345954  vcUstar(i,j)
+345955  econVstar(j,j)
+345956  econUstar(i,j);
+345957   
+345958  parameters
+345959  PfT(i,j)
+345960  PpT(j,j);
+345961   
+345962  PfT(vc_r,econ_rJ)=Pf(econ_rJ,vc_r);
+345963  PpT(econ_c,vc_c)=Pp(vc_c,econ_c);
+345964  phat(vc_c,vc_c)=p(vc_c);
+345965  *rnfaV(rnfa_c,'417')=0;
+345966   
+345967  alias(i,id1,id2);
+345968  alias(j,jd1,jd2,jd3);
+345969   
+345970  binary variable y(j);
+345971   
+345972  equation activeProcess(vc_c);
+345973  activeProcess(vc_c).. (1-y(vc_c))*m(vc_c)=e=0;
+345974  *activeProcess(vc_c).. y(vc_c)$(m(vc_c)>0)=e=1;
+345975   
+345976   
+345977  equations disagg1(econ_c,econ_rJ),disagg2(econ_r,econ_c),disagg3(econ_rJ,econ_c);
+345978   
+345979   
+345980  disagg1(econ_c,econ_rJ).. econVstar(econ_c,econ_rJ)=e=econV(econ_c,econ_rJ)-sum(jd1$vc_c(jd1),PpT(econ_c,jd1)*y(jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*sum(id1$vc_r(id1),vcV(jd2,id1)*PfT(id1,econ_rJ))));
+345981   
+345982  *parameter diffCalc(econ_c,econ_rJ);
+345983  *diffCalc(econ_c,econ_rJ)=econVstar(econ_c,econ_rJ)-econV(econ_c,econ_rj);
+345984   
+345985   
+345986  disagg2(econ_r,econ_c).. econUstar(econ_r,econ_c)=e=econU(econ_r,econ_c)-(sum(id1$vc_r(id1),PfU(econ_r,id1)*sum(jd1$vc_c(jd1),vcU(id1,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*y(jd2)*Pp(jd2,econ_c))))+sum(id2$vc_r(id2),PfU(econ_r,id2)*dcUvc(id2,econ_c)
+        )+sum(jd3$vc_c(jd3),ucUvc(econ_r,jd3)*y(jd3)*Pp(jd3,econ_c)));
+345987   
+345988  variable econVTstar(econ_rJ,econ_c);
+345989  disagg3(econ_rJ,econ_c).. econVTstar(econ_rJ,econ_c)=e=econVstar(econ_c,econ_rJ);
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/06/20 20:54:30 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+345990   
+345991  *variable econVTstarInv(econ_c,econ_rJ);
+345992  *execute_unload 'econVstar.gdx', i,j,econVstar;
+345993  *execute '=invert.exe econVstar.gdx i j econVstar econVstarInv.gdx econVstarInv';
+345994  *execute_load 'econVstarInv.gdx', econVstarInv;
+345995   
+345996  *$offlisting
+345997  *$include inverseMat.gms
+345998  *$onlisting
+345999   
+346000  *Alias (econ_rJ,ip), (econ_c,jp);
+346001   
+346002   
+346003  **Parameter
+346004  *   bp(econ_rJ,econ_c)   'permuted and transposed inverse of a'
+346005  *   pair(econ_rJ,econ_c) 'pivoting sequence and permutation'
+346006  *   rank      'rank of matrix a'
+346007  *   piv
+346008  *   big
+346009  *   tol;
+346010  *
+346011  *Set
+346012  *   r(econ_rJ)   'pivot row candidates'
+346013  *   npr(econ_rJ) 'non pivot rows'
+346014  *   s(econ_c)   'pivot column candidates'
+346015  *   nps(econ_c) 'non pivot columns';
+346016  *
+346017  *r(econ_rJ)    = yes;
+346018  *s(econ_c)    = yes;
+346019  *bp(econ_rJ,econ_c) = econVTstar(econ_rJ,econ_c);
+346020  *rank    = 0;
+346021  *tol     = 1e-5;
+346022  *
+346023  *loop(econ_c,
+346024  *   big = smax((r,s), abs(bp(r,s)));
+346025  *   big$(big < tol) = 0;
+346026  *   npr(econ_rJ)   = yes;
+346027  *   nps(jp)  = yes;
+346028  *   loop((r,s)$(big and big = abs(bp(r,s))),
+346029  *      rank = rank + 1;
+346030  *      pair(r,s) = rank;
+346031  *      piv    = 1/bp(r,s);
+346032  *      big    = 0;
+346033  *      npr(r) = no;
+346034  *      nps(s) = no;
+346035  *
+346036  *      bp(  r,nps)  =  bp(r,nps)*piv;
+346037  *      bp(npr,nps)  =  bp(npr,nps) - bp(r,nps)*bp(npr,s);
+346038  *      bp(npr,  s)  = -bp(npr,s)*piv;
+346039  *      bp(  r,  s)  =  piv;
+346040  *   );
+346041  *   r(r) = npr(r);
+346042  *   s(s) = nps(s);
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/06/20 20:54:30 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+346043  *);
+346044   
+346045  *econVTstarInv(econ_c,econ_rJ) = sum((ip,jp)$(pair(econ_rJ,jp) and pair(ip,econ_c)), bp(ip,jp));
+346046   
+346047  *econVTstarInv(econ_c,econ_r)=round(econVTstarInv(econ_c,econ_r),4);
+346048   
+346049   
+346050  equations econEq1(econ_r,econ_c),econEq2(econ_r,econ_rJ);
+346051   
+346052  Alias(econ_c,econ_c_d1);
+346053  Alias(econ_rJ,econ_rJ_d1);
+346054  variable Astar(econ_r,econ_rJ);
+346055  econEq1(econ_r,econ_c).. sum(econ_rJ_d1,Astar(econ_r,econ_rJ_d1)*econVTstar(econ_rJ_d1,econ_c))=e=econUstar(econ_r,econ_c);
+346056   
+346057  Alias(econ_r,econ_r_d1);
+346058  Alias(econ_rJ,econ_rJ_d1);
+346059  parameter ident(econ_r,econ_rJ);
+346060  ident(econ_r,econ_rj)$(ord(econ_r)=ord(econ_rJ))=1;
+346061   
+346062  variable L(i,j);
+346063  econEq2(econ_r,econ_rJ).. L(econ_r,econ_rJ)=e=ident(econ_r,econ_rJ)-Astar(econ_r,econ_rJ);
+346064   
+346065   
+346066   
+346067  parameter vcVT(i,j);
+346068  vcVT(i,j)=vcV(j,i);
+346069  variable VCstar(i,j);
+346070  equation vcEq1(vc_r,vc_c);
+346071  vcEq1(vc_r,vc_c).. VCstar(vc_r,vc_c)=e=vcVT(vc_r,vc_c)-vcU(vc_r,vc_c);
+346072   
+346073  parameter rnfaVT(i,j);
+346074  rnfaVT(i,j)=rnfaV(j,i);
+346075  variable RNFA(i,j);
+346076  equation rnfaEq1(rnfa_r,rnfa_c);
+346077  rnfaEq1(rnfa_r,rnfa_c).. RNFA(rnfa_r,rnfa_c)=e=rnfaVT(rnfa_r,rnfa_c)-rnfaU(rnfa_r,rnfa_c);
+346078   
+346079  equation xEq1(i,j);
+346080  variable X(i,j);
+346081  xEq1(i,j).. X(i,j)=e=L(i,j)+dcUvc(i,j)+dcUrnfa(i,j)+ucUvc(i,j)+ucUrnfa(i,j)+dcVCrnfa(i,j)+ucVCrnfa(i,j)+VCstar(i,j)+RNFA(i,j);
+346082  parameter B(k,j);
+346083  B(k,j)=round(econB(k,j),3)+vcB(k,j);
+346084   
+346085  *Display X;
+346086   
+346087   
+346088   
+346089  sets
+346090      li(j,i) limitingsets /399.395, 400.395, 401.395, 402.396, 403.396, 404.396, 405.401, 406.402, 407.397, 408.400, 409.398, 410.400, 411.395, 412.395, 413.395, 414.403, 415.406, 416.406, 417.410, 418.404, 419.404, 420.407, 421.411, 422.405, 423.4
+        08, 424.412, 425.409/
+346091      posb(i) positive products /395*411,416/;
+346092   
+346093  parameter yei(j) Yield /399 0.97, 400 0.97, 401 0.97, 402 0.97, 403 0.97, 404 0.97, 405 0.97, 406 0.97, 407 0.97, 408 0.97, 409 0.97, 410 0.97, 411 0.97, 412 0.97, 413 0.97, 414 0.97, 415 0.97, 416 0.97, 417 0.97, 418 0.97, 419 0.97, 420 0.97, 421
+         0.97, 422 0.97, 423 0.97, 424 0.97, 425 0.97/;
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/06/20 20:54:30 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+346094   
+346095  f.lo(i)$(posb(i)) =0;
+346096  f.fx(i)$(vc_r(i)) =0;
+346097  f.lo(i)$(econ_r(i)) =0;
+346098  f.fx('417')=0;
+346099  m.fx('397')=0;
+346100  m.fx('386')=0;
+346101   
+346102   
+346103  *Enter Bases in mol/sec
+346105   
+346106  equation LCModel(i);
+346107   
+346108  LCModel(i).. sum(j,X(i,j)*m(j))=e=f(i);
+346109   
+346110  equation LCIntModel(k);
+346111   
+346112  LCIntModel(k)..sum(j,B(k,j)*m(j))=e=g(k);
+346113   
+346114  equation yeildConstr(j,i);
+346115  yeildConstr(j,i)$li(j,i).. m(j)=l= yei(j)*sum(jd1,X(i,jd1)*m(jd1))/(abs(X(i,j))*(1-yei(j)));
+346116   
+346117   
+346118   
+346119  equation MTHFProd;
+346120  MTHFProd.. f('399')=e=1;
+346121   
+346122   
+346123  equation CO2EqConstr;
+346124  variable CO2Eq;
+346125  CO2EqConstr.. CO2Eq=e=g('4')+g('22');
+346126  equation kgPConstr;
+346127  variable kgP;
+346128  kgPConstr.. kgP=e=g('23');
+346129   
+346130  set A1f1(j,i) /399.395, 400.395, 401.395, 417.413, 421.413, 411.414, #rnfa_c.415/;
+346131  set A3f3(j,i) /409.399,410.399/;
+346132   
+346133  parameter Hcom(i) /395 0.731, 413 0.216, 414 0.236, 415 0.285, 399 0.218/;
+346134  *parameter costVals(i) /395 , 399 , 413 , 414 , 415/;
+346135   
+346136   
+346137  equation DeltaEeq;
+346138  variable DeltaE;
+346139  DeltaEeq.. DeltaE=e=sum((j,i)$A1f1(j,i),abs(X(i,j))*m(j)*Hcom(i))-sum((j,i)$A3f3(j,i),abs(X(i,j))*m(j)*Hcom(i));
+346140   
+346141  equation ICEq;
+346142  variable IC;
+346143  ICEq.. IC=e=3*DeltaE*0.35;
+346144   
+346145  set U2RNFA(i,j) /#econ_r.#rnfa_c/;
+346146  set U2VC(i,j) /#econ_r.#vc_c/;
+346147  set IASource(j) /391*396/;
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/06/20 20:54:30 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+346148  parameter costIASource(j) /391 1.6, 392 6.88, 393 9.98, 394 0.321, 395 0.061, 396 0.101/;
+346149  equation costInEq;
+346150  variable costIn;
+346151  CostInEq.. costIn=e=sum((i,j)$U2RNFA(i,j),abs(X(i,j))*m(j))+sum((i,j)$U2VC(i,j),abs(X(i,j))*m(j))+sum(j$IAsource(j),costIASource(j)*m(j));
+346152   
+346153  scalar intrate /0.05/;
+346154  equation TARConstr;
+346155  variable TAR;
+346156  TARConstr.. TAR=e=(f('399')*5000*86*10**(-6))-costIn;
+346157   
+346158  variable NPV;
+346159  equation NPVConstr;
+346160  NPVConstr.. NPV=e= TAR*7.27 -IC;
+346161   
+346162  variable landArea;
+346163  equation landAreaEq;
+346164  landAreaEq.. landArea=e=g('14')+g('24');
+346165   
+346166   
+346167   
+346168  *equation fruitConstr1,fruitConstr2;
+346169  *fruitConstr1.. m('395')=l=0.3*(m('394')+m('395')+m('396'));
+346170  *fruitConstr2.. m('396')=l=0.3*(m('394')+m('395')+m('396'));
+346171   
+346172  equation LCCConstr;
+346173  variable LCC;
+346174  LCCConstr.. LCC=e=costIn;
+346175   
+346176   
+346177  *equation TARPost;
+346178  *TarPost.. TAR=g=0;
+346179   
+346180  *(IC*intrate/(1-(1+intrate)**(-5)))
+346181   
+346182  parameters LCCDummy,NPVDummy,CO2Dummy,co2;
+346183   
+346185  co2=-1;;
+346186  equation eCons;
+346187  eCons$(co2>0).. CO2Eq=l=co2;
+346188   
+346189   
+346190      Model P2PRNFA /ALL/;
+346191      Option MINLP=BARON;
+346192  *    Solve P2PRNFA using LP maximizing NPV;
+346193  *     NPVDummy=NPV.l;
+346194  *    NPV.lo=NPVDummy;
+346195  *   Solve P2PRNFA using LP minimizing CO2Eq;
+346196   
+346197  *    Solve P2PRNFA using LP minimizing LCC;
+346198  *     LCCDummy=LCC.l;
+346199  *    LCC.up=LCCDummy;
+346200  *   Solve P2PRNFA using LP minimizing CO2Eq;
+346201  *  Solve P2PRNFA using LP minimizing CO2Eq;
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/06/20 20:54:30 Page 7
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+346202  *  Solve P2PRNFA using LP minimizing kgP;
+346203  *   Solve P2PRNFA using LP minimizing landArea;
+346204    Solve P2PRNFA using MINLP minimizing CO2Eq;
+346205  *   CO2Dummy=CO2Eq.l;
+346206  *   CO2Eq.up=CO2Dummy;
+346207  *   Solve P2PRNFA using LP minimizing LCC;
+346208   
+346209  *Display econVTstarInv;
+346210  *Display Astar,rank;
+346211  Display m.l;
+346212  Display f.l;
+346213   
+346214  *$if not set file $set file 0
+346215  *
+346216  *File pareto /pareto%file%.txt/;
+346217  *pareto.ap=1;
+346218  *pareto.nd=4;
+346219  *put pareto"";
+346220  *put %basis%",";
+346221  *put LCC.l",";
+346222  *put CO2Eq.l",";
+346223  *put kgP.l",";
+346224  *put landArea.l"";
+346225  *put /;
+346226  *
+346227  *File paretoAll3 /paretoAll3.txt/;
+346228  *paretoAll3.ap=1;
+346229  *paretoAll3.nd=4;
+346230  *put paretoAll3"";
+346231  *put %basis%",";
+346232  *put LCC.l",";
+346233  *put CO2Eq.l",";
+346234  *put kgP.l",";
+346235  *put landArea.l",";
+346236  *loop(j$vc_c(j),put m.l(j)",");
+346237  **loop(j$rnfa_c(j),put m.l(j)",");
+346238  *put "";
+346239  *put /;
+346240  *
+346241  *File paretoAll4 /paretoAll4.txt/;
+346242  *paretoAll4.ap=1;
+346243  *paretoAll4.nd=4;
+346244  *put paretoAll4"";
+346245  *put %basis%",";
+346246  *put LCC.l",";
+346247  *put CO2Eq.l",";
+346248  *put kgP.l",";
+346249  *put landArea.l",";
+346250  **loop(j$vc_c(j),put m.l(j)",");
+346251  *loop(j$rnfa_c(j),put m.l(j)",");
+346252  *put "";
+346253  *put /;
+346254  *
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/06/20 20:54:30 Page 8
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+346255  *execute_unload 'XNEW.gdx', X,Astar,VCstar,RNFA,m;
+346256  *execute 'gdxdump X.gdx output=X.csv symb=X format=csv'
+346257  *execute 'gdxdump X.gdx output=Astar.csv symb=Astar format=csv'
+346258  *execute 'gdxdump X.gdx output=VCstar.csv symb=VCstar format=csv'
+346259  *execute 'gdxdump X.gdx output=RNFA.csv symb=RNFA format=csv'
+346260  *execute 'gdxdump XNEW.gdx output=m.csv symb=m format=csv'
+346261  *execute 'rm X.gdx'
+346262   
+346263  *Display Astar;
+346264  *display rank, piv;
+346265   
+
+**** LIST OF STRAY NAMES - CHECK DECLARATIONS FOR SPURIOUS COMMAS
+**** STRAY NAME NPVDummy OF TYPE PARAM
+**** STRAY NAME CO2Dummy OF TYPE PARAM
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      11/06/20 20:54:30 Page 9
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  /home/vyom/P2P-RNFA/P2P-RNFA/vyomthakker-minlp.gms
+     2       64 INCLUDE        1      64  ./home/vyom/P2P-RNFA/P2P-RNFA/incfile1.inc
+
+
+COMPILATION TIME     =        0.414 SECONDS     28 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     11/06/20 20:54:30 Page 10
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE P2PRNFA Using MINLP From line 346204
+
+
+---- activeProcess  =E=  
+
+activeProcess(386)..  (1)*m(386) + (0)*y(386) =E= 0 ; (LHS = 0)
+     
+activeProcess(387)..  (1)*m(387) + (0)*y(387) =E= 0 ; (LHS = 0)
+     
+activeProcess(388)..  (1)*m(388) + (0)*y(388) =E= 0 ; (LHS = 0)
+     
+REMAINING 9 ENTRIES SKIPPED
+
+
+---- disagg1  =E=  
+
+disagg1(1,1)..  econVstar(1,1) =E= 42263 ; (LHS = 0, INFES = 42263 ****)
+     
+disagg1(1,2)..  econVstar(1,2) =E= 0 ; (LHS = 0)
+     
+disagg1(1,3)..  econVstar(1,3) =E= 0 ; (LHS = 0)
+     
+REMAINING 148222 ENTRIES SKIPPED
+
+
+---- disagg2  =E=  
+
+disagg2(1,1)..  econUstar(1,1) =E= 2507 ; (LHS = 0, INFES = 2507 ****)
+     
+disagg2(1,2)..  econUstar(1,2) =E= 145 ; (LHS = 0, INFES = 145 ****)
+     
+disagg2(1,3)..  econUstar(1,3) =E= 4 ; (LHS = 0, INFES = 4 ****)
+     
+REMAINING 148222 ENTRIES SKIPPED
+
+
+---- disagg3  =E=  
+
+disagg3(1,1)..  - econVstar(1,1) + econVTstar(1,1) =E= 0 ; (LHS = 0)
+     
+disagg3(1,2)..  - econVstar(2,1) + econVTstar(1,2) =E= 0 ; (LHS = 0)
+     
+disagg3(1,3)..  - econVstar(
