@@ -307,10 +307,6 @@ B.fx(vc_int,rnfa_c)=0;
 f.fx(i)$(vc_r(i)) =0;
 f.lo(i)$(econ_r(i)) =0;
 m.lo(j)=0;
-*m.fx('417')=0;
-*m.fx('397')=0;
-*m.fx('386')=0;
-
 
 *Enter Bases in mol/sec
 $if not set basis $set basis 1
@@ -392,12 +388,12 @@ LCCConstr.. LCC=e=costIn;
 
 *(IC*intrate/(1-(1+intrate)**(-5)))
 
-parameters LCCDummy,NPVDummy,CO2Dummy,co2;
+parameters LCCDummy,NPVDummy,CO2Dummy,elcc;
 
-$if not set co2 $set co2 -1;
-co2=%co2%;
+$if not set elccval $set elccval -1;
+elcc=%elccval%;
 equation eCons;
-eCons$(co2>0).. CO2Eq=l=co2;
+eCons$(elcc>0).. LCC=l=elcc;
 
 
 variable dumm;
@@ -413,17 +409,17 @@ dumeq.. dumm=e=0;
 *    NPV.lo=NPVDummy;
 *   Solve P2PRNFA using LP minimizing CO2Eq; 
 
-    Solve P2PRNFA using NLP minimizing LCC;
-*     LCCDummy=LCC.l;
-*    LCC.up=LCCDummy;
+   Solve P2PRNFA using NLP minimizing LCC;
+*    LCCDummy=LCC.l;
+*   LCC.up=LCCDummy;
 *   Solve P2PRNFA using NLP minimizing CO2Eq; 
-*  Solve P2PRNFA using LP minimizing CO2Eq; 
+*Solve P2PRNFA using NLP minimizing CO2Eq; 
 *  Solve P2PRNFA using LP minimizing kgP; 
 *   Solve P2PRNFA using LP minimizing landArea; 
-*  Solve P2PRNFA using MINLP minimizing CO2Eq; 
-*   CO2Dummy=CO2Eq.l;
-*   CO2Eq.up=CO2Dummy;
-*   Solve P2PRNFA using LP minimizing LCC; 
+* Solve P2PRNFA using NLP minimizing CO2Eq; 
+*  CO2Dummy=CO2Eq.l;
+*  CO2Eq.up=CO2Dummy;
+*  Solve P2PRNFA using NLP minimizing LCC; 
 
 *Display econVTstarInv;
 *Display Astar,rank;
@@ -436,18 +432,29 @@ diffCalc1(econ_c,econ_rJ)=econVstar.l(econ_c,econ_rJ)-econV(econ_c,econ_rj);
 diffCalc2(econ_r,econ_c)=econUstar.l(econ_r,econ_c)-econU(econ_r,econ_c);
 Display diffCalc1,diffCalc2;
 
-*$if not set file $set file 0
+$if not set file $set file 0
+$if not set textval $set textval 0
 *
-*File pareto /pareto%file%.txt/;
-*pareto.ap=1;
-*pareto.nd=4;
-*put pareto"";
-*put %basis%",";
-*put LCC.l",";
-*put CO2Eq.l",";
-*put kgP.l",";
-*put landArea.l"";
-*put /;
+File pareto /pareto%file%.txt/;
+pareto.ap=1;
+pareto.nd=4;
+pareto.pw=32767;
+put pareto"";
+put %basis%",";
+put LCC.l",";
+put CO2Eq.l",";
+loop(j,put m.l(j)",");
+put "%textval%";
+put "";
+put /;
+
+
+execute_unload 'X.gdx', X;
+execute 'gdxdump X.gdx output=X.csv symb=X format=csv'
+
+execute_unload 'B.gdx', B;
+execute 'gdxdump B.gdx output=B.csv symb=B format=csv'
+execute 'python convert_to_inc.py'
 *
 *File paretoAll3 /paretoAll3.txt/;
 *paretoAll3.ap=1;
