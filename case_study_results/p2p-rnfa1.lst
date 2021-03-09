@@ -1,0 +1,2946 @@
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      03/03/21 21:42:20 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+      Preparing the RNFA-P2P for 3-MTHF Example
+      Author: Vyom
+      Date: 02/02/2020
+   6   
+   7   
+   8  Sets
+   9  i rows                    /1*417/
+  10  j columns                 /1*425/
+  11  k rowsOfB                 /1*24/
+  12  econ_r(i) commodities I     /1*385/
+  13  econ_rJ(j) commodities I     /1*385/
+  14  vc_r(i) elements K          /386*394/
+  15  rnfa_r(i) chemicals M       /395*417/
+  16  econ_c(j) sectors J         /1*385/
+  17  vc_c(j) processes L        /386*397/
+  18  rnfa_c(j) reactions N        /398*425/
+  19  econ_int(k) interventions /1*21/
+  20  vc_int(k) vc interventions/22*24/;
+  21   
+  22  parameters
+  23  vcV(j,i)
+  24  vcU(i,j)
+  25  vcB(k,j)
+  26  econV(j,j)
+  27  econU(i,j)
+  28  A(i,j)
+  29  econB(k,j)
+  30  rnfaV(j,i)
+  31  rnfaU(i,j)
+  32  dcUvc(i,j)
+  33  dcUrnfa(i,j)
+  34  dcVCrnfa(i,j)
+  35  ucUvc(i,j)
+  36  ucUrnfa(i,j)
+  37  ucVCrnfa(i,j)
+  38  p(j)
+  39  phat(j,j)
+  40  Pf(j,i)
+  41  PfU(i,i)
+  42  Pp(j,j)
+  43  Pb(k,k);
+  44   
+  45  *vcV(vc_c,vc_r)
+  46  *vcU(vc_r,vc_c)
+  47  *vcB(k,vc_c)
+  48  *econV(econ_c,econ_r)
+  49  *econU(econ_r,econ_c)
+  50  *econB(k,econ_rJ)
+  51  *rnfaV(rnfa_c,rnfa_r)
+  52  *rnfaU(rnfa_r,rnfa_c)
+  53  *dcUvc(vc_r,econ_c)
+  54  *dcUrnfa(rnfa_r,econ_c)
+  55  *dcVCrnfa(rnfa_r,vc_c)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      03/03/21 21:42:20 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+  56  *ucUvc(econ_r,vc_c)
+  57  *ucUrnfa(econ_r,rnfa_c)
+  58  *ucVCrnfa(vc_r,rnfa_c)
+  59  *p(vc_c)
+  60  *phat(vc_c,vc_c)
+  61  *Pf(econ_rJ,vc_r)
+  62  *PfU(econ_r,vc_r)
+  63  *Pp(vc_c,econ_c);
+  64   
+  65  dcUvc(vc_r,econ_c)=0;
+  66  dcUrnfa(rnfa_r,econ_c)=0;
+  67  ucUvc(econ_r,vc_c)=0;
+  68  ucUrnfa(econ_r,rnfa_c)=0;
+  69   
+  70   
+  71   
+493822   
+493823   
+493824  *ucUrnfa('93','422')=-50;
+493825  *ucUrnfa('92','411')=-0.0
+493826   
+493827   
+493828  *ucUrnfa('92','411')=-0.03;
+493829  ucUrnfa('92','417')=-0.021;
+493830  ucUrnfa('92','421')=-0.021;
+493831   
+493832  parameters
+493833  vcVstar(j,i)
+493834  vcUstar(i,j)
+493835  econVstar(j,j)
+493836  econUstar(i,j)
+493837  econBstar(k,j)
+493838  econR(k,j);
+493839   
+493840  parameters
+493841  PfT(i,j)
+493842  PpT(j,j);
+493843   
+493844  PfT(vc_r,econ_rJ)=Pf(econ_rJ,vc_r);
+493845  PpT(econ_c,vc_c)=Pp(vc_c,econ_c);
+493846  phat(vc_c,vc_c)=p(vc_c);
+493847  *rnfaV(rnfa_c,'417')=0;
+493848   
+493849  alias(i,id1,id2);
+493850  alias(k,kd1,kd2);
+493851  alias(j,jd1,jd2,jd3);
+493852  econVstar(econ_c,econ_rJ)=econV(econ_c,econ_rJ)-sum(jd1$vc_c(jd1),PpT(econ_c,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*sum(id1$vc_r(id1),vcV(jd2,id1)*PfT(id1,econ_rJ))));
+493853   
+493854  econR(econ_int,econ_c)=econB(econ_int,econ_c)*sum(econ_rJ,econV(econ_c,econ_rJ));
+493855   
+493856   
+493857   
+493858  econUstar(econ_r,econ_c)=econU(econ_r,econ_c)-(sum(id1$vc_r(id1),PfU(econ_r,id1)*sum(jd1$vc_c(jd1),vcU(id1,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*Pp(jd2,econ_c))))+sum(id2$vc_r(id2),PfU(econ_r,id2)*dcUvc(id2,econ_c))+sum(jd3$vc_c(jd3),ucUvc(econ_r,j
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      03/03/21 21:42:20 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+        d3)*Pp(jd3,econ_c)));
+493859   
+493860   
+493861  parameter econVTstar(econ_rJ,econ_c);
+493862  econVTstar(econ_rJ,econ_c)=econVstar(econ_c,econ_rJ);
+493863   
+493864  parameter econVTstarOne(econ_c);
+493865  econVTstarOne(econ_c)=sum(econ_rJ,econVTstar(econ_rJ,econ_c));
+493866   
+493867   
+493868  econBstar(econ_int,econ_c)=(econR(econ_int,econ_c)-sum(kd1$vc_int(kd1),Pb(econ_int,kd1)*sum(jd1$vc_c(jd1),vcB(kd1,jd1)*Pp(jd1,econ_c))))/econVTstarOne(econ_c);
+493869   
+493870  parameter econVTstarInv(econ_c,econ_rJ);
+493871   
+493872   
+493873   
+493874   
+493875  *execute_unload 'econVstar.gdx', i,j,econVstar;
+493876  *execute '=invert.exe econVstar.gdx i j econVstar econVstarInv.gdx econVstarInv';
+493877  *execute_load 'econVstarInv.gdx', econVstarInv;
+493878   
+493879  *$offlisting
+493880  *$include inverseMat.gms
+493881  *$onlisting
+493882   
+493883  Alias (econ_rJ,ip), (econ_c,jp);
+493884   
+493885   
+493886  Parameter
+493887     bp(econ_rJ,econ_c)   'permuted and transposed inverse of a'
+493888     pair(econ_rJ,econ_c) 'pivoting sequence and permutation'
+493889     rank      'rank of matrix a'
+493890     piv
+493891     big
+493892     tol;
+493893   
+493894  Set
+493895     r(econ_rJ)   'pivot row candidates'
+493896     npr(econ_rJ) 'non pivot rows'
+493897     s(econ_c)   'pivot column candidates'
+493898     nps(econ_c) 'non pivot columns';
+493899   
+493900  r(econ_rJ)    = yes;
+493901  s(econ_c)    = yes;
+493902  bp(econ_rJ,econ_c) = econVTstar(econ_rJ,econ_c);
+493903  rank    = 0;
+493904  tol     = 1e-5;
+493905   
+493906  loop(econ_c,
+493907     big = smax((r,s), abs(bp(r,s)));
+493908     big$(big < tol) = 0;
+493909     npr(econ_rJ)   = yes;
+493910     nps(jp)  = yes;
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      03/03/21 21:42:20 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+493911     loop((r,s)$(big and big = abs(bp(r,s))),
+493912        rank = rank + 1;
+493913        pair(r,s) = rank;
+493914        piv    = 1/bp(r,s);
+493915        big    = 0;
+493916        npr(r) = no;
+493917        nps(s) = no;
+493918   
+493919        bp(  r,nps)  =  bp(r,nps)*piv;
+493920        bp(npr,nps)  =  bp(npr,nps) - bp(r,nps)*bp(npr,s);
+493921        bp(npr,  s)  = -bp(npr,s)*piv;
+493922        bp(  r,  s)  =  piv;
+493923     );
+493924     r(r) = npr(r);
+493925     s(s) = nps(s);
+493926  );
+493927   
+493928  econVTstarInv(econ_c,econ_rJ) = sum((ip,jp)$(pair(econ_rJ,jp) and pair(ip,econ_c)), bp(ip,jp));
+493929   
+493930  *econVTstarInv(econ_c,econ_r)=round(econVTstarInv(econ_c,econ_r),4);
+493931   
+493932  Alias(econ_c,econ_c_d1);
+493933  parameter Astar(econ_r,econ_rJ);
+493934  Astar(econ_r,econ_rJ)=sum(econ_c_d1,econUstar(econ_r,econ_c_d1)*econVTstarInv(econ_c_d1,econ_rJ));
+493935   
+493936   
+493937   
+493938  parameter econVTInv(econ_c,econ_rJ);
+493939   
+493940  parameter econVT(econ_rJ,econ_c);
+493941  econVT(econ_rJ,econ_c)=econV(econ_c,econ_rJ);
+493942   
+493943  r(econ_rJ)    = yes;
+493944  s(econ_c)    = yes;
+493945  bp(econ_rJ,econ_c) = econVT(econ_rJ,econ_c);
+493946  rank    = 0;
+493947  tol     = 1e-5;
+493948   
+493949  loop(econ_c,
+493950     big = smax((r,s), abs(bp(r,s)));
+493951     big$(big < tol) = 0;
+493952     npr(econ_rJ)   = yes;
+493953     nps(jp)  = yes;
+493954     loop((r,s)$(big and big = abs(bp(r,s))),
+493955        rank = rank + 1;
+493956        pair(r,s) = rank;
+493957        piv    = 1/bp(r,s);
+493958        big    = 0;
+493959        npr(r) = no;
+493960        nps(s) = no;
+493961   
+493962        bp(  r,nps)  =  bp(r,nps)*piv;
+493963        bp(npr,nps)  =  bp(npr,nps) - bp(r,nps)*bp(npr,s);
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      03/03/21 21:42:20 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+493964        bp(npr,  s)  = -bp(npr,s)*piv;
+493965        bp(  r,  s)  =  piv;
+493966     );
+493967     r(r) = npr(r);
+493968     s(s) = nps(s);
+493969  );
+493970   
+493971  econVTInv(econ_c,econ_rJ) = sum((ip,jp)$(pair(econ_rJ,jp) and pair(ip,econ_c)), bp(ip,jp));
+493972   
+493973  parameter A1(econ_r,econ_rJ);
+493974  A1(econ_r,econ_rJ)=sum(econ_c_d1,econU(econ_r,econ_c_d1)*econVTInv(econ_c_d1,econ_rJ));
+493975   
+493976   
+493977  Alias(econ_r,econ_r_d1);
+493978  Alias(econ_rJ,econ_rJ_d1);
+493979  parameter ident(econ_r,econ_rJ);
+493980  ident(econ_r,econ_rj)$(ord(econ_r)=ord(econ_rJ))=1;
+493981   
+493982  parameter L(i,j);
+493983  parameter L1(i,j);
+493984  L(econ_r,econ_rJ)=ident(econ_r,econ_rJ)-Astar(econ_r,econ_rJ);
+493985  L1(econ_r,econ_rJ)=ident(econ_r,econ_rJ)-A1(econ_r,econ_rJ);
+493986   
+493987  parameter vcVT(i,j);
+493988  vcVT(i,j)=vcV(j,i);
+493989  parameter VCstar(i,j);
+493990  VCstar(i,j)=vcVT(i,j)-vcU(i,j);
+493991   
+493992  parameter rnfaVT(i,j);
+493993  rnfaVT(i,j)=rnfaV(j,i);
+493994  parameter RNFA(i,j);
+493995  RNFA(i,j)=rnfaVT(i,j)-rnfaU(i,j);
+493996   
+493997   
+493998  parameter XSTAR(i,j);
+493999  parameter X(i,j);
+494000  XSTAR(i,j)=round(L(i,j),3)+dcUvc(i,j)+dcUrnfa(i,j)+ucUvc(i,j)+ucUrnfa(i,j)+dcVCrnfa(i,j)+ucVCrnfa(i,j)+VCstar(i,j)+RNFA(i,j);
+494001  X(i,j)=round(L1(i,j),3)+dcUvc(i,j)+dcUrnfa(i,j)+ucUvc(i,j)+ucUrnfa(i,j)+dcVCrnfa(i,j)+ucVCrnfa(i,j)+VCstar(i,j)+RNFA(i,j);
+494002  parameter BSTAR(k,j);
+494003  parameter B(k,j);
+494004  BSTAR(k,j)=round(econBSTAR(k,j),3)+vcB(k,j);
+494005  B(k,j)=round(econB(k,j),3)+vcB(k,j);
+494006   
+494007  *Display X;
+494008   
+494009   
+494010   
+494011  sets
+494012      li(j,i) limitingsets /399.395, 400.395, 401.395, 402.396, 403.396, 404.396, 405.401, 406.402, 407.397, 408.400, 409.398, 410.400, 411.395, 412.395, 413.395, 414.403, 415.406, 416.406, 417.410, 418.404, 419.404, 420.407, 421.411, 422.405, 423.4
+        08, 424.412, 425.409/
+494013      posb(i) positive products /395*411,416/;
+494014   
+494015  parameter yei(j) Yield /399 0.97, 400 0.97, 401 0.97, 402 0.97, 403 0.97, 404 0.97, 405 0.97, 406 0.97, 407 0.97, 408 0.97, 409 0.97, 410 0.97, 411 0.97, 412 0.97, 413 0.97, 414 0.97, 415 0.97, 416 0.97, 417 0.97, 418 0.97, 419 0.97, 420 0.97, 421
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      03/03/21 21:42:20 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+         0.97, 422 0.97, 423 0.97, 424 0.97, 425 0.97/;
+494016   
+494017   
+494018  positive variable m(j);
+494019  variable f(i);
+494020  variable g(k);
+494021   
+494022  f.lo(i)$(posb(i)) =0;
+494023  f.fx(i)$(vc_r(i)) =0;
+494024  f.lo(i)$(econ_r(i)) =0;
+494025  f.up(i)$(econ_r(i)) =100;
+494026  f.fx('417')=0;
+494027  m.fx('397')=0;
+494028  m.fx('386')=0;
+494029  m.fx('410')=0;
+494030  *m.fx('411')=0;
+494031  *m.fx('413')=0;
+494032  *m.fx('408')=0;
+494033   
+494034   
+494035  *positive variable y;
+494036  *equation lineqn;
+494037  binary variable y;
+494038  equation bineqn1,bineqn2;
+494039  bineqn1.. m('394')-1000=l=860000*(y);
+494040  bineqn2.. m('394')=g=1000*y;
+494041  *lineqn.. m('394')=g=511319*y;
+494042  *binary variables z1,z2,z3;
+494043  *equation bineqn2,bineqn3,bineqn4;
+494044  *bineqn2.. (-0.05)*z1+0.05*z3=l=m('394');
+494045  *bineqn3.. (-0.05)*z1+860000*z3=g=m('394');
+494046  *bineqn4.. z1+z2+z3=e=1;
+494047  *bineqn1.. y=e=1-z2;
+494048   
+494049   
+494050   
+494051  *Enter Bases in mol/sec
+494053   
+494054  parameter diffCalcV(econ_c,econ_rJ);
+494055  parameter diffCalcU(econ_r,econ_c);
+494056  parameter diffCalcB(econ_int,econ_c);
+494057  diffCalcU(econ_r,econ_c)=econUstar(econ_r,econ_c)-econU(econ_r,econ_c);
+494058  diffCalcV(econ_c,econ_rJ)=econVstar(econ_c,econ_rJ)-econV(econ_c,econ_rj);
+494059  diffCalcB(econ_int,econ_c)=round(econBstar(econ_int,econ_c)-econB(econ_int,econ_c),5);
+494060  parameter diffCalcX(i,j);
+494061  diffCalcX(i,j)=round(Xstar(i,j)-X(i,j),3);
+494062   
+494063   
+494064  equation LCModel(i);
+494065   
+494066  LCModel(i).. sum(j,(y*Xstar(i,j)+(1-y)*X(i,j))*m(j))=e=f(i);
+494067  *LCModel(i).. sum(j,(Xstar(i,j))*m(j))=e=f(i);
+494068   
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      03/03/21 21:42:20 Page 7
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+494069  equation LCIntModel(k);
+494070   
+494071  LCIntModel(k)..sum(j,(y*Bstar(k,j)+(1-y)*B(k,j))*m(j))=e=g(k);
+494072  *LCIntModel(k)..sum(j,Bstar(k,j)*m(j))=e=g(k);
+494073   
+494074  equation yeildConstr(j,i);
+494075  yeildConstr(j,i)$li(j,i).. m(j)=l= yei(j)*sum(jd1,X(i,jd1)*m(jd1))/(abs(X(i,j))*(1-yei(j)));
+494076   
+494077   
+494078   
+494079  equation MTHFProd;
+494080  MTHFProd.. f('399')=e=350000;
+494081   
+494082   
+494083  equation CO2EqConstr;
+494084  variable CO2Eq;
+494085  CO2EqConstr.. CO2Eq=e=g('4')+g('22');
+494086  equation kgPConstr;
+494087  variable kgP;
+494088  kgPConstr.. kgP=e=g('23');
+494089   
+494090  set A1f1(j,i) /399.395, 400.395, 401.395, 417.413, 421.413, 411.414, #rnfa_c.415/;
+494091  set A3f3(j,i) /409.399,410.399/;
+494092   
+494093  parameter Hcom(i) /395 0.731, 413 0.216, 414 0.236, 415 0.285, 399 0.218/;
+494094  *parameter costVals(i) /395 , 399 , 413 , 414 , 415/;
+494095   
+494096   
+494097  equation DeltaEeq;
+494098  variable DeltaE;
+494099  DeltaEeq.. DeltaE=e=sum((j,i)$A1f1(j,i),abs(X(i,j))*m(j)*Hcom(i))-sum((j,i)$A3f3(j,i),abs(X(i,j))*m(j)*Hcom(i));
+494100   
+494101  equation ICEq;
+494102  variable IC;
+494103  ICEq.. IC=e=3*DeltaE*0.35;
+494104   
+494105  set U2RNFA(i,j) /#econ_r.#rnfa_c/;
+494106  set U2VC(i,j) /#econ_r.#vc_c/;
+494107  set IASource(j) /391*396/;
+494108  parameter costIASource(j) /391 1.6, 392 6.88, 393 9.98, 394 0.321, 395 0.061, 396 0.101/;
+494109  equation costInEq;
+494110  variable costIn;
+494111  CostInEq.. costIn=e=sum((i,j)$U2RNFA(i,j),abs(X(i,j))*m(j))+sum((i,j)$U2VC(i,j),abs(X(i,j))*m(j))+sum(j$IAsource(j),costIASource(j)*m(j));
+494112   
+494113  scalar intrate /0.05/;
+494114  equation TARConstr;
+494115  variable TAR;
+494116  TARConstr.. TAR=e=(f('399')*5000*86*10**(-6))-costIn;
+494117   
+494118  variable NPV;
+494119  equation NPVConstr;
+494120  NPVConstr.. NPV=e= TAR*7.27 -IC;
+494121   
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      03/03/21 21:42:20 Page 8
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+494122  variable landArea;
+494123  equation landAreaEq;
+494124  landAreaEq.. landArea=e=g('14')+g('24');
+494125   
+494126   
+494127   
+494128  *equation fruitConstr1,fruitConstr2;
+494129  *fruitConstr1.. m('395')=l=0.3*(m('394')+m('395')+m('396'));
+494130  *fruitConstr2.. m('396')=l=0.3*(m('394')+m('395')+m('396'));
+494131   
+494132  equation LCCConstr;
+494133  variable LCC;
+494134  LCCConstr.. LCC=e=costIn;
+494135   
+494136   
+494137  *equation TARPost;
+494138  *TarPost.. TAR=g=0;
+494139   
+494140  *(IC*intrate/(1-(1+intrate)**(-5)))
+494141   
+494142  parameters LCCDummy,NPVDummy,CO2Dummy,co2;
+494143   
+494145  co2=-1;;
+494146  equation eCons;
+494147  eCons$(co2>0).. CO2Eq=l=co2;
+494148   
+494149   
+494150      Model P2PRNFA /ALL/;
+494151      Option MINLP=BARON;
+494152      Option LP=BARON;
+494153      Option NLP=BARON;
+494154  *    Solve P2PRNFA using MINLP maximizing NPV;
+494155  *     NPVDummy=NPV.l;
+494156  *    NPV.lo=NPVDummy;
+494157  *  Solve P2PRNFA using LP minimizing CO2Eq;
+494158   
+494159  *  Solve P2PRNFA using MINLP minimizing LCC;
+494160  *     LCCDummy=LCC.l;
+494161  *    LCC.up=LCCDummy;
+494162    Solve P2PRNFA using MINLP minimizing CO2Eq;
+494163  *  Solve P2PRNFA using LP minimizing CO2Eq;
+494164  *  Solve P2PRNFA using LP minimizing kgP;
+494165  *   Solve P2PRNFA using LP minimizing landArea;
+494166  *  Solve P2PRNFA using MINLP minimizing CO2Eq;
+494167  *   CO2Dummy=CO2Eq.l;
+494168  *   CO2Eq.up=CO2Dummy;
+494169  *   Solve P2PRNFA using MINLP minimizing LCC;
+494170   
+494171  *Display econVTstarInv;
+494172  *Display Astar,rank;
+494173  Display m.l;
+494174  Display f.l;
+494175  Display y.l;
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      03/03/21 21:42:20 Page 9
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+        $if not set file $set file 0
+         
+        File pareto /pareto%file%.txt/;
+        pareto.ap=1;
+        pareto.nd=4;
+        pareto.pw=32767;
+        put pareto"";
+        put %basis%",";
+        put LCC.l",";
+        put CO2Eq.l",";
+        put kgP.l",";
+        put landArea.l"";
+        put /;
+         
+        parameter flows(i,j);
+        flows(i,j)=(y.l*Xstar(i,j)+(1-y.l)*X(i,j))*m.l(j);
+        flows(i,j) $( flows(i,j)<0)=0;
+         
+        File chorddiag /chorddiag%file%.txt/;
+        chorddiag.ap=1;
+        chorddiag.nd=4;
+        chorddiag.pw=32767;
+        put chorddiag"";
+        loop(i$econ_r(i),loop(j,put flows(i,j)",") put/);
+        put "";
+        put /;
+         
+        parameter envtflows(k,j);
+        envtflows(k,j)=(y.l*Bstar(k,j)+(1-y.l)*B(k,j))*m.l(j);
+         
+        File barchart /barchart%file%.txt/;
+        barchart.ap=1;
+        barchart.nd=4;
+        barchart.pw=32767;
+        put barchart"";
+        loop(k,loop(j,put envtflows(k,j)",") put/);
+        put "";
+        put /;
+         
+        File paretoecon /paretoecon%file%.txt/;
+        paretoecon.ap=1;
+        paretoecon.nd=4;
+        paretoecon.pw=32767;
+        put paretoecon"";
+        put %basis%",";
+        put LCC.l",";
+        put CO2Eq.l",";
+        loop(j$econ_c(j),put m.l(j)",");
+        put "";
+        put /;
+         
+         
+        File paretovc /paretovc%file%.txt/;
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 10
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+        paretovc.ap=1;
+        paretovc.nd=4;
+        paretovc.pw=32767;
+        put paretovc"";
+        put %basis%",";
+        put LCC.l",";
+        put CO2Eq.l",";
+        loop(j$vc_c(j),put m.l(j)",");
+        put "";
+        put /;
+         
+        File paretornfa /paretornfa%file%.txt/;
+        paretornfa.ap=1;
+        paretornfa.nd=4;
+        paretornfa.pw=32767;
+        put paretornfa"";
+        put %basis%",";
+        put LCC.l",";
+        put CO2Eq.l",";
+        loop(j$rnfa_c(j),put m.l(j)",");
+        put "";
+        put /;
+         
+494254   
+        *execute_unload 'XNEW.gdx', X,Astar,VCstar,RNFA,m;
+        *execute 'gdxdump X.gdx output=X.csv symb=X format=csv'
+        *execute 'gdxdump X.gdx output=Astar.csv symb=Astar format=csv'
+        *execute 'gdxdump X.gdx output=VCstar.csv symb=VCstar format=csv'
+        *execute 'gdxdump X.gdx output=RNFA.csv symb=RNFA format=csv'
+        *execute 'gdxdump XNEW.gdx output=m.csv symb=m format=csv'
+        *execute 'rm X.gdx'
+         
+        *Display Astar;
+        *display rank, piv;
+         
+        Display diffCalcU;
+        Display diffCalcV;
+        Display diffCalcB;
+        Display diffCalcX;
+         
+
+**** LIST OF STRAY NAMES - CHECK DECLARATIONS FOR SPURIOUS COMMAS
+**** STRAY NAME NPVDummy OF TYPE PARAM
+**** STRAY NAME CO2Dummy OF TYPE PARAM
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 11
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa.gms
+     2       73 INCLUDE        1      73  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/vcV.inc
+     3      182 INCLUDE        1      74  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/vcU.inc
+     4      291 INCLUDE        1      75  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/vcB.inc
+     5      328 INCLUDE        1      76  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/econV.inc
+     6   148554 INCLUDE        1      77  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/econU.inc
+     7   296780 INCLUDE        1      78  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/econB.inc
+     8   304866 INCLUDE        1      79  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/rnfaV.inc
+     9   305511 INCLUDE        1      80  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/rnfaU.inc
+    10   306156 INCLUDE        1      81  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/dcUvc.inc
+    11   309622 INCLUDE        1      82  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/dcUrnfa.inc
+    12   318478 INCLUDE        1      83  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/dcVCrnfa.inc
+    13   318755 INCLUDE        1      84  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/ucUvc.inc
+    14   323376 INCLUDE        1      85  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/ucUrnfa.inc
+    15   334157 INCLUDE        1      86  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/ucVCrnfa.inc
+    16   334410 INCLUDE        1      87  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/p.inc
+    17   334423 INCLUDE        1      88  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/Pf.inc
+    18   337889 INCLUDE        1      89  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/PfU.inc
+    19   341355 INCLUDE        1      90  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/Pp.inc
+    20   345976 INCLUDE        1      91  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/Pb.inc
+    21   345980 INCLUDE        1      92  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/A.inc
+
+
+COMPILATION TIME     =        0.980 SECONDS     40 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 12
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE P2PRNFA Using MINLP From line 494162
+
+
+---- bineqn1  =L=  
+
+bineqn1..  m(394) - 860000*y =L= 1000 ; (LHS = 0)
+     
+
+---- bineqn2  =G=  
+
+bineqn2..  m(394) - 1000*y =G= 0 ; (LHS = 0)
+     
+
+---- LCModel  =E=  
+
+LCModel(1)..  0.941*m(1) - 0.001*m(2) + 0.001*m(38) + 0.002*m(39) + 0.006*m(40) - 0.013*m(41) - 0.66*m(42) - 0.008*m(56) - 0.001*m(58) - 0.002*m(59) - 0.001*m(92) - 0.005*m(96) - 0.005*m(101) + 0.001*m(384) - f(1) =E= 0 ; (LHS = 0)
+     
+LCModel(2)..  0.922*m(2) - 0.011*m(6) - 0.059*m(7) - 0.092*m(8) - 0.054*m(9) - 0.009*m(10) - 0.001*m(19) - 0.13*m(37) - 0.303*m(38) - 0.753*m(39) - 0.877*m(40) - 0.033*m(41) + 0.007*m(42) - 0.068*m(43) + 0.002*m(44) - 0.199*m(45) - 0.007*m(46)
+     
+      + 0.001*m(47) + 0.004*m(48) + 0.002*m(53) - 0.068*m(54) - 0.028*m(55) - 0.041*m(56) + 0.001*m(57) + 0.002*m(58) + 0.008*m(59) - 0.072*m(60) - 0.113*m(62) + 0.001*m(63) - 0.016*m(64) + 0.001*m(67) + 0.001*m(88) + 0.001*m(91) + 0.012*m(92)
+     
+      - 0.005*m(93) + 0.001*m(94) + 0.004*m(95) - 0.131*m(96) + 0.004*m(97) + 0.001*m(98) + 0.002*m(100) + 0.001*m(101) + 0.001*m(106) + 0.001*m(107) + 0.001*m(110) + 0.004*m(137) - 0.002*m(138) - 0.001*m(169) + 0.007*m(170) - 0.002*m(276) - 0.001*m(326)
+     
+      - 1.44*m(390) - f(2) =E= 0 ; (LHS = 0)
+     
+LCModel(3)..  0.937*m(3) + 0.002*m(43) + 0.001*m(44) - 0.04*m(45) - 0.018*m(46) + 0.007*m(48) + 0.001*m(53) + 0.003*m(55) - 0.003*m(56) + 0.001*m(57) - 0.001*m(58) - 0.008*m(59) - 0.054*m(60) - 0.001*m(284) - 0.001*m(341) - 0.001*m(366) - 0.001*m(367)
+     
+      - f(3) =E= 0 ; (LHS = 0)
+     
+REMAINING 414 ENTRIES SKIPPED
+
+
+---- LCIntModel  =E=  
+
+LCIntModel(1)..  0.005*m(1) + 0.025*m(2) + 0.008*m(3) + 0.005*m(4) + 0.002*m(5) + 0.008*m(6) + 0.025*m(7) + 0.027*m(8) + 0.034*m(9) + 0.036*m(10) + 0.002*m(11) + 0.001*m(12) + 0.004*m(13) + 0.003*m(14) + 0.002*m(15) + 0.003*m(16) + 0.003*m(17)
+     
+      + 0.002*m(18) + 0.003*m(19) + 0.001*m(21) + 0.018*m(22) + 0.004*m(23) + 0.001*m(24) + 0.001*m(25) + 0.001*m(26) + 0.001*m(27) + 0.001*m(28) + 0.001*m(29) + 0.001*m(30) + 0.002*m(31) + 0.001*m(32) + 0.001*m(33) + 0.002*m(34) + 0.002*m(35)
+     
+      + 0.002*m(36) + 0.005*m(37) + 0.01*m(38) + 0.014*m(39) + 0.013*m(40) + 0.005*m(41) + 0.004*m(42) + 0.003*m(43) + 0.004*m(44) + 0.007*m(45) + 0.004*m(46) + 0.015*m(47) + 0.012*m(48) + 0.014*m(49) + 0.007*m(50) + 0.018*m(51) + 0.019*m(52)
+     
+      + 0.005*m(53) + 0.004*m(54) + 0.005*m(55) + 0.003*m(56) + 0.003*m(57) + 0.002*m(58) + 0.005*m(59) + 0.006*m(60) + 0.002*m(61) + 0.003*m(62) + 0.002*m(63) + 0.002*m(64) + 0.001*m(65) + 0.004*m(66) + 0.003*m(67) + 0.002*m(68) + 0.002*m(69)
+     
+      + 0.002*m(70) + 0.002*m(71) + 0.001*m(72) + 0.004*m(73) + 0.002*m(74) + 0.002*m(75) + 0.001*m(76) + 0.001*m(77) + 0.01*m(78) + 0.006*m(79) + 0.005*m(80) + 0.003*m(81) + 0.003*m(82) + 0.003*m(83) + 0.004*m(84) + 0.003*m(85) + 0.001*m(86)
+     
+      + 0.001*m(87) + 0.003*m(88) + 0.002*m(89) + 0.002*m(90) + 0.005*m(91) + 0.003*m(92) + 0.003*m(93) + 0.003*m(94) + 0.006*m(95) + 0.004*m(96) + 0.003*m(97) + 0.003*m(98) + 0.006*m(99) + 0.002*m(100) + 0.001*m(101) + 0.001*m(102) + 0.001*m(103)
+     
+      + 0.002*m(105) + 0.002*m(106) + 0.001*m(107) + 0.001*m(108) + 0.002*m(109) + 0.003*m(110) + 0.002*m(111) + 0.002*m(112) + 0.002*m(113) + 0.002*m(114) + 0.002*m(115) + 0.002*m(116) + 0.002*m(117) + 0.002*m(118) + 0.001*m(119) + 0.002*m(120)
+     
+      + 0.004*m(121) + 0.004*m(122) + 0.027*m(123) + 0.007*m(124) + 0.003*m(125) + 0.003*m(126) + 0.01*m(127) + 0.001*m(128) + 0.002*m(129) + 0.005*m(130) + 0.003*m(131) + 0.005*m(132) + 0.003*m(133) + 0.002*m(134) + 0.006*m(135) + 0.004*m(136)
+     
+      + 0.008*m(137) + 0.003*m(138) + 0.004*m(139) + 0.003*m(140) + 0.001*m(141) + 0.002*m(142) + 0.002*m(143) + 0.002*m(144) + 0.001*m(145) + 0.001*m(146) + 0.001*m(147) + 0.001*m(148) + 0.001*m(149) + 0.001*m(150) + 0.003*m(151) + 0.001*m(152)
+     
+      + 0.001*m(153) + 0.001*m(154) + 0.001*m(155) + 0.001*m(156) + 0.001*m(157) + 0.001*m(158) + 0.001*m(159) + 0.001*m(160) + 0.001*m(161) + 0.002*m(162) + 0.001*m(163) + 0.001*m(164) + 0.001*m(165) + 0.001*m(166) + 0.001*m(167) + 0.001*m(168)
+     
+      + 0.001*m(169) + 0.001*m(170) + 0.001*m(171) + 0.001*m(172) + 0.001*m(173) + 0.001*m(174) + 0.001*m(175) + 0.001*m(176) + 0.001*m(177) + 0.001*m(178) + 0.001*m(179) + 0.001*m(180) + 0.001*m(181) + 0.001*m(182) + 0.001*m(183) + 0.001*m(184)
+     
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 13
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     LCIntModel  =E=       
+     
+      + 0.001*m(185) + 0.001*m(186) + 0.001*m(187) + 0.001*m(188) + 0.001*m(189) + 0.001*m(190) + 0.001*m(191) + 0.001*m(192) + 0.001*m(194) + 0.001*m(195) + 0.001*m(196) + 0.001*m(198) + 0.001*m(199) + 0.001*m(200) + 0.001*m(201) + 0.001*m(202)
+     
+      + 0.001*m(203) + 0.001*m(204) + 0.001*m(205) + 0.001*m(206) + 0.001*m(207) + 0.001*m(208) + 0.001*m(209) + 0.001*m(210) + 0.001*m(211) + 0.001*m(212) + 0.002*m(213) + 0.001*m(214) + 0.001*m(215) + 0.001*m(216) + 0.001*m(217) + 0.001*m(218)
+     
+      + 0.001*m(219) + 0.002*m(220) + 0.001*m(221) + 0.002*m(222) + 0.001*m(223) + 0.002*m(224) + 0.001*m(225) + 0.003*m(226) + 0.001*m(227) + 0.003*m(228) + 0.001*m(229) + 0.001*m(230) + 0.001*m(231) + 0.001*m(232) + 0.001*m(233) + 0.001*m(234)
+     
+      + 0.001*m(235) + 0.001*m(236) + 0.001*m(237) + 0.001*m(238) + 0.001*m(239) + 0.002*m(240) + 0.002*m(241) + 0.001*m(242) + 0.001*m(243) + 0.001*m(244) + 0.001*m(245) + 0.001*m(246) + 0.001*m(248) + 0.001*m(249) + 0.001*m(250) + 0.001*m(251)
+     
+      + 0.001*m(252) + 0.001*m(253) + 0.001*m(254) + 0.001*m(255) + 0.001*m(256) + 0.001*m(257) + 0.001*m(258) + 0.002*m(259) + 0.001*m(260) + 0.001*m(261) + 0.001*m(262) + 0.001*m(263) + 0.001*m(264) + 0.001*m(265) + 0.001*m(266) + 0.001*m(267)
+     
+      + 0.001*m(268) + 0.001*m(269) + 0.001*m(270) + 0.001*m(271) + 0.001*m(272) + 0.001*m(273) + 0.001*m(276) + 0.001*m(277) + 0.001*m(278) + 0.007*m(279) + 0.024*m(280) + 0.008*m(281) + 0.002*m(282) + 0.007*m(283) + 0.002*m(284) + 0.001*m(286)
+     
+      + 0.001*m(287) + 0.001*m(288) + 0.001*m(289) + 0.001*m(290) + 0.001*m(301) + 0.002*m(312) + 0.001*m(319) + 0.001*m(320) + 0.001*m(326) + 0.001*m(327) + 0.001*m(328) + 0.001*m(329) + 0.001*m(333) + 0.001*m(338) + 0.001*m(339) + 0.002*m(340)
+     
+      + 0.001*m(341) + 0.001*m(342) + 0.001*m(346) + 0.001*m(347) + 0.001*m(349) + 0.001*m(350) + 0.001*m(351) + 0.001*m(352) + 0.001*m(353) + 0.001*m(354) + 0.001*m(355) + 0.001*m(356) + 0.001*m(357) + 0.001*m(360) + 0.001*m(361) + 0.001*m(362)
+     
+      + 0.002*m(364) + 0.001*m(365) + 0.002*m(366) + 0.002*m(367) + 0.002*m(368) + 0.001*m(369) + 0.001*m(373) + 0.001*m(374) + 0.001*m(375) + 0.001*m(376) + 0.001*m(377) + 0.001*m(381) + 0.001*m(383) + 0.001*m(385) - g(1) =E= 0 ; (LHS = 0)
+     
+LCIntModel(2)..  0.013*m(1) + 0.037*m(2) + 0.007*m(3) + 0.001*m(4) + 0.007*m(6) + 0.006*m(7) + 0.006*m(8) + 0.008*m(9) + 0.004*m(10) + 0.001*m(11) + 0.002*m(13) + 0.001*m(14) + 0.001*m(17) + 0.001*m(18) + 0.001*m(19) + 0.002*m(22) + 0.001*m(23)
+     
+      + 0.052*m(24) + 0.004*m(37) + 0.012*m(38) + 0.017*m(39) + 0.013*m(40) + 0.007*m(41) + 0.009*m(42) + 0.003*m(43) + 0.002*m(44) + 0.005*m(45) + 0.002*m(46) + 0.004*m(47) + 0.003*m(48) + 0.003*m(49) + 0.002*m(50) + 0.005*m(51) + 0.004*m(52)
+     
+      + 0.005*m(53) + 0.003*m(54) + 0.004*m(55) + 0.002*m(56) + 0.001*m(57) + 0.002*m(58) + 0.002*m(59) + 0.003*m(60) + 0.001*m(61) + 0.002*m(62) + 0.001*m(63) + 0.001*m(64) + 0.002*m(66) + 0.001*m(67) + 0.001*m(68) + 0.001*m(69) + 0.001*m(70)
+     
+      + 0.001*m(71) + 0.001*m(73) + 0.001*m(74) + 0.001*m(75) + 0.001*m(77) + 0.002*m(78) + (0.002)*m(79) + 0.002*m(80) + 0.001*m(81) + 0.001*m(82) + 0.001*m(83) + 0.001*m(84) + 0.001*m(85) + 0.001*m(86) + 0.001*m(88) + 0.001*m(89) + 0.001*m(90)
+     
+      + 0.001*m(91) + 0.001*m(92) + 0.001*m(93) + 0.001*m(94) + 0.003*m(95) + 0.003*m(96) + 0.001*m(97) + 0.001*m(98) + 0.001*m(99) + 0.001*m(100) + 0.001*m(101) + 0.001*m(105) + 0.001*m(106) + 0.001*m(107) + 0.001*m(109) + 0.001*m(110) + 0.001*m(111)
+     
+      + 0.001*m(112) + 0.001*m(113) + 0.001*m(114) + 0.001*m(115) + 0.001*m(116) + 0.001*m(117) + 0.001*m(118) + 0.001*m(119) + 0.001*m(120) + 0.001*m(121) + 0.001*m(122) + 0.003*m(123) + 0.001*m(124) + 0.001*m(125) + 0.001*m(126) + 0.002*m(127)
+     
+      + 0.001*m(130) + 0.001*m(131) + 0.001*m(132) + 0.003*m(133) + 0.01*m(134) + 0.002*m(135) + 0.001*m(136) + 0.001*m(137) + 0.001*m(138) + 0.001*m(141) + 0.001*m(142) + 0.002*m(143) + 0.001*m(144) + 0.001*m(145) + 0.001*m(146) + 0.001*m(147)
+     
+      + 0.001*m(148) + 0.001*m(149) + 0.001*m(150) + 0.001*m(151) + 0.001*m(152) + 0.003*m(153) + 0.001*m(154) + 0.001*m(155) + 0.001*m(156) + 0.001*m(158) + 0.001*m(159) + 0.001*m(160) + 0.001*m(162) + 0.001*m(163) + 0.001*m(164) + 0.001*m(165)
+     
+      + 0.001*m(166) + 0.001*m(169) + 0.001*m(174) + 0.001*m(175) + 0.001*m(177) + 0.001*m(178) + 0.001*m(183) + 0.001*m(184) + 0.001*m(187) + 0.001*m(188) + 0.001*m(190) + 0.001*m(191) + 0.001*m(192) + 0.001*m(210) + 0.001*m(214) + 0.001*m(215)
+     
+      + 0.001*m(216) + 0.001*m(217) + 0.001*m(218) + 0.001*m(219) + 0.001*m(220) + 0.001*m(221) + 0.001*m(224) + 0.001*m(225) + 0.001*m(226) + 0.001*m(227) + 0.001*m(228) + 0.001*m(230) + 0.001*m(231) + 0.001*m(232) + 0.001*m(233) + 0.001*m(234)
+     
+      + 0.001*m(235) + 0.001*m(236) + 0.001*m(237) + 0.001*m(239) + 0.001*m(240) + 0.001*m(241) + 0.001*m(242) + 0.001*m(243) + 0.001*m(249) + 0.001*m(252) + 0.001*m(253) + 0.001*m(254) + 0.001*m(256) + 0.001*m(258) + 0.001*m(259) + 0.001*m(260)
+     
+      + 0.001*m(262) + 0.001*m(270) + 0.001*m(272) + 0.001*m(273) + 0.001*m(279) + 0.003*m(280) + 0.001*m(281) + 0.001*m(282) + 0.001*m(283) + 0.001*m(341) + 0.001*m(342) + 0.001*m(364) + 0.001*m(365) + 0.001*m(366) + 0.001*m(367) + 0.001*m(368)
+     
+      + 0.001*m(381) + 0.006*m(382) - g(2) + (0)*y =E= 0 ; (LHS = 0)
+     
+LCIntModel(3)..  35.912*m(1) + 14.572*m(2) + 29.383*m(3) + 21.057*m(4) + 0.079*m(5) + 24.7*m(6) + 2.997*m(7) + 2.394*m(8) + 3.87*m(9) + 0.933*m(10) + 1.277*m(11) + 0.035*m(12) + 1.455*m(13) + 0.013*m(14) + 0.028*m(15) + 0.039*m(16) + 0.06*m(17)
+     
+      + 0.02*m(18) + 0.033*m(19) + 0.007*m(20) + 0.017*m(21) + 0.027*m(22) + 0.011*m(23) + 0.004*m(24) + 0.04*m(25) + 0.173*m(26) + 0.047*m(27) + 0.014*m(28) + 0.025*m(29) + 0.047*m(30) + 0.019*m(31) + 0.027*m(32) + 0.022*m(33) + 0.045*m(34) + 0.032*m(35)
+     
+      + 0.096*m(36) + 2.007*m(37) + 7.572*m(38) + 7.066*m(39) + 5.89*m(40) + 15.157*m(41) + 22.022*m(42) + 3.326*m(43) + 3.858*m(44) + 4.612*m(45) + 2.917*m(46) + 1.865*m(47) + 1.88*m(48) + 1.719*m(49) + 1.418*m(50) + 1.97*m(51) + 1.305*m(52)
+     
+      + 0.253*m(53) + 1.923*m(54) + 2.519*m(55) + 4.833*m(56) + 7.25*m(57) + 1.199*m(58) + 4.846*m(59) + 5.258*m(60) + 0.532*m(61) + 0.937*m(62) + 2.526*m(63) + 0.285*m(64) + (0.826)*m(65) + 5.014*m(66) + 1.131*m(67) + 0.654*m(68) + 1.214*m(69)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 14
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     LCIntModel  =E=       
+     
+      + 0.611*m(70) + 0.462*m(71) + 0.288*m(72) + 0.308*m(73) + 0.452*m(74) + 0.263*m(75) + 0.174*m(76) + 0.17*m(77) + 0.214*m(78) + 0.209*m(79) + 0.185*m(80) + 0.101*m(81) + 0.123*m(82) + 0.089*m(83) + 0.18*m(84) + 0.115*m(85) + 0.109*m(86) + 0.059*m(87)
+     
+      + 0.019*m(88) + 0.069*m(89) + 0.023*m(90) + 0.175*m(91) + 0.238*m(92) + 0.285*m(93) + 0.093*m(94) + 0.099*m(95) + 1.106*m(96) + 0.394*m(97) + 1.086*m(98) + 0.052*m(99) + 0.371*m(100) + 0.304*m(101) + 0.09*m(102) + 0.064*m(103) + 0.039*m(104)
+     
+      + 0.321*m(105) + 0.208*m(106) + 0.167*m(107) + 0.273*m(108) + 0.083*m(109) + 0.256*m(110) + 0.192*m(111) + 0.176*m(112) + 0.116*m(113) + 0.228*m(114) + 0.186*m(115) + 0.212*m(116) + 0.143*m(117) + 0.357*m(118) + 0.236*m(119) + 0.203*m(120)
+     
+      + 0.028*m(121) + 0.03*m(122) + 0.02*m(123) + 0.077*m(124) + 0.026*m(125) + 0.028*m(126) + 0.127*m(127) + 0.071*m(128) + 0.069*m(129) + 0.026*m(130) + 0.057*m(131) + 0.03*m(132) + 0.027*m(133) + 0.027*m(134) + 0.025*m(135) + 0.024*m(136)
+     
+      + 0.024*m(137) + 0.028*m(138) + 0.025*m(139) + 0.025*m(140) + 0.014*m(141) + 0.018*m(142) + 0.021*m(143) + 0.017*m(144) + 0.026*m(145) + 0.025*m(146) + 0.024*m(147) + 0.036*m(148) + 0.022*m(149) + 0.023*m(150) + 0.026*m(151) + 0.026*m(152)
+     
+      + 0.028*m(153) + 0.02*m(154) + 0.015*m(155) + 0.05*m(156) + 0.023*m(157) + 0.02*m(158) + 0.01*m(159) + 0.018*m(160) + 0.025*m(161) + 0.025*m(162) + 0.035*m(163) + 0.038*m(164) + 0.031*m(165) + 0.025*m(166) + 0.018*m(167) + 0.021*m(168)
+     
+      + 0.023*m(169) + 0.043*m(170) + 0.027*m(171) + 0.063*m(172) + 0.053*m(173) + 0.037*m(174) + 0.027*m(175) + 0.072*m(176) + 0.027*m(177) + 0.017*m(178) + 0.021*m(179) + 0.016*m(180) + 0.017*m(181) + 0.012*m(182) + 0.015*m(183) + 0.035*m(184)
+     
+      + 0.022*m(185) + 0.02*m(186) + 0.027*m(187) + 0.023*m(188) + 0.04*m(189) + 0.012*m(190) + 0.091*m(191) + 0.021*m(192) + 0.013*m(193) + 0.014*m(194) + 0.024*m(195) + 0.016*m(196) + 0.011*m(197) + 0.018*m(198) + 0.02*m(199) + 0.035*m(200)
+     
+      + 0.025*m(201) + (0.024)*m(202) + 0.039*m(203) + 0.019*m(204) + 0.018*m(205) + 0.018*m(206) + 0.029*m(207) + 0.014*m(208) + 0.024*m(209) + 0.063*m(210) + 0.017*m(211) + 0.043*m(212) + 0.024*m(213) + 0.026*m(214) + 0.056*m(215) + 0.034*m(216)
+     
+      + 0.042*m(217) + 0.043*m(218) + 0.036*m(219) + 0.028*m(220) + 0.022*m(221) + 0.021*m(222) + 0.018*m(223) + 0.025*m(224) + 0.024*m(225) + 0.042*m(226) + 0.037*m(227) + 0.08*m(228) + 0.018*m(229) + 0.044*m(230) + 0.052*m(231) + 0.047*m(232)
+     
+      + 0.041*m(233) + 0.04*m(234) + 0.074*m(235) + 0.069*m(236) + 0.025*m(237) + 0.034*m(238) + 0.02*m(239) + 0.191*m(240) + 0.023*m(241) + 0.042*m(242) + 0.031*m(243) + 0.016*m(244) + 0.01*m(245) + 0.015*m(246) + 0.01*m(247) + 0.015*m(248)
+     
+      + 0.035*m(249) + 0.024*m(250) + 0.063*m(251) + 0.029*m(252) + 0.026*m(253) + 0.056*m(254) + 0.091*m(255) + 0.2*m(256) + 0.107*m(257) + 0.075*m(258) + 0.089*m(259) + 0.058*m(260) + 0.076*m(261) + 0.195*m(262) + 0.048*m(263) + 0.06*m(264)
+     
+      + 0.049*m(265) + 0.04*m(266) + 0.016*m(267) + 0.016*m(268) + 0.091*m(269) + 0.177*m(270) + 0.081*m(271) + 0.058*m(272) + 0.116*m(273) + 0.013*m(274) + 0.006*m(275) + 0.014*m(276) + 0.011*m(277) + 0.02*m(278) + 0.021*m(279) + 0.017*m(280)
+     
+      + 0.018*m(281) + 0.019*m(282) + 0.018*m(283) + 0.014*m(284) + 0.007*m(285) + 0.015*m(286) + 0.008*m(287) + 0.011*m(288) + 0.026*m(289) + 0.027*m(290) + 0.01*m(291) + 0.018*m(292) + 0.008*m(293) + 0.014*m(294) + 0.011*m(295) + 0.015*m(296)
+     
+      + 0.009*m(297) + 0.007*m(298) + 0.016*m(299) + 0.008*m(300) + 0.018*m(301) + 0.013*m(302) + 0.013*m(303) + 0.012*m(304) + 0.011*m(305) + 0.009*m(306) + 0.006*m(307) + 0.009*m(308) + 0.009*m(309) + 0.01*m(310) + 0.009*m(311) + 0.019*m(312)
+     
+      + 0.011*m(313) + (0.008)*m(314) + 0.008*m(315) + 0.008*m(316) + 0.007*m(317) + 0.007*m(318) + 0.026*m(319) + 0.023*m(320) + 0.003*m(321) + 0.012*m(322) + 0.016*m(323) + 0.016*m(324) + 0.013*m(325) + 0.018*m(326) + 0.025*m(327) + 0.03*m(328)
+     
+      + 0.084*m(329) + 0.011*m(330) + 0.011*m(331) + 0.011*m(332) + 0.02*m(333) + 0.007*m(334) + 0.015*m(335) + 0.022*m(336) + 0.013*m(337) + 0.024*m(338) + 0.033*m(339) + 0.05*m(340) + 0.027*m(341) + 0.094*m(342) + 0.012*m(343) + 0.015*m(344)
+     
+      + 0.012*m(345) + 0.032*m(346) + 0.022*m(347) + 0.025*m(348) + 0.027*m(349) + 0.034*m(350) + 0.05*m(351) + 0.072*m(352) + 0.059*m(353) + 0.041*m(354) + 0.089*m(355) + 0.102*m(356) + 0.011*m(357) + 0.111*m(358) + 0.011*m(359) + 0.015*m(360)
+     
+      + 0.023*m(361) + 0.16*m(362) + 0.012*m(363) + 0.39*m(364) + 0.066*m(365) + 0.23*m(366) + 0.216*m(367) + 1.151*m(368) + 0.012*m(369) + 0.006*m(370) + 0.009*m(371) + 0.012*m(372) + 0.019*m(373) + 0.015*m(374) + 0.025*m(375) + 0.011*m(376)
+     
+      + 0.023*m(377) + 0.009*m(378) + 0.024*m(379) + 0.068*m(381) + 0.017*m(383) - 0.13*m(384) + 0.06*m(385) - g(3) + (0)*y =E= 0 ; (LHS = 0)
+     
+REMAINING 21 ENTRIES SKIPPED
+
+
+---- yeildConstr  =L=  
+
+yeildConstr(399,395)..  - 32.3333333333333*m(398) + 33.3333333333333*m(399) + 32.3333333333333*m(400) + 32.3333333333333*m(401) + 32.3333333333333*m(411) + 32.3333333333333*m(412) + 32.3333333333333*m(413) =L= 0 ; (LHS = 0)
+     
+yeildConstr(400,395)..  - 32.3333333333333*m(398) + 32.3333333333333*m(399) + 33.3333333333333*m(400) + 32.3333333333333*m(401) + 32.3333333333333*m(411) + 32.3333333333333*m(412) + 32.3333333333333*m(413) =L= 0 ; (LHS = 0)
+     
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 15
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     yeildConstr  =L=  
+
+yeildConstr(401,395)..  - 32.3333333333333*m(398) + 32.3333333333333*m(399) + 32.3333333333333*m(400) + 33.3333333333333*m(401) + 32.3333333333333*m(411) + 32.3333333333333*m(412) + 32.3333333333333*m(413) =L= 0 ; (LHS = 0)
+     
+REMAINING 24 ENTRIES SKIPPED
+
+
+---- MTHFProd  =E=  
+
+MTHFProd..  f(399) =E= 350000 ; (LHS = 0, INFES = 350000 ****)
+     
+
+---- CO2EqConstr  =E=  
+
+CO2EqConstr..  - g(4) - g(22) + CO2Eq =E= 0 ; (LHS = 0)
+     
+
+---- kgPConstr  =E=  
+
+kgPConstr..  - g(23) + kgP =E= 0 ; (LHS = 0)
+     
+
+---- DeltaEeq  =E=  
+
+DeltaEeq..  - 1.016*m(399) - 1.586*m(400) - 0.731*m(401) - 0.57*m(402) - 0.57*m(403) - 0.285*m(405) - 0.57*m(406) - 0.57*m(407) - 0.57*m(408) + 0.218*m(409) - 0.352*m(410) - 0.236*m(411) - 0.57*m(414) - 0.216*m(417) - 0.285*m(418) - 0.57*m(420)
+     
+      - 0.216*m(421) - 0.285*m(422) + DeltaE =E= 0 ; (LHS = 0)
+     
+
+---- ICEq  =E=  
+
+ICEq..  - 1.05*DeltaE + IC =E= 0 ; (LHS = 0)
+     
+
+---- costInEq  =E=  
+
+costInEq..  - 0.36*m(386) - 0.765*m(387) - 0.5628*m(388) - 0.0553*m(389) - 1.74*m(390) - 1.6*m(391) - 6.88*m(392) - 9.98*m(393) - 0.321*m(394) - 0.061*m(395) - 0.101*m(396) - 0.004*m(399) - 0.012*m(400) - 0.008*m(402) - 0.008*m(403) - 0.004*m(405)
+     
+      - 0.008*m(406) - 0.008*m(407) - 0.008*m(408) - 0.008*m(410) - 0.0177*m(411) - 0.008*m(414) - 0.021*m(417) - 0.004*m(418) - 0.008*m(420) - 0.021*m(421) - 0.004*m(422) + costIn =E= 0 ; (LHS = 0)
+     
+
+---- TARConstr  =E=  
+
+TARConstr..  - 0.429999999999999*f(399) + costIn + TAR =E= 0 ; (LHS = 0)
+     
+
+---- NPVConstr  =E=  
+
+NPVConstr..  IC - 7.27*TAR + NPV =E= 0 ; (LHS = 0)
+     
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 16
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE P2PRNFA Using MINLP From line 494162
+
+
+---- landAreaEq  =E=  
+
+landAreaEq..  - g(14) - g(24) + landArea =E= 0 ; (LHS = 0)
+     
+
+---- LCCConstr  =E=  
+
+LCCConstr..  - costIn + LCC =E= 0 ; (LHS = 0)
+     
+
+---- eCons  =L=  
+
+                NONE
+
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 17
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE P2PRNFA Using MINLP From line 494162
+
+
+---- m  
+
+m(1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        0.941   LCModel(1)
+       -0.011   LCModel(6)
+       -0.001   LCModel(8)
+       -0.06    LCModel(13)
+       -0.002   LCModel(18)
+       -0.004   LCModel(22)
+       -0.001   LCModel(23)
+       -0.006   LCModel(24)
+       -0.009   LCModel(25)
+       -0.029   LCModel(88)
+       -0.004   LCModel(95)
+       -0.056   LCModel(99)
+       -0.056   LCModel(100)
+       -0.001   LCModel(110)
+       -0.001   LCModel(117)
+       -0.003   LCModel(118)
+       -0.002   LCModel(146)
+       -0.001   LCModel(147)
+       -0.016   LCModel(163)
+       -0.001   LCModel(188)
+       -0.004   LCModel(224)
+       -0.002   LCModel(238)
+       -0.001   LCModel(242)
+       -0.004   LCModel(287)
+       -0.001   LCModel(298)
+       -0.001   LCModel(299)
+       -0.004   LCModel(307)
+       -0.001   LCModel(308)
+       -0.003   LCModel(310)
+       -0.096   LCModel(312)
+       -0.005   LCModel(313)
+       -0.005   LCModel(314)
+       -0.001   LCModel(317)
+       -0.003   LCModel(318)
+       -0.001   LCModel(338)
+       -0.001   LCModel(340)
+       -0.001   LCModel(366)
+       -0.001   LCModel(369)
+       -0.002   LCModel(379)
+        0.005   LCIntModel(1)
+        0.013   LCIntModel(2)
+       35.912   LCIntModel(3)
+        0.939   LCIntModel(4)
+        0.009   LCIntModel(6)
+        0.046   LCIntModel(10)
+        8.339   LCIntModel(11)
+        8.065   LCIntModel(12)
+        0.273   LCIntModel(13)
+        3.102   LCIntModel(14)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 18
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     m  
+
+        0.057   LCIntModel(15)
+        0.438   LCIntModel(16)
+        0.965   LCIntModel(20)
+
+m(2)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -0.001   LCModel(1)
+        0.922   LCModel(2)
+       -0.002   LCModel(6)
+       -0.002   LCModel(8)
+       -0.001   LCModel(10)
+       -0.099   LCModel(13)
+       -0.005   LCModel(18)
+       -0.012   LCModel(19)
+       -0.002   LCModel(22)
+       -0.005   LCModel(23)
+       -0.007   LCModel(24)
+       -0.005   LCModel(25)
+       -0.001   LCModel(66)
+       -0.037   LCModel(88)
+       -0.002   LCModel(95)
+       -0.148   LCModel(99)
+       -0.081   LCModel(100)
+       -0.001   LCModel(110)
+       -0.002   LCModel(112)
+       -0.001   LCModel(117)
+       -0.003   LCModel(118)
+       -0.002   LCModel(146)
+       -0.019   LCModel(163)
+       -0.005   LCModel(224)
+       -0.002   LCModel(238)
+       -0.001   LCModel(242)
+       -0.002   LCModel(307)
+       -0.004   LCModel(310)
+       -0.149   LCModel(312)
+       -0.003   LCModel(313)
+       -0.005   LCModel(314)
+       -0.001   LCModel(317)
+       -0.002   LCModel(318)
+       -0.001   LCModel(323)
+       -0.001   LCModel(330)
+       -0.002   LCModel(338)
+       -0.001   LCModel(340)
+       -0.001   LCModel(366)
+        0.025   LCIntModel(1)
+        0.037   LCIntModel(2)
+       14.572   LCIntModel(3)
+        3.028   LCIntModel(4)
+        0.012   LCIntModel(6)
+        0.113   LCIntModel(10)
+       21.168   LCIntModel(11)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 19
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     m  
+
+       20.57    LCIntModel(12)
+        0.599   LCIntModel(13)
+       13.022   LCIntModel(14)
+        0.592   LCIntModel(15)
+        1.739   LCIntModel(16)
+        0.001   LCIntModel(19)
+        1.06    LCIntModel(20)
+
+m(3)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        0.937   LCModel(3)
+       -0.082   LCModel(13)
+       -0.002   LCModel(18)
+       -0.008   LCModel(22)
+       -0.001   LCModel(23)
+       -0.008   LCModel(24)
+       -0.008   LCModel(25)
+       -0.005   LCModel(71)
+       -0.007   LCModel(77)
+       -0.003   LCModel(81)
+       -0.005   LCModel(82)
+       -0.023   LCModel(88)
+       -0.002   LCModel(95)
+       -0.071   LCModel(99)
+       -0.065   LCModel(100)
+       -0.001   LCModel(111)
+       -0.001   LCModel(118)
+       -0.002   LCModel(146)
+       -0.007   LCModel(163)
+       -0.002   LCModel(224)
+       -0.001   LCModel(238)
+       -0.001   LCModel(242)
+       -0.001   LCModel(274)
+       -0.001   LCModel(287)
+       -0.001   LCModel(298)
+       -0.011   LCModel(307)
+       -0.001   LCModel(308)
+       -0.002   LCModel(310)
+       -0.078   LCModel(312)
+       -0.007   LCModel(313)
+       -0.007   LCModel(314)
+       -0.001   LCModel(316)
+       -0.001   LCModel(317)
+       -0.003   LCModel(318)
+        0.001   LCModel(319)
+       -0.001   LCModel(322)
+       -0.002   LCModel(323)
+       -0.003   LCModel(338)
+       -0.001   LCModel(366)
+        0.008   LCIntModel(1)
+        0.007   LCIntModel(2)
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 20
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     m  
+
+       29.383   LCIntModel(3)
+        0.747   LCIntModel(4)
+        0.002   LCIntModel(6)
+        0.037   LCIntModel(10)
+        6.008   LCIntModel(11)
+        5.617   LCIntModel(12)
+        0.391   LCIntModel(13)
+        2.267   LCIntModel(14)
+        0.624   LCIntModel(15)
+        0.481   LCIntModel(16)
+        0.001   LCIntModel(19)
+        0.953   LCIntModel(20)
+
+REMAINING 422 ENTRIES SKIPPED
+
+---- f  
+
+f(1)
+                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+       -1       LCModel(1)
+
+f(2)
+                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+       -1       LCModel(2)
+
+f(3)
+                (.LO, .L, .UP, .M = 0, 0, 100, 0)
+       -1       LCModel(3)
+
+REMAINING 414 ENTRIES SKIPPED
+
+---- g  
+
+g(1)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+       -1       LCIntModel(1)
+
+g(2)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+       -1       LCIntModel(2)
+
+g(3)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+       -1       LCIntModel(3)
+
+REMAINING 21 ENTRIES SKIPPED
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 21
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE P2PRNFA Using MINLP From line 494162
+
+
+---- y  
+
+y
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+  -860000       bineqn1
+    -1000       bineqn2
+       (0)      LCIntModel(2)
+       (0)      LCIntModel(3)
+       (0)      LCIntModel(4)
+       (0)      LCIntModel(6)
+       (0)      LCIntModel(11)
+       (0)      LCIntModel(12)
+       (0)      LCIntModel(13)
+       (0)      LCIntModel(14)
+       (0)      LCIntModel(16)
+
+
+---- CO2Eq  
+
+CO2Eq
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       CO2EqConstr
+
+
+---- kgP  
+
+kgP
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       kgPConstr
+
+
+---- DeltaE  
+
+DeltaE
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       DeltaEeq
+       -1.05    ICEq
+
+
+---- IC  
+
+IC
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       ICEq
+        1       NPVConstr
+
+
+---- costIn  
+
+costIn
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       costInEq
+        1       TARConstr
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 22
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     costIn  
+
+       -1       LCCConstr
+
+
+---- TAR  
+
+TAR
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       TARConstr
+       -7.27    NPVConstr
+
+
+---- NPV  
+
+NPV
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       NPVConstr
+
+
+---- landArea  
+
+landArea
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       landAreaEq
+
+
+---- LCC  
+
+LCC
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       LCCConstr
+
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 23
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE P2PRNFA Using MINLP From line 494162
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          16     SINGLE EQUATIONS          480
+BLOCKS OF VARIABLES          13     SINGLE VARIABLES          876
+NON ZERO ELEMENTS        31,973     NON LINEAR N-Z             26
+DERIVATIVE POOL              20     CONSTANT POOL              36
+CODE LENGTH                  94     DISCRETE VARIABLES          1
+
+
+GENERATION TIME      =        0.059 SECONDS     84 MB  24.7.4 r58773 LEX-LEG
+
+
+EXECUTION TIME       =       26.272 SECONDS     84 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 24
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   P2PRNFA             OBJECTIVE  CO2Eq
+     TYPE    MINLP               DIRECTION  MINIMIZE
+     SOLVER  BARON               FROM LINE  494162
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      8 Integer Solution          
+**** OBJECTIVE VALUE           981170.8603
+
+ RESOURCE USAGE, LIMIT          1.200      1000.000
+ ITERATION COUNT, LIMIT         0    2000000000
+ EVALUATION ERRORS              0             0
+
+GAMS/BARON       24.7.4 r58773 Released Sep 19, 2016 LEG x86 64bit/Linux      
+
+BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+Parts of the BARON software were created at the
+University of Illinois at Urbana-Champaign.
+
+
+===========================================================================
+ BARON version 16.8.24. Built: LNX-64 Wed Aug 24 08:52:24 EDT 2016
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: ILOG CPLEX                                      
+ For NLP: MINOS, SNOPT, GAMS external NLP, IPOPT, FILTERSD
+===========================================================================
+
+Solution      = 981170.86033332  found at node 1
+Best possible = 891973.509394
+Absolute gap  = 89197.3509393197  optca = 1E-9
+Relative gap  = 0.09091  optcr = 0.1
+  (Note that BARON uses a different formula to compute the relative gap as
+   was used for the above reported value.)
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU bineqn1           -INF             .          1000.0000          .          
+---- EQU bineqn2             .              .            +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 25
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+---- EQU LCModel  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1            .              .              .             1.9342      
+2            .              .              .             4.9514      
+3            .              .              .             1.8267      
+4            .              .              .             1.2335      
+5            .              .              .             2.1541      
+6            .              .              .             2.5896      
+7            .              .              .             6.4235      
+8            .              .              .             8.8255      
+9            .              .              .             5.0242      
+10           .              .              .             2.6008      
+11           .              .              .             0.9326      
+12           .              .              .             0.7360      
+13           .              .              .             1.5583      
+14           .              .              .             1.1940      
+15           .              .              .             3.1124      
+16           .       2.6477534E-7          .            -2.6627      
+17           .       1.7789424E-8          .             2.3298      
+18           .              .              .             1.4933      
+19           .              .              .             2.1336      
+20           .              .              .              .          
+21           .              .              .             0.7707      
+22           .       4.4967575E-8          .             7.2970      
+23           .              .              .             2.3586      
+24           .              .              .             0.4518      
+25           .              .              .             1.4238      
+26           .              .              .             1.5608      
+27           .              .              .              .          
+28           .              .              .              .          
+29           .              .              .              .          
+30           .              .              .              .          
+31           .              .              .              .          
+32           .              .              .              .          
+33           .              .              .              .          
+34           .              .              .              .          
+35           .              .              .              .          
+36           .              .              .             1.5811      
+37           .              .              .             4.0961      
+38           .              .              .             4.6066      
+39           .              .              .             5.7842      
+40           .              .              .             6.6379      
+41           .              .              .             3.9834      
+42           .              .              .             2.8049      
+43           .              .              .              .          
+44           .              .              .             2.6975      
+45           .              .              .             4.3298      
+46           .              .              .             2.7698      
+47           .              .              .             8.0897      
+48           .              .              .             6.8816      
+49           .              .              .             6.4406      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 26
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     EQU LCModel  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+50           .              .              .             3.8901      
+51           .              .              .             4.5553      
+52           .              .              .             8.6186      
+53           .              .              .             1.4519      
+54           .              .              .             2.8149      
+55           .              .              .             3.6768      
+56           .              .              .             2.6587      
+57           .              .              .             1.7936      
+58           .              .              .             2.6820      
+59           .              .              .             2.9672      
+60           .              .              .             3.0234      
+61           .              .              .             2.8849      
+62           .              .              .             2.6350      
+63           .              .              .              .          
+64           .              .              .              .          
+65           .              .              .             1.0500      
+66           .              .              .             3.6990      
+67           .              .              .             2.6755      
+68           .              .              .             2.4544      
+69           .              .              .             2.8988      
+70           .              .              .             1.9711      
+71           .              .              .             2.1829      
+72           .              .              .             0.9328      
+73           .              .              .             3.3805      
+74           .              .              .             1.3980      
+75           .              .              .             1.8856      
+76           .              .              .             1.4202      
+77           .              .              .             1.5607      
+78           .              .              .             2.5850      
+79           .              .              .             2.9385      
+80           .              .              .             2.7650      
+81           .              .              .             2.7741      
+82           .              .              .             2.6907      
+83           .              .              .             2.4307      
+84           .              .              .             2.4482      
+85           .              .              .             2.2170      
+86           .              .              .             1.9893      
+87           .              .              .             0.7363      
+88           .       1.2172616E-7          .             1.7875      
+89           .              .              .             2.7027      
+90           .              .              .             2.3114      
+91           .              .              .             2.1194      
+92           .              .              .             2.7871      
+93           .              .              .             4.2621      
+94           .              .              .             2.3913      
+95           .              .              .             2.5994      
+96           .              .              .             3.8297      
+97           .              .              .             3.6502      
+98           .              .              .             3.3208      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 27
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     EQU LCModel  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+99           .              .              .             4.5840      
+100          .              .              .             2.5537      
+101          .              .              .             0.9149      
+102          .              .              .             0.7560      
+103          .              .              .             0.6953      
+104          .              .              .             0.2166      
+105          .              .              .             2.3348      
+106          .              .              .             2.7008      
+107          .              .              .             1.8197      
+108          .              .              .             1.3894      
+109          .              .              .             2.3586      
+110          .              .              .             2.5008      
+111          .              .              .             3.0200      
+112          .              .              .             2.7688      
+113          .              .              .             2.3712      
+114          .              .              .             2.9203      
+115          .              .              .             2.5764      
+116          .              .              .             3.2715      
+117          .              .              .             2.4437      
+118          .              .              .             2.3344      
+119          .              .              .             1.9891      
+120          .              .              .             2.1987      
+121          .              .              .             1.7015      
+122          .              .              .             2.2149      
+123          .              .              .             9.9142      
+124          .              .              .             5.1583      
+125          .              .              .             2.4771      
+126          .              .              .             2.2474      
+127          .              .              .             5.3348      
+128          .              .              .              .          
+129          .              .              .             1.3899      
+130          .              .              .              .          
+131          .              .              .             2.1488      
+132          .              .              .             3.2168      
+133          .              .              .             2.6490      
+134          .              .              .             3.2909      
+135          .              .              .             4.3243      
+136          .              .              .             3.0656      
+137          .       3.2509607E-8          .              .          
+138          .       4.4917386E-7          .              .          
+139          .              .              .             1.0716      
+140          .              .              .             1.6880      
+141          .              .              .             1.1282      
+142          .              .              .             1.9396      
+143          .              .              .             2.8970      
+144          .              .              .             2.1344      
+145          .              .              .             1.9986      
+146          .              .              .             1.4616      
+147          .              .              .             1.9419      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 28
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     EQU LCModel  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+148          .              .              .             1.7482      
+149          .              .              .              .          
+150          .              .              .              .          
+151          .              .              .             3.0526      
+152          .              .              .             1.3760      
+153          .              .              .             1.2947      
+154          .       1.3032124E-8          .             1.1601      
+155          .              .              .             1.4318      
+156          .              .              .             1.8082      
+157          .              .              .             1.2297      
+158          .              .              .             1.3081      
+159          .              .              .             1.2669      
+160          .              .              .             1.7588      
+161          .              .              .             1.0422      
+162          .              .              .             1.6461      
+163          .              .              .             1.6154      
+164          .              .              .             1.6441      
+165          .              .              .             1.5238      
+166          .              .              .             1.4477      
+167          .              .              .              .          
+168          .              .              .             0.6779      
+169          .              .              .              .          
+170          .              .              .              .          
+171          .              .              .             0.9129      
+172          .              .              .             1.5547      
+173          .              .              .             1.3901      
+174          .              .              .             1.3464      
+175          .              .              .             1.5852      
+176          .              .              .             1.4122      
+177          .              .              .             1.2677      
+178          .              .              .              .          
+179          .              .              .             1.1534      
+180          .              .              .             1.1391      
+181          .              .              .             1.2937      
+182          .              .              .             1.1235      
+183          .              .              .             1.2626      
+184          .              .              .             1.5506      
+185          .              .              .           -16.4193      
+186          .              .              .             1.1287      
+187          .              .              .             1.3731      
+188          .              .              .             1.2379      
+189          .              .              .             0.9238      
+190          .              .              .             1.0832      
+191          .              .              .             1.4796      
+192          .       -1.059715E-8          .              .          
+193          .              .              .             0.1633      
+194          .              .              .             0.5086      
+195          .              .              .             0.6097      
+196          .              .              .             0.3804      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 29
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     EQU LCModel  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+197          .              .              .             0.2925      
+198          .              .              .             0.5432      
+199          .              .              .             0.5848      
+200          .              .              .             0.5541      
+201          .              .              .             0.7287      
+202          .              .              .             0.7877      
+203          .              .              .             0.4213      
+204          .              .              .             0.2910      
+205          .              .              .             0.6085      
+206          .              .              .             0.5897      
+207          .              .              .             0.4425      
+208          .              .              .             0.5078      
+209          .              .              .             0.4812      
+210          .              .              .             0.7656      
+211          .              .              .              .          
+212          .              .              .             0.7330      
+213          .              .              .             1.3613      
+214          .              .              .             1.3267      
+215          .              .              .             1.4748      
+216          .              .              .             1.5041      
+217          .              .              .             1.6292      
+218          .              .              .             1.6208      
+219          .              .              .             1.3348      
+220          .              .              .             1.4024      
+221          .              .              .             1.2833      
+222          .              .              .             1.0313      
+223          .              .              .              .          
+224          .              .              .             1.1134      
+225          .              .              .             1.2499      
+226          .              .              .             1.6591      
+227          .              .              .             1.3452      
+228          .              .              .             1.8550      
+229          .              .              .             0.8845      
+230          .              .              .              .          
+231          .              .              .             1.9232      
+232          .              .              .             1.7871      
+233          .              .              .             1.5304      
+234          .              .              .             1.9751      
+235          .              .              .              .          
+236          .              .              .             2.0224      
+237          .              .              .             1.7717      
+238          .              .              .             1.3371      
+239          .              .              .             1.7931      
+240          .              .              .             2.4297      
+241          .              .              .             2.2920      
+242          .              .              .             2.0037      
+243          .              .              .             1.8359      
+244          .              .              .             0.6724      
+245          .              .              .              .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 30
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     EQU LCModel  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+246          .              .              .             0.9994      
+247          .              .              .              .          
+248          .              .              .              .          
+249          .              .              .             1.7191      
+250          .              .              .             1.0039      
+251          .              .              .             1.5910      
+252          .              .              .             1.4908      
+253          .              .              .             1.7101      
+254          .              .              .             2.0142      
+255          .              .              .             1.3356      
+256          .              .              .             2.0823      
+257          .              .              .             1.5379      
+258          .              .              .             1.6976      
+259          .              .              .             2.2454      
+260          .              .              .             1.9759      
+261          .              .              .             1.5848      
+262          .              .              .              .          
+263          .              .              .             0.8698      
+264          .              .              .             0.9512      
+265          .              .              .             0.7080      
+266          .              .              .             0.8530      
+267          .              .              .             0.4507      
+268          .              .              .             0.6636      
+269          .              .              .             1.4560      
+270          .              .              .             1.4139      
+271          .              .              .             1.5506      
+272          .              .              .             1.8432      
+273          .              .              .              .          
+274          .              .              .             0.5623      
+275          .              .              .              .          
+276          .              .              .              .          
+277          .              .              .              .          
+278          .              .              .             1.6538      
+279          .              .              .             1.2530      
+280          .              .              .             1.5294      
+281          .              .              .             2.2882      
+282          .              .              .             0.8444      
+283          .              .              .             2.5398      
+284          .              .              .             0.7161      
+285          .              .              .             0.5484      
+286          .              .              .             0.8599      
+287          .              .              .             1.7680      
+288          .              .              .             0.7594      
+289          .              .              .             0.4196      
+290          .              .              .             0.5500      
+291          .              .              .             0.4718      
+292          .              .              .             0.7402      
+293          .              .              .             0.2039      
+294          .              .              .             0.3061      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 31
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     EQU LCModel  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+295          .              .              .              .          
+296          .              .              .             3.1621      
+297          .              .              .            -3.4468      
+298          .              .              .             0.2682      
+299          .              .              .             0.6059      
+300          .              .              .             0.5801      
+301          .              .              .             0.7802      
+302          .              .              .             0.6155      
+303          .              .              .             0.3083      
+304          .              .              .             0.3060      
+305          .              .              .             0.5091      
+306          .              .              .             0.2954      
+307          .              .              .             0.2337      
+308          .              .              .             0.2723      
+309          .              .              .             0.5476      
+310          .       -1.797713E-8          .             0.3023      
+311          .              .              .              .          
+312          .              .              .             1.6845      
+313          .              .              .             0.7049      
+314          .              .              .             0.5405      
+315          .              .              .             0.6016      
+316          .              .              .             0.3113      
+317          .              .              .             0.3614      
+318          .              .              .             0.2535      
+319          .              .              .             0.5597      
+320          .              .              .             0.4273      
+321          .              .              .             0.1297      
+322          .              .              .             0.2882      
+323          .              .              .             0.4781      
+324          .              .              .             0.3878      
+325          .              .              .             0.3457      
+326          .              .              .             0.6382      
+327          .              .              .             0.5276      
+328          .              .              .             0.7361      
+329          .              .              .             0.9666      
+330          .              .              .             0.4056      
+331          .       -3.420734E-8          .             0.5138      
+332          .              .              .             0.4230      
+333          .              .              .             0.8502      
+334          .              .              .             0.1786      
+335          .              .              .             0.4971      
+336          .              .              .             0.5231      
+337          .              .              .             0.3785      
+338          .              .              .             0.6961      
+339          .              .              .             0.6678      
+340          .              .              .             2.2633      
+341          .              .              .              .          
+342          .              .              .             0.8198      
+343          .              .              .             0.6182      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 32
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     EQU LCModel  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+344          .              .              .              .          
+345          .              .              .              .          
+346          .              .              .             0.5154      
+347          .              .              .             0.6597      
+348          .              .              .             0.4507      
+349          .              .              .              .          
+350          .              .              .             0.7762      
+351          .              .              .              .          
+352          .              .              .             0.9001      
+353          .              .              .              .          
+354          .              .              .              .          
+355          .              .              .              .          
+356          .              .              .              .          
+357          .              .              .             0.4017      
+358          .              .              .             0.2774      
+359          .              .              .             0.1616      
+360          .              .              .             0.5758      
+361          .              .              .              .          
+362          .              .              .             0.9252      
+363          .              .              .             0.3976      
+364          .              .              .             1.2312      
+365          .              .              .             1.1272      
+366          .              .              .             1.2504      
+367          .              .              .             1.5951      
+368          .              .              .             0.9789      
+369          .              .              .             0.7887      
+370          .              .              .             0.3917      
+371          .              .              .             0.6006      
+372          .              .              .             0.3532      
+373          .              .              .              .          
+374          .              .              .              .          
+375          .              .              .             0.8772      
+376          .              .              .             0.5346      
+377          .              .              .              .          
+378          .              .              .             0.3200      
+379          .              .              .             0.5492      
+380          .              .              .              .          
+381          .              .              .             1.0844      
+382          .              .              .             1.8327      
+383          .              .              .              .          
+384          .              .              .              .          
+385          .              .              .              .          
+386          .              .              .              .          
+387          .              .              .              .          
+388          .              .              .              .          
+389          .              .              .              .          
+390          .              .              .             3.2522      
+391          .              .              .             0.6112      
+392          .              .              .             1.0294      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 33
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     EQU LCModel  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+393          .              .              .             2.3791      
+394          .              .              .             0.2044      
+395          .              .              .              .          
+396          .              .              .             2.7071      
+397          .              .              .             2.7412      
+398          .              .              .              .          
+399          .              .              .             2.8098      
+400          .              .              .              .          
+401          .              .              .             2.3791      
+402          .              .              .             2.4136      
+403          .              .              .              .          
+404          .              .              .              .          
+405          .              .              .              .          
+406          .              .              .              .          
+407          .              .              .              .          
+408          .              .              .              .          
+409          .              .              .              .          
+410          .              .              .             0.9301      
+411          .              .              .              .          
+412          .              .              .              .          
+413          .              .              .              .          
+414          .              .              .              .          
+415          .              .              .              .          
+416          .              .              .              .          
+417          .              .              .             2.3681      
+
+---- EQU LCIntModel  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+1           .              .              .              .          
+2           .              .              .              .          
+3           .              .              .              .          
+4           .              .              .            -1.0000      
+5           .              .              .              .          
+6           .              .              .              .          
+7           .              .              .              .          
+8           .              .              .              .          
+9           .              .              .              .          
+10          .              .              .              .          
+11          .              .              .              .          
+12          .              .              .              .          
+13          .              .              .              .          
+14          .              .              .              .          
+15          .              .              .              .          
+16          .              .              .              .          
+17          .              .              .              .          
+18          .              .              .              .          
+19          .              .              .              .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 34
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     EQU LCIntModel  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+20          .              .              .              .          
+21          .              .              .              .          
+22          .              .              .            -1.0000      
+23          .              .              .              .          
+24          .              .              .              .          
+
+---- EQU yeildConstr  
+
+               LOWER          LEVEL          UPPER         MARGINAL
+
+399.395        -INF      -143060.1933          .              .          
+400.395        -INF      -1.071021E-8          .            -0.0175      
+401.395        -INF      -143060.1933          .              .          
+402.396        -INF             .              .              .          
+403.396        -INF             .              .              .          
+404.396        -INF             .              .              .          
+405.401        -INF             .              .              .          
+406.402        -INF             .              .              .          
+407.397        -INF             .              .              .          
+408.400        -INF             .              .            -0.0757      
+409.398        -INF             .              .            -0.0843      
+410.400        -INF      -360824.7423          .              .          
+411.395        -INF             .              .            -0.0561      
+412.395        -INF       -36520.5941          .              .          
+413.395        -INF      -143060.1933          .              .          
+414.403        -INF             .              .            -0.0768      
+415.406        -INF             .              .            -0.0729      
+416.406        -INF      -103343.4112          .              .          
+417.410        -INF             .              .            -0.0373      
+418.404        -INF             .              .            -0.0570      
+419.404        -INF             .              .            -0.0233      
+420.407        -INF             .              .            -0.0752      
+421.411        -INF             .              .            -0.0690      
+422.405        -INF             .              .            -0.0810      
+423.408        -INF             .              .            -0.0786      
+424.412        -INF             .              .            -0.0729      
+425.409        -INF             .              .            -0.0729      
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU MTHFProd      350000.0000    350000.0000    350000.0000         2.8098      
+---- EQU CO2EqCons~          .              .              .             1.0000      
+---- EQU kgPConstr           .              .              .              .          
+---- EQU DeltaEeq            .              .              .              .          
+---- EQU ICEq                .              .              .              .          
+---- EQU costInEq            .              .              .              .          
+---- EQU TARConstr           .              .              .              .          
+---- EQU NPVConstr           .              .              .              .          
+---- EQU landAreaEq          .              .              .              .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 35
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+---- EQU LCCConstr           .              .              .              .          
+---- EQU eCons                  (EMPTY)
+
+---- VAR m  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1            .            47.7903        +INF             .          
+2            .           229.7441        +INF             .          
+3            .             2.5056        +INF             .          
+4            .             2.4818        +INF             .          
+5            .            22.2808        +INF             .          
+6            .            28.5522        +INF             .          
+7            .             6.8001        +INF             .          
+8            .            15.3875        +INF             .          
+9            .             4.6312        +INF             .          
+10           .             7.7254        +INF             .          
+11           .            74.3974        +INF             .          
+12           .             9.4956        +INF             .          
+13           .            42.6139        +INF             .          
+14           .         33495.3614        +INF             .          
+15           .           259.0948        +INF             .          
+16           .              .            +INF            4.7617      
+17           .            35.8416        +INF             .          
+18           .            41.5990        +INF             .          
+19           .            83.4637        +INF             .          
+20           .              .            +INF            0.5627      
+21           .          1417.9211        +INF             .          
+22           .          4064.1848        +INF             .          
+23           .        121702.5878        +INF             .          
+24           .           548.4072        +INF             .          
+25           .           987.7448        +INF             .          
+26           .             5.0006        +INF             .          
+27           .              .            +INF            1.0557      
+28           .              .            +INF            0.9645      
+29           .              .            +INF            0.8091      
+30           .              .            +INF            1.1534      
+31           .              .            +INF            1.4760      
+32           .              .            +INF            1.1594      
+33           .              .            +INF            1.3299      
+34           .              .            +INF            1.2221      
+35           .              .            +INF            0.9028      
+36           .             2.9440        +INF             .          
+37           .             0.0234        +INF             .          
+38           .             9.7286        +INF             .          
+39           .             2.0698        +INF             .          
+40           .            11.0033        +INF             .          
+41           .            38.4041        +INF             .          
+42           .            44.8876        +INF             .          
+43           .              .            +INF            2.8254      
+44           .             2.2256        +INF             .          
+45           .             2.1798        +INF             .          
+46           .             5.0331        +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 36
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR m  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+47           .             9.8494        +INF             .          
+48           .             2.3141        +INF             .          
+49           .             3.3640        +INF             .          
+50           .             1.7757        +INF             .          
+51           .             7.7352        +INF             .          
+52           .            20.9057        +INF             .          
+53           .             5.8038        +INF             .          
+54           .             4.8799        +INF             .          
+55           .             0.9054        +INF             .          
+56           .             2.9601        +INF             .          
+57           .             2.5820        +INF             .          
+58           .             5.1649        +INF             .          
+59           .             5.0819        +INF             .          
+60           .             3.2439        +INF             .          
+61           .             5.0325        +INF             .          
+62           .            10.0825        +INF             .          
+63           .              .            +INF            1.1007      
+64           .              .            +INF            0.9712      
+65           .              .            +INF             .          
+66           .             3.0070        +INF             .          
+67           .            13.2959        +INF             .          
+68           .             6.7454        +INF             .          
+69           .             1.1215        +INF             .          
+70           .             6.3867        +INF             .          
+71           .            10.8411        +INF             .          
+72           .             8.8870        +INF             .          
+73           .             3.4839        +INF             .          
+74           .            76.6882        +INF             .          
+75           .            23.0989        +INF             .          
+76           .            39.3250        +INF             .          
+77           .            18.6151        +INF             .          
+78           .             7.9842        +INF             .          
+79           .            77.5566        +INF             .          
+80           .            63.1743        +INF             .          
+81           .            70.1920        +INF             .          
+82           .            22.0710        +INF             .          
+83           .            16.1162        +INF             .          
+84           .             0.0002        +INF             .          
+85           .             2.6371        +INF             .          
+86           .            75.0690        +INF             .          
+87           .             5.0767        +INF             .          
+88           .          2400.4038        +INF             .          
+89           .            19.5755        +INF             .          
+90           .            20.5058        +INF             .          
+91           .           291.4965        +INF             .          
+92           .          5894.8515        +INF             .          
+93           .          7701.0163        +INF             .          
+94           .            10.2174        +INF             .          
+95           .           448.2843        +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 37
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR m  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+96           .          1752.2081        +INF             .          
+97           .            99.7021        +INF             .          
+98           .            22.3205        +INF             .          
+99           .           187.5064        +INF             .          
+100          .            25.5652        +INF             .          
+101          .             0.1622        +INF             .          
+102          .             0.2095        +INF             .          
+103          .             0.9947        +INF             .          
+104          .             3.8945        +INF             .          
+105          .            37.9253        +INF             .          
+106          .            26.8079        +INF             .          
+107          .            48.0451        +INF             .          
+108          .             0.1770        +INF             .          
+109          .             6.6030        +INF             .          
+110          .           420.1634        +INF             .          
+111          .            37.0968        +INF             .          
+112          .            62.7195        +INF             .          
+113          .             3.7687        +INF             .          
+114          .            13.2089        +INF             .          
+115          .            10.6669        +INF             .          
+116          .             2.2486        +INF             .          
+117          .            93.9586        +INF             .          
+118          .            15.9954        +INF             .          
+119          .            40.8088        +INF             .          
+120          .            25.2459        +INF             .          
+121          .            35.1055        +INF             .          
+122          .            19.0765        +INF             .          
+123          .           117.4925        +INF             .          
+124          .            25.2418        +INF             .          
+125          .             9.5259        +INF             .          
+126          .            11.3286        +INF             .          
+127          .            12.8655        +INF             .          
+128          .              .            +INF            0.6789      
+129          .             1.7057        +INF             .          
+130          .              .            +INF            1.6975      
+131          .             6.5353        +INF             .          
+132          .            10.3679        +INF             .          
+133          .          1273.2687        +INF             .          
+134          .           409.3897        +INF             .          
+135          .            41.4517        +INF             .          
+136          .            27.1103        +INF             .          
+137          .              .            +INF            2.1263      
+138          .             0.0003        +INF             .          
+139          .           160.5554        +INF             .          
+140          .            54.2396        +INF             .          
+141          .            40.5314        +INF             .          
+142          .            23.4744        +INF             .          
+143          .            16.7418        +INF             .          
+144          .            49.3874        +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 38
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR m  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+145          .            17.4155        +INF             .          
+146          .            47.4617        +INF             .          
+147          .            31.0389        +INF             .          
+148          .            51.4581        +INF             .          
+149          .              .            +INF            1.3328      
+150          .              .            +INF            1.8072      
+151          .            26.5900        +INF             .          
+152          .            25.1659        +INF             .          
+153          .            21.1694        +INF             .          
+154          .            36.7403        +INF             .          
+155          .            53.5602        +INF             .          
+156          .            71.0905        +INF             .          
+157          .            13.2194        +INF             .          
+158          .          1102.6352        +INF             .          
+159          .            66.8290        +INF             .          
+160          .            57.7968        +INF             .          
+161          .             3.8309        +INF             .          
+162          .           173.9137        +INF             .          
+163          .             9.2151        +INF             .          
+164          .            16.9371        +INF             .          
+165          .            57.0884        +INF             .          
+166          .           193.8078        +INF             .          
+167          .              .            +INF            0.3270      
+168          .             2.8944        +INF             .          
+169          .              .            +INF            0.2906      
+170          .             0.0001        +INF             .          
+171          .             2.2943        +INF             .          
+172          .             0.2653        +INF             .          
+173          .            97.0928        +INF             .          
+174          .            11.9518        +INF             .          
+175          .            67.3746        +INF             .          
+176          .            27.5612        +INF             .          
+177          .             5.4615        +INF             .          
+178          .              .            +INF            0.9340      
+179          .             5.5953        +INF             .          
+180          .           256.4389        +INF             .          
+181          .            19.9480        +INF             .          
+182          .            15.4941        +INF             .          
+183          .             8.1889        +INF             .          
+184          .            73.5644        +INF             .          
+185          .              .            +INF           16.6924      
+186          .            78.6922        +INF             .          
+187          .            58.9649        +INF             .          
+188          .           100.9996        +INF             .          
+189          .             0.1012        +INF             .          
+190          .             1.2737        +INF             .          
+191          .            44.8997        +INF             .          
+192          .              .            +INF            1.2428      
+193          .             2.7252        +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 39
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR m  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+194          .            17.3192        +INF             .          
+195          .            50.4839        +INF             .          
+196          .            44.7076        +INF             .          
+197          .            39.3068        +INF             .          
+198          .            10.8884        +INF             .          
+199          .             0.9645        +INF             .          
+200          .           136.7670        +INF             .          
+201          .            36.9697        +INF             .          
+202          .            96.5141        +INF             .          
+203          .             0.0704        +INF             .          
+204          .             1.0625        +INF             .          
+205          .             7.0600        +INF             .          
+206          .            25.8663        +INF             .          
+207          .            51.6203        +INF             .          
+208          .             6.9386        +INF             .          
+209          .             6.0494        +INF             .          
+210          .             0.5951        +INF             .          
+211          .              .            +INF            0.4014      
+212          .             8.3318        +INF             .          
+213          .             5.3654        +INF             .          
+214          .            41.9976        +INF             .          
+215          .             4.2092        +INF             .          
+216          .             4.0125        +INF             .          
+217          .             2.1080        +INF             .          
+218          .             0.2490        +INF             .          
+219          .             0.5197        +INF             .          
+220          .             2.1440        +INF             .          
+221          .            25.7859        +INF             .          
+222          .            19.5866        +INF             .          
+223          .              .            +INF            0.6925      
+224          .            13.6606        +INF             .          
+225          .             0.0590        +INF             .          
+226          .            67.7769        +INF             .          
+227          .            22.4722        +INF             .          
+228          .            31.5250        +INF             .          
+229          .            16.0903        +INF             .          
+230          .              .            +INF            1.7219      
+231          .             1.1313        +INF             .          
+232          .             1.2774        +INF             .          
+233          .             0.2490        +INF             .          
+234          .             0.6885        +INF             .          
+235          .              .            +INF            1.7819      
+236          .             4.5174        +INF             .          
+237          .            29.1915        +INF             .          
+238          .            37.2092        +INF             .          
+239          .            38.0882        +INF             .          
+240          .             2.4335        +INF             .          
+241          .            14.8035        +INF             .          
+242          .            79.0589        +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 40
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR m  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+243          .            72.4110        +INF             .          
+244          .             0.1294        +INF             .          
+245          .              .            +INF            0.3393      
+246          .             5.9425        +INF             .          
+247          .              .            +INF            0.4808      
+248          .              .            +INF            0.4111      
+249          .             7.6222        +INF             .          
+250          .             1.5567        +INF             .          
+251          .             0.0110        +INF             .          
+252          .             1.6601        +INF             .          
+253          .             0.1538        +INF             .          
+254          .             0.3849        +INF             .          
+255          .            14.1526        +INF             .          
+256          .             0.3548        +INF             .          
+257          .             0.4694        +INF             .          
+258          .             0.0716        +INF             .          
+259          .             0.1410        +INF             .          
+260          .             2.2230        +INF             .          
+261          .             2.1433        +INF             .          
+262          .              .            +INF            1.6967      
+263          .             0.0845        +INF             .          
+264          .            11.2443        +INF             .          
+265          .       1.5151557E-5        +INF             .          
+266          .             0.0641        +INF             .          
+267          .             0.0001        +INF             .          
+268          .             1.1751        +INF             .          
+269          .             0.0132        +INF             .          
+270          .              .            +INF             .          
+271          .             1.2661        +INF             .          
+272          .              .            +INF             .          
+273          .              .            +INF            1.3169      
+274          .          1759.6997        +INF             .          
+275          .              .            +INF            0.5012      
+276          .              .            +INF            1.0524      
+277          .              .            +INF            0.8675      
+278          .           407.3956        +INF             .          
+279          .           251.6994        +INF             .          
+280          .             1.9655        +INF             .          
+281          .            30.1274        +INF             .          
+282          .           553.1333        +INF             .          
+283          .            33.4954        +INF             .          
+284          .          1357.0915        +INF             .          
+285          .           182.4554        +INF             .          
+286          .            62.9465        +INF             .          
+287          .           204.7958        +INF             .          
+288          .              .            +INF             .          
+289          .             0.0103        +INF             .          
+290          .             0.9403        +INF             .          
+291          .             5.5531        +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 41
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR m  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+292          .             4.5841        +INF             .          
+293          .           160.2841        +INF             .          
+294          .            73.2932        +INF             .          
+295          .              .            +INF            0.1885      
+296          .           702.5438        +INF             .          
+297          .           112.5003        +INF             .          
+298          .           275.6396        +INF             .          
+299          .           334.5581        +INF             .          
+300          .            50.9877        +INF             .          
+301          .           279.1363        +INF             .          
+302          .           103.9270        +INF             .          
+303          .             1.8985        +INF             .          
+304          .           686.6997        +INF             .          
+305          .           487.4498        +INF             .          
+306          .           501.1629        +INF             .          
+307          .           660.8564        +INF             .          
+308          .           800.3797        +INF             .          
+309          .            12.2259        +INF             .          
+310          .          5128.9959        +INF             .          
+311          .              .            +INF            0.1097      
+312          .          2818.9573        +INF             .          
+313          .           145.0504        +INF             .          
+314          .           583.9943        +INF             .          
+315          .            30.2313        +INF             .          
+316          .           502.8743        +INF             .          
+317          .          1918.0486        +INF             .          
+318          .          1756.5418        +INF             .          
+319          .          1795.2598        +INF             .          
+320          .            45.1482        +INF             .          
+321          .           219.7167        +INF             .          
+322          .           587.9445        +INF             .          
+323          .           847.6554        +INF             .          
+324          .           735.6337        +INF             .          
+325          .           121.9904        +INF             .          
+326          .           115.8372        +INF             .          
+327          .          1015.2394        +INF             .          
+328          .             0.5228        +INF             .          
+329          .             0.1589        +INF             .          
+330          .           797.6802        +INF             .          
+331          .          2632.6757        +INF             .          
+332          .            94.6251        +INF             .          
+333          .            58.2653        +INF             .          
+334          .          1892.3766        +INF             .          
+335          .           292.3732        +INF             .          
+336          .           166.4377        +INF             .          
+337          .            99.2254        +INF             .          
+338          .          1131.2932        +INF             .          
+339          .           180.9264        +INF             .          
+340          .           646.4823        +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 42
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR m  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+341          .              .            +INF            0.6892      
+342          .           127.5751        +INF             .          
+343          .            10.2397        +INF             .          
+344          .              .            +INF            0.4061      
+345          .              .            +INF            0.4733      
+346          .              .            +INF             .          
+347          .              .            +INF             .          
+348          .             0.0037        +INF             .          
+349          .              .            +INF            0.4878      
+350          .             0.5879        +INF             .          
+351          .              .            +INF            0.6710      
+352          .              .            +INF             .          
+353          .              .            +INF            0.8961      
+354          .              .            +INF            0.7903      
+355          .              .            +INF            1.0427      
+356          .              .            +INF            1.3919      
+357          .            13.2963        +INF             .          
+358          .           197.3514        +INF             .          
+359          .            38.8295        +INF             .          
+360          .            28.7043        +INF             .          
+361          .              .            +INF            0.8612      
+362          .             0.9032        +INF             .          
+363          .             0.3999        +INF             .          
+364          .             6.2254        +INF             .          
+365          .           424.3592        +INF             .          
+366          .           457.0198        +INF             .          
+367          .           155.4914        +INF             .          
+368          .           116.9570        +INF             .          
+369          .           125.6255        +INF             .          
+370          .           173.8502        +INF             .          
+371          .           187.0671        +INF             .          
+372          .           165.3240        +INF             .          
+373          .              .            +INF            0.5776      
+374          .              .            +INF            0.2165      
+375          .            17.6253        +INF             .          
+376          .             8.8865        +INF             .          
+377          .              .            +INF            1.1002      
+378          .             0.3244        +INF             .          
+379          .           162.0343        +INF             .          
+380          .              .            +INF             .          
+381          .            18.6483        +INF             .          
+382          .           133.2952        +INF             .          
+383          .              .            +INF            0.5274      
+384          .              .            +INF            0.3122      
+385          .              .            +INF            0.7470      
+386          .              .              .             2.4634      
+387          .              .            +INF            1.0799      
+388          .        215554.4587        +INF             .          
+389          .              .            +INF            0.4897      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 43
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR m  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+390          .              .            +INF            8.0806      
+391          .              .            +INF            1.5214      
+392          .              .            +INF            0.1309      
+393          .        917690.1500        +INF             .          
+394          .              .            +INF             .          
+395          .              .            +INF             .          
+396          .        917690.1500        +INF             .          
+397          .              .              .            -0.8559      
+398          .        397084.5279        +INF             .          
+399          .              .            +INF             .          
+400          .        143060.1933        +INF             .          
+401          .              .            +INF             .          
+402          .              .            +INF             .          
+403          .              .            +INF            0.2935      
+404          .              .            +INF            0.2935      
+405          .              .            +INF            0.2516      
+406          .              .            +INF             .          
+407          .              .            +INF            0.0499      
+408          .        360824.7423        +INF             .          
+409          .        350000.0000        +INF             .          
+410          .              .              .            -0.3280      
+411          .        143060.1933        +INF             .          
+412          .        106539.5992        +INF             .          
+413          .              .            +INF             .          
+414          .        138768.3875        +INF             .          
+415          .        103343.4112        +INF             .          
+416          .              .            +INF             .          
+417          .              .            +INF             .          
+418          .         68327.5817        +INF             .          
+419          .         68327.5817        +INF             .          
+420          .        100243.1089        +INF             .          
+421          .              .            +INF             .          
+422          .        160596.4954        +INF             .          
+423          .         97235.8156        +INF             .          
+424          .              .            +INF             .          
+425          .              .            +INF             .          
+
+---- VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1            .              .           100.0000         1.9342      
+2            .              .           100.0000         4.9514      
+3            .              .           100.0000         1.8267      
+4            .              .           100.0000         1.2335      
+5            .              .           100.0000         2.1541      
+6            .              .           100.0000         2.5896      
+7            .              .           100.0000         6.4235      
+8            .              .           100.0000         8.8255      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 44
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+9            .              .           100.0000         5.0242      
+10           .              .           100.0000         2.6008      
+11           .              .           100.0000         0.9326      
+12           .              .           100.0000         0.7360      
+13           .              .           100.0000         1.5583      
+14           .              .           100.0000         1.1940      
+15           .              .           100.0000         3.1124      
+16           .           100.0000       100.0000        -2.6627      
+17           .              .           100.0000         2.3298      
+18           .              .           100.0000         1.4933      
+19           .              .           100.0000         2.1336      
+20           .              .           100.0000          .          
+21           .              .           100.0000         0.7707      
+22           .              .           100.0000         7.2970      
+23           .              .           100.0000         2.3586      
+24           .              .           100.0000         0.4518      
+25           .              .           100.0000         1.4238      
+26           .              .           100.0000         1.5608      
+27           .              .           100.0000          .          
+28           .              .           100.0000          .          
+29           .              .           100.0000          .          
+30           .              .           100.0000          .          
+31           .              .           100.0000          .          
+32           .              .           100.0000          .          
+33           .              .           100.0000          .          
+34           .              .           100.0000          .          
+35           .              .           100.0000          .          
+36           .              .           100.0000         1.5811      
+37           .              .           100.0000         4.0961      
+38           .              .           100.0000         4.6066      
+39           .              .           100.0000         5.7842      
+40           .              .           100.0000         6.6379      
+41           .              .           100.0000         3.9834      
+42           .              .           100.0000         2.8049      
+43           .              .           100.0000          .          
+44           .              .           100.0000         2.6975      
+45           .              .           100.0000         4.3298      
+46           .              .           100.0000         2.7698      
+47           .              .           100.0000         8.0897      
+48           .              .           100.0000         6.8816      
+49           .              .           100.0000         6.4406      
+50           .              .           100.0000         3.8901      
+51           .              .           100.0000         4.5553      
+52           .              .           100.0000         8.6186      
+53           .              .           100.0000         1.4519      
+54           .              .           100.0000         2.8149      
+55           .              .           100.0000         3.6768      
+56           .              .           100.0000         2.6587      
+57           .              .           100.0000         1.7936      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 45
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+58           .              .           100.0000         2.6820      
+59           .              .           100.0000         2.9672      
+60           .              .           100.0000         3.0234      
+61           .              .           100.0000         2.8849      
+62           .              .           100.0000         2.6350      
+63           .             0.2744       100.0000          .          
+64           .             5.6471       100.0000          .          
+65           .              .           100.0000         1.0500      
+66           .              .           100.0000         3.6990      
+67           .              .           100.0000         2.6755      
+68           .              .           100.0000         2.4544      
+69           .              .           100.0000         2.8988      
+70           .              .           100.0000         1.9711      
+71           .              .           100.0000         2.1829      
+72           .              .           100.0000         0.9328      
+73           .              .           100.0000         3.3805      
+74           .              .           100.0000         1.3980      
+75           .              .           100.0000         1.8856      
+76           .              .           100.0000         1.4202      
+77           .              .           100.0000         1.5607      
+78           .              .           100.0000         2.5850      
+79           .              .           100.0000         2.9385      
+80           .              .           100.0000         2.7650      
+81           .              .           100.0000         2.7741      
+82           .              .           100.0000         2.6907      
+83           .              .           100.0000         2.4307      
+84           .              .           100.0000         2.4482      
+85           .              .           100.0000         2.2170      
+86           .              .           100.0000         1.9893      
+87           .              .           100.0000         0.7363      
+88           .              .           100.0000         1.7875      
+89           .              .           100.0000         2.7027      
+90           .              .           100.0000         2.3114      
+91           .              .           100.0000         2.1194      
+92           .              .           100.0000         2.7871      
+93           .              .           100.0000         4.2621      
+94           .              .           100.0000         2.3913      
+95           .              .           100.0000         2.5994      
+96           .              .           100.0000         3.8297      
+97           .              .           100.0000         3.6502      
+98           .              .           100.0000         3.3208      
+99           .              .           100.0000         4.5840      
+100          .              .           100.0000         2.5537      
+101          .              .           100.0000         0.9149      
+102          .              .           100.0000         0.7560      
+103          .              .           100.0000         0.6953      
+104          .              .           100.0000         0.2166      
+105          .              .           100.0000         2.3348      
+106          .              .           100.0000         2.7008      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 46
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+107          .              .           100.0000         1.8197      
+108          .              .           100.0000         1.3894      
+109          .              .           100.0000         2.3586      
+110          .              .           100.0000         2.5008      
+111          .              .           100.0000         3.0200      
+112          .              .           100.0000         2.7688      
+113          .              .           100.0000         2.3712      
+114          .              .           100.0000         2.9203      
+115          .              .           100.0000         2.5764      
+116          .              .           100.0000         3.2715      
+117          .              .           100.0000         2.4437      
+118          .              .           100.0000         2.3344      
+119          .              .           100.0000         1.9891      
+120          .              .           100.0000         2.1987      
+121          .              .           100.0000         1.7015      
+122          .              .           100.0000         2.2149      
+123          .              .           100.0000         9.9142      
+124          .              .           100.0000         5.1583      
+125          .              .           100.0000         2.4771      
+126          .              .           100.0000         2.2474      
+127          .              .           100.0000         5.3348      
+128          .             1.0245       100.0000          .          
+129          .              .           100.0000         1.3899      
+130          .             2.1221       100.0000          .          
+131          .              .           100.0000         2.1488      
+132          .              .           100.0000         3.2168      
+133          .              .           100.0000         2.6490      
+134          .              .           100.0000         3.2909      
+135          .              .           100.0000         4.3243      
+136          .              .           100.0000         3.0656      
+137          .             8.2246       100.0000          .          
+138          .            11.9870       100.0000          .          
+139          .              .           100.0000         1.0716      
+140          .              .           100.0000         1.6880      
+141          .              .           100.0000         1.1282      
+142          .              .           100.0000         1.9396      
+143          .              .           100.0000         2.8970      
+144          .              .           100.0000         2.1344      
+145          .              .           100.0000         1.9986      
+146          .              .           100.0000         1.4616      
+147          .              .           100.0000         1.9419      
+148          .              .           100.0000         1.7482      
+149          .            38.3721       100.0000          .          
+150          .            35.8661       100.0000          .          
+151          .              .           100.0000         3.0526      
+152          .              .           100.0000         1.3760      
+153          .              .           100.0000         1.2947      
+154          .              .           100.0000         1.1601      
+155          .              .           100.0000         1.4318      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 47
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+156          .              .           100.0000         1.8082      
+157          .              .           100.0000         1.2297      
+158          .              .           100.0000         1.3081      
+159          .              .           100.0000         1.2669      
+160          .              .           100.0000         1.7588      
+161          .              .           100.0000         1.0422      
+162          .              .           100.0000         1.6461      
+163          .              .           100.0000         1.6154      
+164          .              .           100.0000         1.6441      
+165          .              .           100.0000         1.5238      
+166          .              .           100.0000         1.4477      
+167          .             4.2162       100.0000          .          
+168          .              .           100.0000         0.6779      
+169          .            27.7090       100.0000          .          
+170          .            13.8950       100.0000          .          
+171          .              .           100.0000         0.9129      
+172          .              .           100.0000         1.5547      
+173          .              .           100.0000         1.3901      
+174          .              .           100.0000         1.3464      
+175          .              .           100.0000         1.5852      
+176          .              .           100.0000         1.4122      
+177          .              .           100.0000         1.2677      
+178          .             4.9433       100.0000          .          
+179          .              .           100.0000         1.1534      
+180          .              .           100.0000         1.1391      
+181          .              .           100.0000         1.2937      
+182          .              .           100.0000         1.1235      
+183          .              .           100.0000         1.2626      
+184          .              .           100.0000         1.5506      
+185          .           100.0000       100.0000       -16.4193      
+186          .              .           100.0000         1.1287      
+187          .              .           100.0000         1.3731      
+188          .              .           100.0000         1.2379      
+189          .              .           100.0000         0.9238      
+190          .              .           100.0000         1.0832      
+191          .              .           100.0000         1.4796      
+192          .            26.4815       100.0000          .          
+193          .              .           100.0000         0.1633      
+194          .              .           100.0000         0.5086      
+195          .              .           100.0000         0.6097      
+196          .              .           100.0000         0.3804      
+197          .              .           100.0000         0.2925      
+198          .              .           100.0000         0.5432      
+199          .              .           100.0000         0.5848      
+200          .              .           100.0000         0.5541      
+201          .              .           100.0000         0.7287      
+202          .              .           100.0000         0.7877      
+203          .              .           100.0000         0.4213      
+204          .              .           100.0000         0.2910      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 48
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+205          .              .           100.0000         0.6085      
+206          .              .           100.0000         0.5897      
+207          .              .           100.0000         0.4425      
+208          .              .           100.0000         0.5078      
+209          .              .           100.0000         0.4812      
+210          .              .           100.0000         0.7656      
+211          .            23.5538       100.0000          .          
+212          .              .           100.0000         0.7330      
+213          .              .           100.0000         1.3613      
+214          .              .           100.0000         1.3267      
+215          .              .           100.0000         1.4748      
+216          .              .           100.0000         1.5041      
+217          .              .           100.0000         1.6292      
+218          .              .           100.0000         1.6208      
+219          .              .           100.0000         1.3348      
+220          .              .           100.0000         1.4024      
+221          .              .           100.0000         1.2833      
+222          .              .           100.0000         1.0313      
+223          .            14.6057       100.0000          .          
+224          .              .           100.0000         1.1134      
+225          .              .           100.0000         1.2499      
+226          .              .           100.0000         1.6591      
+227          .              .           100.0000         1.3452      
+228          .              .           100.0000         1.8550      
+229          .              .           100.0000         0.8845      
+230          .              .           100.0000          .          
+231          .              .           100.0000         1.9232      
+232          .              .           100.0000         1.7871      
+233          .              .           100.0000         1.5304      
+234          .              .           100.0000         1.9751      
+235          .              .           100.0000          .          
+236          .              .           100.0000         2.0224      
+237          .              .           100.0000         1.7717      
+238          .              .           100.0000         1.3371      
+239          .              .           100.0000         1.7931      
+240          .              .           100.0000         2.4297      
+241          .              .           100.0000         2.2920      
+242          .              .           100.0000         2.0037      
+243          .              .           100.0000         1.8359      
+244          .              .           100.0000         0.6724      
+245          .             0.7712       100.0000          .          
+246          .              .           100.0000         0.9994      
+247          .             0.1605       100.0000          .          
+248          .             0.1616       100.0000          .          
+249          .              .           100.0000         1.7191      
+250          .              .           100.0000         1.0039      
+251          .              .           100.0000         1.5910      
+252          .              .           100.0000         1.4908      
+253          .              .           100.0000         1.7101      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 49
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+254          .              .           100.0000         2.0142      
+255          .              .           100.0000         1.3356      
+256          .              .           100.0000         2.0823      
+257          .              .           100.0000         1.5379      
+258          .              .           100.0000         1.6976      
+259          .              .           100.0000         2.2454      
+260          .              .           100.0000         1.9759      
+261          .              .           100.0000         1.5848      
+262          .             0.0112       100.0000          .          
+263          .              .           100.0000         0.8698      
+264          .              .           100.0000         0.9512      
+265          .              .           100.0000         0.7080      
+266          .              .           100.0000         0.8530      
+267          .              .           100.0000         0.4507      
+268          .              .           100.0000         0.6636      
+269          .              .           100.0000         1.4560      
+270          .              .           100.0000         1.4139      
+271          .              .           100.0000         1.5506      
+272          .              .           100.0000         1.8432      
+273          .             8.6425       100.0000          .          
+274          .              .           100.0000         0.5623      
+275          .              .           100.0000          .          
+276          .              .           100.0000          .          
+277          .              .           100.0000          .          
+278          .              .           100.0000         1.6538      
+279          .              .           100.0000         1.2530      
+280          .              .           100.0000         1.5294      
+281          .              .           100.0000         2.2882      
+282          .              .           100.0000         0.8444      
+283          .              .           100.0000         2.5398      
+284          .              .           100.0000         0.7161      
+285          .              .           100.0000         0.5484      
+286          .              .           100.0000         0.8599      
+287          .              .           100.0000         1.7680      
+288          .              .           100.0000         0.7594      
+289          .              .           100.0000         0.4196      
+290          .              .           100.0000         0.5500      
+291          .              .           100.0000         0.4718      
+292          .              .           100.0000         0.7402      
+293          .              .           100.0000         0.2039      
+294          .              .           100.0000         0.3061      
+295          .             1.4914       100.0000          .          
+296          .              .           100.0000         3.1621      
+297          .           100.0000       100.0000        -3.4468      
+298          .              .           100.0000         0.2682      
+299          .              .           100.0000         0.6059      
+300          .              .           100.0000         0.5801      
+301          .              .           100.0000         0.7802      
+302          .              .           100.0000         0.6155      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 50
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+303          .              .           100.0000         0.3083      
+304          .              .           100.0000         0.3060      
+305          .              .           100.0000         0.5091      
+306          .              .           100.0000         0.2954      
+307          .              .           100.0000         0.2337      
+308          .              .           100.0000         0.2723      
+309          .              .           100.0000         0.5476      
+310          .              .           100.0000         0.3023      
+311          .              .           100.0000          .          
+312          .              .           100.0000         1.6845      
+313          .              .           100.0000         0.7049      
+314          .              .           100.0000         0.5405      
+315          .              .           100.0000         0.6016      
+316          .              .           100.0000         0.3113      
+317          .              .           100.0000         0.3614      
+318          .              .           100.0000         0.2535      
+319          .              .           100.0000         0.5597      
+320          .              .           100.0000         0.4273      
+321          .              .           100.0000         0.1297      
+322          .              .           100.0000         0.2882      
+323          .              .           100.0000         0.4781      
+324          .              .           100.0000         0.3878      
+325          .              .           100.0000         0.3457      
+326          .              .           100.0000         0.6382      
+327          .              .           100.0000         0.5276      
+328          .              .           100.0000         0.7361      
+329          .              .           100.0000         0.9666      
+330          .              .           100.0000         0.4056      
+331          .              .           100.0000         0.5138      
+332          .              .           100.0000         0.4230      
+333          .              .           100.0000         0.8502      
+334          .              .           100.0000         0.1786      
+335          .              .           100.0000         0.4971      
+336          .              .           100.0000         0.5231      
+337          .              .           100.0000         0.3785      
+338          .              .           100.0000         0.6961      
+339          .              .           100.0000         0.6678      
+340          .              .           100.0000         2.2633      
+341          .              .           100.0000          .          
+342          .              .           100.0000         0.8198      
+343          .              .           100.0000         0.6182      
+344          .              .           100.0000          .          
+345          .              .           100.0000          .          
+346          .              .           100.0000         0.5154      
+347          .              .           100.0000         0.6597      
+348          .              .           100.0000         0.4507      
+349          .              .           100.0000          .          
+350          .              .           100.0000         0.7762      
+351          .              .           100.0000          .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 51
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+352          .              .           100.0000         0.9001      
+353          .              .           100.0000          .          
+354          .              .           100.0000          .          
+355          .              .           100.0000          .          
+356          .              .           100.0000          .          
+357          .              .           100.0000         0.4017      
+358          .              .           100.0000         0.2774      
+359          .              .           100.0000         0.1616      
+360          .              .           100.0000         0.5758      
+361          .              .           100.0000          .          
+362          .              .           100.0000         0.9252      
+363          .              .           100.0000         0.3976      
+364          .              .           100.0000         1.2312      
+365          .              .           100.0000         1.1272      
+366          .              .           100.0000         1.2504      
+367          .              .           100.0000         1.5951      
+368          .              .           100.0000         0.9789      
+369          .              .           100.0000         0.7887      
+370          .              .           100.0000         0.3917      
+371          .              .           100.0000         0.6006      
+372          .              .           100.0000         0.3532      
+373          .              .           100.0000          .          
+374          .              .           100.0000          .          
+375          .              .           100.0000         0.8772      
+376          .              .           100.0000         0.5346      
+377          .              .           100.0000          .          
+378          .              .           100.0000         0.3200      
+379          .              .           100.0000         0.5492      
+380          .              .           100.0000          .          
+381          .              .           100.0000         1.0844      
+382          .              .           100.0000         1.8327      
+383          .              .           100.0000          .          
+384          .              .           100.0000          .          
+385          .              .           100.0000          .          
+386          .              .              .              .          
+387          .              .              .              .          
+388          .              .              .              .          
+389          .              .              .              .          
+390          .              .              .             3.2522      
+391          .              .              .             0.6112      
+392          .              .              .             1.0294      
+393          .              .              .             2.3791      
+394          .              .              .             0.2044      
+395          .          4424.5421        +INF             .          
+396          .              .            +INF            2.7071      
+397          .              .            +INF            2.7412      
+398          .         10824.7423        +INF             .          
+399          .        350000.0000        +INF             .          
+400          .         11159.5281        +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 52
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+     VAR f  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+401          .              .            +INF            2.3791      
+402          .              .            +INF            2.4136      
+403          .          4291.8058        +INF             .          
+404          .          2113.2242        +INF             .          
+405          .          4966.9019        +INF             .          
+406          .          3196.1880        +INF             .          
+407          .          3100.3023        +INF             .          
+408          .          3007.2933        +INF             .          
+409          .              .            +INF             .          
+410          .              .            +INF            0.9301      
+411          .              .            +INF             .          
+412        -INF             .            +INF             .          
+413        -INF             .            +INF             .          
+414        -INF        -6405.0300        +INF             .          
+415        -INF      -1.857777E+6        +INF             .          
+416          .       1121535.4876        +INF             .          
+417          .              .              .             2.3681      
+
+---- VAR g  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+1         -INF          773.0688        +INF             .          
+2         -INF          242.3583        +INF             .          
+3         -INF        17172.0366        +INF             .          
+4         -INF       322608.8780        +INF             .          
+5         -INF             .            +INF             .          
+6         -INF           29.5612        +INF             .          
+7         -INF             .            +INF             .          
+8         -INF             .            +INF             .          
+9         -INF             .            +INF             .          
+10        -INF        17350.7996        +INF             .          
+11        -INF      1.3109786E+7        +INF             .          
+12        -INF      1.2649583E+7        +INF             .          
+13        -INF       460089.4012        +INF             .          
+14        -INF       103800.6064        +INF             .          
+15        -INF        12712.3462        +INF             .          
+16        -INF        25485.1114        +INF             .          
+17        -INF             .            +INF             .          
+18        -INF            0.6690        +INF             .          
+19        -INF            0.2347        +INF             .          
+20        -INF       255496.3683        +INF             .          
+21        -INF             .            +INF             .          
+22        -INF       658561.9824        +INF             .          
+23        -INF             .            +INF             .          
+24        -INF       167019.6073        +INF             .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 53
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE P2PRNFA Using MINLP From line 494162
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR y                   .              .             1.0000        -0.1898      
+---- VAR CO2Eq             -INF       981170.8603        +INF             .          
+---- VAR kgP               -INF             .            +INF             .          
+---- VAR DeltaE            -INF       591505.6903        +INF             .          
+---- VAR IC                -INF       621080.9748        +INF             .          
+---- VAR costIn            -INF      9382511.7257        +INF             .          
+---- VAR TAR               -INF      -9.232012E+6        +INF             .          
+---- VAR NPV               -INF      -6.773781E+7        +INF             .          
+---- VAR landArea          -INF       270820.2137        +INF             .          
+---- VAR LCC               -INF      9382511.7257        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0     ERRORS
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     03/03/21 21:42:20 Page 54
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+---- 494173 VARIABLE m.L  
+
+1        47.790,    2       229.744,    3         2.506,    4         2.482,    5        22.281,    6        28.552,    7         6.800,    8        15.387,    9         4.631,    10        7.725,    11       74.397,    12        9.496,    13       42.614
+14    33495.361,    15      259.095,    17       35.842,    18       41.599,    19       83.464,    21     1417.921,    22     4064.185,    23   121702.588,    24      548.407,    25      987.745,    26        5.001,    36        2.944,    37        0.023
+38        9.729,    39        2.070,    40       11.003,    41       38.404,    42       44.888,    44        2.226,    45        2.180,    46        5.033,    47        9.849,    48        2.314,    49        3.364,    50        1.776,    51        7.735
+52       20.906,    53        5.804,    54        4.880,    55        0.905,    56        2.960,    57        2.582,    58        5.165,    59        5.082,    60        3.244,    61        5.033,    62       10.083,    66        3.007,    67       13.296
+68        6.745,    69        1.122,    70        6.387,    71       10.841,    72        8.887,    73        3.484,    74       76.688,    75       23.099,    76       39.325,    77       18.615,    78        7.984,    79       77.557,    80       63.174
+81       70.192,    82       22.071,    83       16.116,    84  1.588877E-4,    85        2.637,    86       75.069,    87        5.077,    88     2400.404,    89       19.575,    90       20.506,    91      291.497,    92     5894.851,    93     7701.016
+94       10.217,    95      448.284,    96     1752.208,    97       99.702,    98       22.320,    99      187.506,    100      25.565,    101       0.162,    102       0.209,    103       0.995,    104       3.894,    105      37.925,    106      26.808
+107      48.045,    108       0.177,    109       6.603,    110     420.163,    111      37.097,    112      62.719,    113       3.769,    114      13.209,    115      10.667,    116       2.249,    117      93.959,    118      15.995,    119      40.809
+120      25.246,    121      35.105,    122      19.077,    123     117.492,    124      25.242,    125       9.526,    126      11.329,    127      12.866,    129       1.706,    131       6.535,    132      10.368,    133    1273.269,    134     409.390
+135      41.452,    136      27.110,    138 2.623260E-4,    139     160.555,    140      54.240,    141      40.531,    142      23.474,    143      16.742,    144      49.387,    145      17.415,    146      47.462,    147      31.039,    148      51.458
+151      26.590,    152      25.166,    153      21.169,    154      36.740,    155      53.560,    156      71.091,    157      13.219,    158    1102.635,    159      66.829,    160      57.797,    161       3.831,    162     173.914,    163       9.215
+164      16.937,    165      57.088,    166     193.808,    168       2.894,    170 1.077576E-4,    171       2.294,    172       0.265,    173      97.093,    174      11.952,    175      67.375,    176      27.561,    177       5.461,    179       5.595
+180     256.439,    181      19.948,    182      15.494,    183       8.189,    184      73.564,    186      78.692,    187      58.965,    188     101.000,    189       0.101,    190       1.274,    191      44.900,    193       2.725,    194      17.319
+195      50.484,    196      44.708,    197      39.307,    198      10.888,    199       0.964,    200     136.767,    201      36.970,    202      96.514,    203       0.070,    204       1.062,    205       7.060,    206      25.866,    207      51.620
+208       6.939,    209       6.049,    210       0.595,    212       8.332,    213       5.365,    214      41.998,    215       4.209,    216       4.012,    217       2.108,    218       0.249,    219       0.520,    220       2.144,    221      25.786
+222      19.587,    224      13.661,    225       0.059,    226      67.777,    227      22.472,    228      31.525,    229      16.090,    231       1.131,    232       1.277,    233       0.249,    234       0.689,    236       4.517,    237      29.192
+238      37.209,    239      38.088,    240       2.433,    241      14.804,    242      79.059,    243      72.411,    244       0.129,    246       5.943,    249       7.622,    250       1.557,    251       0.011,    252       1.660,    253       0.154
+254       0.385,    255      14.153,    256       0.355,    257       0.469,    258       0.072,    259       0.141,    260       2.223,    261       2.143,    263       0.084,    264      11.244,    265 1.515156E-5,    266       0.064,    267 1.281462E-4
+268       1.175,    269       0.013,    271       1.266,    274    1759.700,    278     407.396,    279     251.699,    280       1.965,    281      30.127,    282     553.133,    283      33.495,    284    1357.092,    285     182.455,    286      62.947
+287     204.796,    289       0.010,    290       0.940,    291       5.553,    292       4.584,    293     160.284,    294      73.293,    296     702.544,    297     112.500,    298     275.640,    299     334.558,    300      50.988,    301     279.136
+302     103.927,    303       1.898,    304     686.700,    305     487.450,    306     501.163,    307     660.856,    308     800.380,    309      12.226,    310    5128.996,    312    2818.957,    313     145.050,    314     583.994,    315      30.231
+316     502.874,    317    1918.049,    318    1756.542,    319    1795.260,    320      45.148,    321     219.717,    322     587.944,    323     847.655,    324     735.634,    325     121.990,    326     115.837,    327    1015.239,    328       0.523
+329       0.159,    330     797.680,    331    2632.676,    332      94.625,    333      58.265,    334    1892.377,    335     292.373,    336     166.438,    337      99.225,    338    1131.293,    339     180.926,    340     646.482,    342     127.575
+343      10.240,    348       0.004,    350       0.588,    357      13.296,    358     197.351,    359      38.829,    360      28.704,    362       0.903,    363       0.400,    364       6.225,    365     424.359,    366     457.020,    367     155.491
+368     116.957,    369     125.625,    370     173.850,    371     187.067,    372     165.324,    375      17.625,    376       8.886,    378       0.324,    379     162.034,    381      18.648,    382     133.295,    388  215554.459,    393  917690.150
+396  917690.150,    398  397084.528,    400  143060.193,    408  360824.742,    409  350000.000,    411  143060.193,    412  106539.599,    414  138768.388,    415  103343.411,    418   68327.582,    419   68327.582,    420  100243.109,    422  160596.495
+423   97235.816
+
+
+---- 494174 VARIABLE f.L  
+
+16      100.000,    63        0.274,    64        5.647,    128       1.025,    130       2.122,    137       8.225,    138      11.987,    149      38.372,    150      35.866,    167       4.216,    169      27.709,    170      13.895,    178       4.943
+185     100.000,    192      26.482,    211      23.554,    223      14.606,    245       0.771,    247       0.161,    248       0.162,    262       0.011,    273       8.642,    295       1.491,    297     100.000,    395    4424.542,    398   10824.742
+399  350000.000,    400   11159.528,    403    4291.806,    404    2113.224,    405    4966.902,    406    3196.188,    407    3100.302,    408    3007.293,    414   -6405.030,    415 -1.85778E+6,    416 1121535.488
+
+
+---- 494175 VARIABLE y.L                   =        0.000  
+
+
+EXECUTION TIME       =        0.032 SECONDS     40 MB  24.7.4 r58773 LEX-LEG
+
+
+USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
+      The Ohio State University, Chemical and Biomolecular EnginDC12543
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa.gms
+Output     /home/vyom/P2P-RNFA/P2P-RNFA/p2p-rnfa.lst

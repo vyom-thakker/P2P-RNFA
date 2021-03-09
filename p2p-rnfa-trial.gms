@@ -409,7 +409,7 @@ dumeq.. dumm=e=0;
 *    NPV.lo=NPVDummy;
 *   Solve P2PRNFA using LP minimizing CO2Eq; 
 
-   Solve P2PRNFA using NLP minimizing LCC;
+  Solve P2PRNFA using NLP minimizing LCC;
 *    LCCDummy=LCC.l;
 *   LCC.up=LCCDummy;
 *   Solve P2PRNFA using NLP minimizing CO2Eq; 

@@ -1,0 +1,9 @@
+gams p2p-rnfa-trial-apprx.gms --textval=pareto --basis=1000 --file=toyapprxnilp --elccval=1.85
+gams p2p-rnfa-trial-apprx.gms --textval=pareto --basis=1000 --file=toyapprxnilp --elccval=1.92
+gams p2p-rnfa-trial-apprx.gms --textval=pareto --basis=1000 --file=toyapprxnilp --elccval=1.99
+gams p2p-rnfa-trial-apprx.gms --textval=pareto --basis=1000 --file=toyapprxnilp --elccval=2.06
+gams p2p-rnfa-trial-apprx.gms --textval=pareto --basis=1000 --file=toyapprxnilp --elccval=2.13
+gams p2p-rnfa-trial-apprx.gms --textval=pareto --basis=1000 --file=toyapprxnilp --elccval=2.21
+gams p2p-rnfa-trial-apprx.gms --textval=pareto --basis=1000 --file=toyapprxnilp --elccval=2.28
+gams p2p-rnfa-trial-apprx.gms --textval=pareto --basis=1000 --file=toyapprxnilp --elccval=2.35
+gams p2p-rnfa-trial-apprx.gms --textval=pareto --basis=1000 --file=toyapprxnilp --elccval=2.41

@@ -62,6 +62,13 @@ Pb(k,k);
 *PfU(econ_r,vc_r)
 *Pp(vc_c,econ_c);
 
+dcUvc(vc_r,econ_c)=0;
+dcUrnfa(rnfa_r,econ_c)=0;
+ucUvc(econ_r,vc_c)=0;
+ucUrnfa(econ_r,rnfa_c)=0;
+
+
+
 $offlisting
 $include ./incFiles/vcV.inc
 $include ./incFiles/vcU.inc
@@ -85,6 +92,14 @@ $include ./incFiles/Pb.inc
 $include ./incFiles/A.inc
 $onlisting
 
+
+*ucUrnfa('93','422')=-50;
+*ucUrnfa('92','411')=-0.0
+
+
+*ucUrnfa('92','411')=-0.03;
+ucUrnfa('92','417')=-0.021;
+ucUrnfa('92','421')=-0.021;
 
 parameters
 vcVstar(j,i)
@@ -279,9 +294,15 @@ variable g(k);
 f.lo(i)$(posb(i)) =0;
 f.fx(i)$(vc_r(i)) =0;
 f.lo(i)$(econ_r(i)) =0;
+f.up(i)$(econ_r(i)) =100;
 f.fx('417')=0;
 m.fx('397')=0;
 m.fx('386')=0;
+m.fx('410')=0;
+*m.fx('411')=0;
+*m.fx('413')=0;
+*m.fx('408')=0;
+
 
 *positive variable y;
 *equation lineqn;
@@ -289,7 +310,11 @@ binary variable y;
 equation bineqn1,bineqn2;
 bineqn1.. m('394')-1000=l=860000*(y);
 bineqn2.. m('394')=g=1000*y;
-*lineqn.. m('394')=g=511319*y;
+*lineqn.. m('394')=e=542878*y;
+
+
+
+
 *binary variables z1,z2,z3;
 *equation bineqn2,bineqn3,bineqn4;
 *bineqn2.. (-0.05)*z1+0.05*z3=l=m('394');
@@ -336,7 +361,7 @@ variable CO2Eq;
 CO2EqConstr.. CO2Eq=e=g('4')+g('22');
 equation kgPConstr;
 variable kgP;
-kgPConstr.. kgP=e=g('23');
+kgPConstr.. kgP=e=g('2')+g('23');
 
 set A1f1(j,i) /399.395, 400.395, 401.395, 417.413, 421.413, 411.414, #rnfa_c.415/;
 set A3f3(j,i) /409.399,410.399/;
@@ -373,7 +398,8 @@ NPVConstr.. NPV=e= TAR*7.27 -IC;
 variable landArea;
 equation landAreaEq;
 landAreaEq.. landArea=e=g('14')+g('24');
-
+*equation posLand;
+*posLand.. landArea=g=100;
 
 
 *equation fruitConstr1,fruitConstr2;
@@ -382,9 +408,12 @@ landAreaEq.. landArea=e=g('14')+g('24');
 
 equation LCCConstr;
 variable LCC;
-LCCConstr.. LCC=e=costIn;
+*LCCConstr.. LCC=e=costIn;
 
-
+equation fval;
+variable totalEconf;
+fval.. totalEconF=e=sum(i$econ_r(i),f(i));
+LCCConstr.. LCC=e=costIn+0.01*totalEconf;
 *equation TARPost;
 *TarPost.. TAR=g=0;
 
@@ -392,8 +421,8 @@ LCCConstr.. LCC=e=costIn;
 
 parameters LCCDummy,NPVDummy,CO2Dummy,co2;
 
-$if not set co2 $set co2 -1;
-co2=%co2%;
+$if not set eco2 $set eco2 -1;
+co2=%eco2%;
 equation eCons;
 eCons$(co2>0).. CO2Eq=l=co2;
 
@@ -407,13 +436,13 @@ eCons$(co2>0).. CO2Eq=l=co2;
 *    NPV.lo=NPVDummy;
 *  Solve P2PRNFA using LP minimizing CO2Eq; 
 
-   Solve P2PRNFA using MINLP minimizing LCC;
+  Solve P2PRNFA using MINLP minimizing LCC;
 *     LCCDummy=LCC.l;
 *    LCC.up=LCCDummy;
-*   Solve P2PRNFA using MINLP minimizing CO2Eq; 
-*  Solve P2PRNFA using LP minimizing CO2Eq; 
-*  Solve P2PRNFA using LP minimizing kgP; 
-*   Solve P2PRNFA using LP minimizing landArea; 
+*  Solve P2PRNFA using MINLP minimizing CO2Eq; 
+* Solve P2PRNFA using LP minimizing CO2Eq; 
+*  Solve P2PRNFA using MINLP minimizing kgP; 
+*   Solve P2PRNFA using MINLP minimizing landArea; 
 *  Solve P2PRNFA using MINLP minimizing CO2Eq; 
 *   CO2Dummy=CO2Eq.l;
 *   CO2Eq.up=CO2Dummy;
@@ -427,9 +456,67 @@ Display y.l;
 
 $if not set file $set file 0
 
+
+parameter flows(i,j);
+set econset(i,j) /#econ_r.#econ_rJ/;
+flows(i,j)$(ord(i)<>ord(j) and econset(i,j))=-1*(y.l*Xstar(i,j)+(1-y.l)*X(i,j))*m.l(j);
+flows(i,j)$(ord(i)=ord(j) and econset(i,j))=m.l(j)-((y.l*Xstar(i,j)+(1-y.l)*X(i,j))*m.l(j));
+flows(i,j)$(not econset(i,j))=(y.l*Xstar(i,j)+(1-y.l)*X(i,j))*m.l(j);
+*flows(i,j) $( flows(i,j)<0)=0;
+
+
+*set sankey(i,j) /#vc_r.#vc_c, #rnfa_r.#rnfa_c, 393.#rnfa_c, 394.#rnfa_c/;
+
+*set from /'corn','apple','banana', S1*S23/;
+*set to /S1*S23/;
+*variable sankey(from,to);
+*sankey('corn',S1)=flows('390','394');
+*sankey('apple',S1)=flows('391','395');
+*sankey('banana',S1)=flows('392','396');
+
+
+
+
+
+File chorddiag /chorddiag%fileS%.txt/;
+chorddiag.ap=1;
+chorddiag.nd=4;
+chorddiag.pw=32767;
+put chorddiag"";
+loop(i,loop(j,put flows(i,j)",") put/);
+put "";
+put /;
+
+
+File throughputs /throughputs%fileS%.txt/;
+throughputs.ap=1;
+throughputs.nd=4;
+throughputs.pw=32767;
+put throughputs"";
+loop(j,put m.l(j)"/");
+put "";
+put /;
+
+parameter envtflows(k,j);
+envtflows(k,j)=(y.l*Bstar(k,j)+(1-y.l)*B(k,j))*m.l(j);
+
+File barchart /barchart%fileS%.txt/;
+barchart.ap=1;
+barchart.nd=4;
+barchart.pw=32767;
+put barchart"";
+loop(k,loop(j,put envtflows(k,j)",") put/);
+put "";
+put /;
+
+execute_unload '%fileS%.gdx', flows, m, y;
+
+$onText
+
 File pareto /pareto%file%.txt/;
 pareto.ap=1;
 pareto.nd=4;
+pareto.pw=32767;
 put pareto"";
 put %basis%",";
 put LCC.l",";
@@ -438,9 +525,30 @@ put kgP.l",";
 put landArea.l"";
 put /;
 
+
+
+*execute 'mkdir ./case_study_results_nlp/%fileS%folder'
+*execute 'mv ./*%fileS%.txt ./case_study_results_nlp/%fileS%folder/'
+*execute 'mv ./%fileS%.gdx ./case_study_results_nlp/%fileS%folder/'
+
+
+File paretoecon /paretoecon%file%.txt/;
+paretoecon.ap=1;
+paretoecon.nd=4;
+paretoecon.pw=32767;
+put paretoecon"";
+put %basis%",";
+put LCC.l",";
+put CO2Eq.l",";
+loop(j$econ_c(j),put m.l(j)",");
+put "";
+put /;
+
+
 File paretovc /paretovc%file%.txt/;
 paretovc.ap=1;
 paretovc.nd=4;
+paretovc.pw=32767;
 put paretovc"";
 put %basis%",";
 put LCC.l",";
@@ -452,6 +560,7 @@ put /;
 File paretornfa /paretornfa%file%.txt/;
 paretornfa.ap=1;
 paretornfa.nd=4;
+paretornfa.pw=32767;
 put paretornfa"";
 put %basis%",";
 put LCC.l",";
@@ -459,6 +568,7 @@ put CO2Eq.l",";
 loop(j$rnfa_c(j),put m.l(j)",");
 put "";
 put /;
+
 
 $ontext
 *execute_unload 'XNEW.gdx', X,Astar,VCstar,RNFA,m;
@@ -476,5 +586,4 @@ Display diffCalcU;
 Display diffCalcV;
 Display diffCalcB;
 Display diffCalcX;
-
-$offtext
+$offText

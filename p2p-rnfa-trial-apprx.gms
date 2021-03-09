@@ -140,12 +140,19 @@ f.fx(i)$(vc_r(i)) =0;
 f.lo(i)$(econ_r(i)) =0;
 m.lo(j)=0;
 
-positive variables y1,y2;
+*positive variables y1,y2;
+*equations definingY1, definingY2;
+*definingY1.. y1=e=m('5')/1000;
+*definingY2.. y2=e=m('6')/500;
+*y1.up=1;
+*y2.up=1;
+
+binary variables y1,y2;
 equations definingY1, definingY2;
-definingY1.. y1=e=m('5')/1000;
-definingY2.. y2=e=m('6')/500;
-y1.up=1;
-y2.up=1;
+definingY1.. y1=g=m('5')/1000;
+definingY2.. y2=g=m('6')/500;
+
+
 
 *Enter Bases in mol/sec
 $if not set basis $set basis 1
@@ -256,6 +263,7 @@ dumeq.. dumm=e=0;
 
     Model P2PRNFA /ALL/;
     Option NLP=BARON;
+    Option MINLP=BARON;
 *    Solve P2PRNFA using NLP minimizing dumm;
 *    Solve P2PRNFA using LP maximizing NPV; 
 *     NPVDummy=NPV.l;
@@ -266,7 +274,8 @@ dumeq.. dumm=e=0;
 *    LCCDummy=LCC.l;
 *   LCC.up=LCCDummy;
 *   Solve P2PRNFA using NLP minimizing CO2Eq; 
-  Solve P2PRNFA using NLP minimizing CO2Eq; 
+*  Solve P2PRNFA using MINLP minimizing CO2Eq; 
+  Solve P2PRNFA using MINLP minimizing LCC; 
 *  Solve P2PRNFA using LP minimizing kgP; 
 *   Solve P2PRNFA using LP minimizing landArea; 
 * Solve P2PRNFA using NLP minimizing CO2Eq; 

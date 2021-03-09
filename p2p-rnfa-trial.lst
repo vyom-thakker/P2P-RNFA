@@ -1,4 +1,4 @@
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/21 19:12:37 Page 1
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/08/21 22:56:10 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -56,7 +56,7 @@ C o m p i l a t i o n
   53  phat(j,j)
   54  Pf(j,i)
   55  PfU(i,i)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/21 19:12:37 Page 2
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/08/21 22:56:10 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -114,7 +114,7 @@ C o m p i l a t i o n
  180  variable f(i);
  181  variable g(k);
  182   
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/21 19:12:37 Page 3
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/08/21 22:56:10 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -172,7 +172,7 @@ C o m p i l a t i o n
  232  vtone(econ_c).. econVTstarOne(econ_c)=e=sum(econ_rJ,econVTstar(econ_rJ,econ_c));
  233   
  234  disagg4(econ_int,econ_c).. econBstar(econ_int,econ_c)*econVTstarOne(econ_c)=e=(econR(econ_int,econ_c)-sum(kd1$vc_int(kd1),Pb(econ_int,kd1)*sum(jd1$vc_c(jd1),vcB(kd1,jd1)*m(jd1)*Pp(jd1,econ_c))));
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/21 19:12:37 Page 4
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/08/21 22:56:10 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -230,7 +230,7 @@ C o m p i l a t i o n
  285  *      bp(npr,nps)  =  bp(npr,nps) - bp(r,nps)*bp(npr,s);
  286  *      bp(npr,  s)  = -bp(npr,s)*piv;
  287  *      bp(  r,  s)  =  piv;
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/21 19:12:37 Page 5
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/08/21 22:56:10 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -288,7 +288,7 @@ C o m p i l a t i o n
  338   
  339  equation xEq1(i,j),bEq1(k,j);
  340  variable X(i,j);
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/21 19:12:37 Page 6
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/08/21 22:56:10 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -346,7 +346,7 @@ C o m p i l a t i o n
       set A1f1(j,i) /399.395, 400.395, 401.395, 417.413, 421.413, 411.414, #rnfa_c.415/;
       set A3f3(j,i) /409.399,410.399/;
        
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/21 19:12:37 Page 7
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/08/21 22:56:10 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -404,7 +404,7 @@ C o m p i l a t i o n
  448  elcc=-1;;
  449  equation eCons;
  450  eCons$(elcc>0).. LCC=l=elcc;
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/21 19:12:37 Page 8
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/08/21 22:56:10 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -424,10 +424,10 @@ C o m p i l a t i o n
  463  *    NPV.lo=NPVDummy;
  464  *   Solve P2PRNFA using LP minimizing CO2Eq;
  465   
- 466  *   Solve P2PRNFA using NLP minimizing LCC;
+ 466    Solve P2PRNFA using NLP minimizing LCC;
  467  *    LCCDummy=LCC.l;
  468  *   LCC.up=LCCDummy;
- 469     Solve P2PRNFA using NLP minimizing CO2Eq;
+ 469  *   Solve P2PRNFA using NLP minimizing CO2Eq;
  470  *Solve P2PRNFA using NLP minimizing CO2Eq;
  471  *  Solve P2PRNFA using LP minimizing kgP;
  472  *   Solve P2PRNFA using LP minimizing landArea;
@@ -448,7 +448,7 @@ C o m p i l a t i o n
  487  Display diffCalc1,diffCalc2;
  488   
  491  *
- 492  File pareto /paretotoyMILP.txt/;
+ 492  File pareto /paretodelete.txt/;
  493  pareto.ap=1;
  494  pareto.nd=4;
  495  pareto.pw=32767;
@@ -457,12 +457,12 @@ C o m p i l a t i o n
  498  put LCC.l",";
  499  put CO2Eq.l",";
  500  loop(j,put m.l(j)",");
- 501  put "CO2";
+ 501  put "0";
  502  put "";
  503  put /;
  504   
  505   
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/03/21 19:12:37 Page 9
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      02/08/21 22:56:10 Page 9
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -517,7 +517,7 @@ C o m p i l a t i o n
 **** LIST OF STRAY NAMES - CHECK DECLARATIONS FOR SPURIOUS COMMAS
 **** STRAY NAME NPVDummy OF TYPE PARAM
 **** STRAY NAME CO2Dummy OF TYPE PARAM
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 10
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 10
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Include File Summary
 
@@ -528,10 +528,10 @@ Include File Summary
      2      118 INCLUDE        1     118  ./home/vyom/P2P-RNFA/P2P-RNFA/incFiles/incToy.inc
 
 
-COMPILATION TIME     =        0.005 SECONDS      3 MB  24.7.4 r58773 LEX-LEG
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 11
+COMPILATION TIME     =        0.003 SECONDS      3 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 11
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE P2PRNFA Using NLP From line 469
+Equation Listing    SOLVE P2PRNFA Using NLP From line 466
 
 
 ---- disagg1  =E=  
@@ -585,9 +585,9 @@ vtone(2)..  - econVTstar(1,2) - econVTstar(2,2) + econVTstarOne(2) =E= 0 ; (LHS 
 
 econEq1(1,1)..  - econUstar(1,1) + (0)*econVTstar(1,1) + (0)*econVTstar(2,1) + (0)*Astar(1,1) + (0)*Astar(1,2) =E= 0 ; (LHS = 0)
      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 12
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 12
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE P2PRNFA Using NLP From line 469
+Equation Listing    SOLVE P2PRNFA Using NLP From line 466
 
 
      econEq1  =E=  
@@ -638,9 +638,9 @@ xEq1(1,3)..  - L(1,3) - VCstar(1,3) - RNFA(1,3) + X(1,3) =E= 0 ; (LHS = 0)
      
 REMAINING 27 ENTRIES SKIPPED
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 13
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 13
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE P2PRNFA Using NLP From line 469
+Equation Listing    SOLVE P2PRNFA Using NLP From line 466
 
 
 ---- bEq1  =E=  
@@ -691,9 +691,9 @@ costInEq..  - (0.1)*m(3) - (0.1)*m(4) + (0)*m(5) + (0)*m(6) + (0)*X(1,3) + (0)*X
 
 LCCConstr..  - costIn + LCC =E= 0 ; (LHS = 0)
      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 14
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 14
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE P2PRNFA Using NLP From line 469
+Equation Listing    SOLVE P2PRNFA Using NLP From line 466
 
 
 ---- eCons  =L=  
@@ -705,9 +705,9 @@ Equation Listing    SOLVE P2PRNFA Using NLP From line 469
 
 dumeq..  dumm =E= 0 ; (LHS = 0)
      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 15
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 15
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE P2PRNFA Using NLP From line 469
+Column Listing      SOLVE P2PRNFA Using NLP From line 466
 
 
 ---- m  
@@ -763,9 +763,9 @@ f(3)
                 (.LO, .L, .UP, .M = 0, 0, 0, 0)
        -1       LCModel(3)
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 16
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 16
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE P2PRNFA Using NLP From line 469
+Column Listing      SOLVE P2PRNFA Using NLP From line 466
 
 
      f  
@@ -821,9 +821,9 @@ econUstar(2,1)
         1       disagg2(2,1)
        -1       econEq1(2,1)
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 17
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 17
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE P2PRNFA Using NLP From line 469
+Column Listing      SOLVE P2PRNFA Using NLP From line 466
 
 
      econUstar  
@@ -879,9 +879,9 @@ econVTstarOne(1)
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
        (0)      disagg4(1,1)
         1       vtone(1)
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 18
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 18
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE P2PRNFA Using NLP From line 469
+Column Listing      SOLVE P2PRNFA Using NLP From line 466
 
 
      econVTstarOne  
@@ -932,9 +932,9 @@ L(1,3)
        -1       xEq1(1,3)
 
 REMAINING 27 ENTRIES SKIPPED
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 19
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 19
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE P2PRNFA Using NLP From line 469
+Column Listing      SOLVE P2PRNFA Using NLP From line 466
 
 
 ---- VCstar  
@@ -988,9 +988,9 @@ X(1,3)
        (0)      costInEq
 
 REMAINING 27 ENTRIES SKIPPED
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 20
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 20
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE P2PRNFA Using NLP From line 469
+Column Listing      SOLVE P2PRNFA Using NLP From line 466
 
 
 ---- B  
@@ -1040,9 +1040,9 @@ dumm
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       dumeq
 
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 21
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 21
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE P2PRNFA Using NLP From line 469
+Model Statistics    SOLVE P2PRNFA Using NLP From line 466
 
 
 MODEL STATISTICS
@@ -1054,26 +1054,26 @@ DERIVATIVE POOL              20     CONSTANT POOL              16
 CODE LENGTH                 201
 
 
-GENERATION TIME      =        0.011 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
+GENERATION TIME      =        0.015 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
 
 
-EXECUTION TIME       =        0.014 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 22
+EXECUTION TIME       =        0.025 SECONDS      4 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 22
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
                S O L V E      S U M M A R Y
 
-     MODEL   P2PRNFA             OBJECTIVE  CO2Eq
+     MODEL   P2PRNFA             OBJECTIVE  LCC
      TYPE    NLP                 DIRECTION  MINIMIZE
-     SOLVER  BARON               FROM LINE  469
+     SOLVER  BARON               FROM LINE  466
 
 **** SOLVER STATUS     1 Normal Completion         
-**** MODEL STATUS      2 Locally Optimal           
-**** OBJECTIVE VALUE                8.5822
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE                1.7737
 
- RESOURCE USAGE, LIMIT          0.090      1000.000
+ RESOURCE USAGE, LIMIT          0.000      1000.000
  ITERATION COUNT, LIMIT         0    2000000000
  EVALUATION ERRORS              0             0
 
@@ -1101,10 +1101,10 @@ University of Illinois at Urbana-Champaign.
  For NLP: MINOS, SNOPT, GAMS external NLP, IPOPT, FILTERSD
 ===========================================================================
 
-Solution      = 8.58215492516295  found at node 3
-Best possible = 7.80195902288
-Absolute gap  = 0.780195902282946  optca = 1E-9
-Relative gap  = 0.09091  optcr = 0.1
+Solution      = 1.77368421052632  best solution found during preprocessing
+Best possible = 1.77368421053
+Absolute gap  = 3.68394204031119E-12  optca = 1E-9
+Relative gap  = 0.00000  optcr = 0.1
   (Note that BARON uses a different formula to compute the relative gap as
    was used for the above reported value.)
 
@@ -1113,140 +1113,140 @@ Relative gap  = 0.09091  optcr = 0.1
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1       500.0000       500.0000       500.0000        -0.0077      
-1.2          .              .              .            -0.0044      
-2.1          .              .              .            -0.0176      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 23
+1.1       500.0000       500.0000       500.0000          .          
+1.2          .              .              .              .          
+2.1          .              .              .              .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 23
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
      EQU disagg1  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-2.2       700.0000       700.0000       700.0000        -0.0120      
+2.2       700.0000       700.0000       700.0000          .          
 
 ---- EQU disagg2  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1       150.0000       150.0000       150.0000         0.0077      
-1.2       200.0000       200.0000       200.0000         0.0134      
-2.1       300.0000       300.0000       300.0000         0.0069      
-2.2       100.0000       100.0000       100.0000         0.0120      
+1.1       150.0000       150.0000       150.0000          .          
+1.2       200.0000       200.0000       200.0000          .          
+2.1       300.0000       300.0000       300.0000          .          
+2.2       100.0000       100.0000       100.0000          .          
 
 ---- EQU disagg3  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1          .              .              .            -0.0077      
-1.2          .              .              .            -0.0176      
-2.1          .              .              .            -0.0044      
-2.2          .              .              .            -0.0120      
+1.1          .              .              .              .          
+1.2          .              .              .              .          
+2.1          .              .              .              .          
+2.2          .              .              .              .          
 
 ---- EQU disagg4  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1       200.0000       200.0000       200.0000         0.0032      
-1.2       800.0000       800.0000       800.0000         0.0057      
+1.1       200.0000       200.0000       200.0000          .          
+1.2       800.0000       800.0000       800.0000          .          
 
 ---- EQU vtone  
 
          LOWER          LEVEL          UPPER         MARGINAL
 
-1          .              .              .            -0.0013      
-2          .              .              .            -0.0065      
+1          .              .              .              .          
+2          .              .              .              .          
 
 ---- EQU econEq1  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1          .              .              .             0.0077      
-1.2          .              .              .             0.0134      
-2.1          .              .              .             0.0069      
-2.2          .              .              .             0.0120      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 24
+1.1          .              .              .              .          
+1.2          .              .              .              .          
+2.1          .              .              .              .          
+2.2          .              .              .              .          
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 24
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
 ---- EQU econEq2  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1         1.0000         1.0000         1.0000        -3.8334      
-1.2          .              .              .            -9.3923      
-2.1          .              .              .            -3.4286      
-2.2         1.0000         1.0000         1.0000        -8.4005      
+1.1         1.0000         1.0000         1.0000          .          
+1.2          .              .              .              .          
+2.1          .              .              .              .          
+2.2         1.0000         1.0000         1.0000          .          
 
 ---- EQU vcEq1  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-3.3        20.0000        20.0000        20.0000        -0.4500      
-3.4        -8.0000        -8.0000        -8.0000        -0.0563      
-4.3        -5.0000        -5.0000        -5.0000        -0.4904      
-4.4        40.0000        40.0000        40.0000        -0.0613      
+3.3        20.0000        20.0000        20.0000        -0.0262      
+3.4        -8.0000        -8.0000        -8.0000        -0.0656      
+4.3        -5.0000        -5.0000        -5.0000        -0.0187      
+4.4        40.0000        40.0000        40.0000        -0.0467      
 
 ---- EQU rnfaEq1  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-5.5         1.0000         1.0000         1.0000        -8.5504      
-5.6         2.0000         2.0000         2.0000          .          
+5.5         1.0000         1.0000         1.0000          .          
+5.6         2.0000         2.0000         2.0000        -0.8868      
 
 ---- EQU xEq1  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1          .              .              .            -3.8334      
-1.2          .              .              .            -9.3923      
-1.3          .              .              .            -1.2477      
-1.4          .              .              .            -0.1560      
-1.5          .              .              .         -2370.5594      
-1.6          .              .              .              .          
-2.1          .              .              .            -3.4286      
-2.2          .              .              .            -8.4005      
-2.3        -4.0000        -4.0000        -4.0000        -1.1159      
-2.4        -5.0000        -5.0000        -5.0000        -0.1395      
-2.5          .              .              .         -2120.2366      
-2.6          .              .              .              .          
-3.1          .              .              .            -1.3827      
-3.2          .              .              .            -3.3877      
-3.3          .              .              .            -0.4500      
-3.4          .              .              .            -0.0563      
-3.5        -0.0100        -0.0100        -0.0100      -855.0378      
-3.6          .              .              .              .          
-4.1          .              .              .            -1.5068      
-4.2          .              .              .            -3.6919      
-4.3          .              .              .            -0.4904      
-4.4          .              .              .            -0.0613      
-4.5          .              .              .          -931.8000      
-4.6        -0.0200        -0.0200        -0.0200          .          
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 25
+1.1          .              .              .              .          
+1.2          .              .              .              .          
+1.3          .              .              .            -0.1053      
+1.4          .              .              .            -0.2632      
+1.5          .              .              .              .          
+1.6          .              .              .          -500.0000      
+2.1          .              .              .              .          
+2.2          .              .              .              .          
+2.3        -4.0000        -4.0000        -4.0000        -0.1053      
+2.4        -5.0000        -5.0000        -5.0000        -0.2632      
+2.5          .              .              .              .          
+2.6          .              .              .          -500.0000      
+3.1          .              .              .            -0.2877      
+3.2          .              .              .            -0.7048      
+3.3          .              .              .            -0.0262      
+3.4          .              .              .            -0.0656      
+3.5        -0.0100        -0.0100        -0.0100          .          
+3.6          .              .              .          -124.6711      
+4.1          .              .              .            -0.2047      
+4.2          .              .              .            -0.5014      
+4.3          .              .              .            -0.0187      
+4.4          .              .              .            -0.0467      
+4.5          .              .              .              .          
+4.6        -0.0200        -0.0200        -0.0200       -88.6842      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 25
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
      EQU xEq1  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-5.1          .              .              .            -0.0138      
-5.2          .              .              .            -0.0339      
-5.3          .              .              .            -0.0045      
-5.4          .              .              .            -0.0006      
-5.5          .              .              .            -8.5504      
-5.6          .              .              .              .          
+5.1          .              .              .            -0.0020      
+5.2          .              .              .            -0.0050      
+5.3          .              .              .            -0.0002      
+5.4          .              .              .            -0.0005      
+5.5          .              .              .              .          
+5.6          .              .              .            -0.8868      
 
 ---- EQU bEq1  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1          .              .              .             1.6171      
-1.2          .              .              .             3.9621      
+1.1          .              .              .              .          
+1.2          .              .              .              .          
 1.3          .              .              .              .          
 1.4          .              .              .              .          
 1.5          .              .              .              .          
@@ -1262,88 +1262,88 @@ Solution Report     SOLVE P2PRNFA Using NLP From line 469
 
          LOWER          LEVEL          UPPER         MARGINAL
 
-1          .              .              .             2.3706      
-2          .              .              .             2.1202      
-3          .              .              .             0.8550      
-4          .              .              .             0.9318      
-5          .              .              .             0.0086      
+1          .              .              .              .          
+2          .       7.7482996E-8          .              .          
+3          .              .              .             0.2493      
+4          .              .              .             0.1774      
+5          .              .              .             0.0018      
 
 ---- EQU LCIntModel  
 
          LOWER          LEVEL          UPPER         MARGINAL
 
-1          .              .              .            -1.0000      
-2          .              .              .            -1.0000      
+1          .              .              .              .          
+2          .              .              .              .          
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU MTHFProd        1000.0000      1000.0000      1000.0000         0.0086      
----- EQU CO2EqCons~          .              .              .             1.0000      
----- EQU costInEq            .              .              .              .          
----- EQU LCCConstr           .              .              .              .          
+---- EQU MTHFProd        1000.0000      1000.0000      1000.0000         0.0018      
+---- EQU CO2EqCons~          .              .              .              .          
+---- EQU costInEq            .              .              .             1.0000      
+---- EQU LCCConstr           .              .              .             1.0000      
 ---- EQU eCons                  (EMPTY)
 ---- EQU dumeq               .              .              .              .          
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 26
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 26
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
 ---- VAR m  
 
          LOWER          LEVEL          UPPER         MARGINAL
 
-1          .             1.6171        +INF             .          
-2          .             3.9621        +INF             .          
-3          .             0.5263        +INF             .          
-4          .             0.0658        +INF             .          
-5          .          1000.0000        +INF             .          
-6          .              .            +INF            0.0015      
+1          .             1.1538        +INF             .          
+2          .             2.8267        +INF             .          
+3          .             0.1053        +INF             .          
+4          .             0.2632        +INF             .          
+5          .              .            +INF            0.0007      
+6          .           500.0000        +INF             .          
 
 ---- VAR f  
 
          LOWER          LEVEL          UPPER         MARGINAL
 
-1          .              .            +INF            2.3706      
-2          .              .            +INF            2.1202      
-3          .              .              .             0.8550      
-4          .              .              .             0.9318      
+1          .              .            +INF             .          
+2          .              .            +INF             .          
+3          .              .              .             0.2493      
+4          .              .              .             0.1774      
 5        -INF         1000.0000        +INF             .          
 
 ---- VAR g  
 
          LOWER          LEVEL          UPPER         MARGINAL
 
-1        -INF            5.1611        +INF             .          
-2        -INF            3.4211        +INF             .          
+1        -INF            3.6704        +INF             .          
+2        -INF            5.6842        +INF             .          
 
 ---- VAR econVstar  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1        -INF          499.8158        +INF             .          
+1.1        -INF          499.9632        +INF             .          
 1.2        -INF             .            +INF             .          
 2.1        -INF             .            +INF             .          
-2.2        -INF          699.9671        +INF             .          
+2.2        -INF          699.8684        +INF             .          
 
 ---- VAR econUstar  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1        -INF          149.9211        +INF             .          
-1.2        -INF          199.9947        +INF             .          
-2.1        -INF          297.8684        +INF             .          
-2.2        -INF           99.6645        +INF             .          
+1.1        -INF          149.9842        +INF             .          
+1.2        -INF          199.9789        +INF             .          
+2.1        -INF          299.5737        +INF             .          
+2.2        -INF           98.6579        +INF             .          
 
 ---- VAR econBstar  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1        -INF            0.3959        +INF             .          
-1.2        -INF            1.1410        +INF             .          
+1.1        -INF            0.3992        +INF             .          
+1.2        -INF            1.1356        +INF             .          
 1.3        -INF             .            +INF             .          
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 27
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 27
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
      VAR econBstar  
@@ -1364,17 +1364,17 @@ Solution Report     SOLVE P2PRNFA Using NLP From line 469
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1        -INF          499.8158        +INF             .          
+1.1        -INF          499.9632        +INF             .          
 1.2        -INF             .            +INF             .          
 2.1        -INF             .            +INF             .          
-2.2        -INF          699.9671        +INF             .          
+2.2        -INF          699.8684        +INF             .          
 
 ---- VAR econVTstarOne  
 
          LOWER          LEVEL          UPPER         MARGINAL
 
-1        -INF          499.8158        +INF             .          
-2        -INF          699.9671        +INF             .          
+1        -INF          499.9632        +INF             .          
+2        -INF          699.8684        +INF             .          
 
 ---- VAR Astar  
 
@@ -1382,8 +1382,8 @@ Solution Report     SOLVE P2PRNFA Using NLP From line 469
 
 1.1        -INF            0.3000        +INF             .          
 1.2        -INF            0.2857        +INF             .          
-2.1        -INF            0.5960        +INF             .          
-2.2        -INF            0.1424        +INF             .          
+2.1        -INF            0.5992        +INF             .          
+2.2        -INF            0.1410        +INF             .          
 
 ---- VAR L  
 
@@ -1391,120 +1391,120 @@ Solution Report     SOLVE P2PRNFA Using NLP From line 469
 
 1.1        -INF            0.7000        +INF             .          
 1.2        -INF           -0.2857        +INF             .          
-1.3          .              .              .            -1.2477      
-1.4          .              .              .            -0.1560      
-1.5          .              .              .         -2370.5594      
-1.6          .              .              .              .          
-2.1        -INF           -0.5960        +INF             .          
-2.2        -INF            0.8576        +INF             .          
-2.3          .              .              .            -1.1159      
-2.4          .              .              .            -0.1395      
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 28
+1.3          .              .              .            -0.1053      
+1.4          .              .              .            -0.2632      
+1.5          .              .              .              .          
+1.6          .              .              .          -500.0000      
+2.1        -INF           -0.5992        +INF             .          
+2.2        -INF            0.8590        +INF             .          
+2.3          .              .              .            -0.1053      
+2.4          .              .              .            -0.2632      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 28
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
      VAR L  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-2.5          .              .              .         -2120.2366      
-2.6          .              .              .              .          
-3.1          .              .              .            -1.3827      
-3.2          .              .              .            -3.3877      
-3.3          .              .              .            -0.4500      
-3.4          .              .              .            -0.0563      
-3.5          .              .              .          -855.0378      
-3.6          .              .              .              .          
-4.1          .              .              .            -1.5068      
-4.2          .              .              .            -3.6919      
-4.3          .              .              .            -0.4904      
-4.4          .              .              .            -0.0613      
-4.5          .              .              .          -931.8000      
-4.6          .              .              .              .          
-5.1          .              .              .            -0.0138      
-5.2          .              .              .            -0.0339      
-5.3          .              .              .            -0.0045      
-5.4          .              .              .            -0.0006      
-5.5          .              .              .            -8.5504      
-5.6          .              .              .              .          
+2.5          .              .              .              .          
+2.6          .              .              .          -500.0000      
+3.1          .              .              .            -0.2877      
+3.2          .              .              .            -0.7048      
+3.3          .              .              .            -0.0262      
+3.4          .              .              .            -0.0656      
+3.5          .              .              .              .          
+3.6          .              .              .          -124.6711      
+4.1          .              .              .            -0.2047      
+4.2          .              .              .            -0.5014      
+4.3          .              .              .            -0.0187      
+4.4          .              .              .            -0.0467      
+4.5          .              .              .              .          
+4.6          .              .              .           -88.6842      
+5.1          .              .              .            -0.0020      
+5.2          .              .              .            -0.0050      
+5.3          .              .              .            -0.0002      
+5.4          .              .              .            -0.0005      
+5.5          .              .              .              .          
+5.6          .              .              .            -0.8868      
 
 ---- VAR VCstar  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1          .              .              .            -3.8334      
-1.2          .              .              .            -9.3923      
-1.3          .              .              .            -1.2477      
-1.4          .              .              .            -0.1560      
-1.5          .              .              .         -2370.5594      
-1.6          .              .              .              .          
-2.1          .              .              .            -3.4286      
-2.2          .              .              .            -8.4005      
-2.3          .              .              .            -1.1159      
-2.4          .              .              .            -0.1395      
-2.5          .              .              .         -2120.2366      
-2.6          .              .              .              .          
-3.1          .              .              .            -1.3827      
-3.2          .              .              .            -3.3877      
+1.1          .              .              .              .          
+1.2          .              .              .              .          
+1.3          .              .              .            -0.1053      
+1.4          .              .              .            -0.2632      
+1.5          .              .              .              .          
+1.6          .              .              .          -500.0000      
+2.1          .              .              .              .          
+2.2          .              .              .              .          
+2.3          .              .              .            -0.1053      
+2.4          .              .              .            -0.2632      
+2.5          .              .              .              .          
+2.6          .              .              .          -500.0000      
+3.1          .              .              .            -0.2877      
+3.2          .              .              .            -0.7048      
 3.3        -INF           20.0000        +INF             .          
 3.4        -INF           -8.0000        +INF             .          
-3.5          .              .              .          -855.0378      
-3.6          .              .              .              .          
-4.1          .              .              .            -1.5068      
-4.2          .              .              .            -3.6919      
+3.5          .              .              .              .          
+3.6          .              .              .          -124.6711      
+4.1          .              .              .            -0.2047      
+4.2          .              .              .            -0.5014      
 4.3        -INF           -5.0000        +INF             .          
 4.4        -INF           40.0000        +INF             .          
-4.5          .              .              .          -931.8000      
-4.6          .              .              .              .          
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 29
+4.5          .              .              .              .          
+4.6          .              .              .           -88.6842      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 29
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
      VAR VCstar  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-5.1          .              .              .            -0.0138      
-5.2          .              .              .            -0.0339      
-5.3          .              .              .            -0.0045      
-5.4          .              .              .            -0.0006      
-5.5          .              .              .            -8.5504      
-5.6          .              .              .              .          
+5.1          .              .              .            -0.0020      
+5.2          .              .              .            -0.0050      
+5.3          .              .              .            -0.0002      
+5.4          .              .              .            -0.0005      
+5.5          .              .              .              .          
+5.6          .              .              .            -0.8868      
 
 ---- VAR RNFA  
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1          .              .              .            -3.8334      
-1.2          .              .              .            -9.3923      
-1.3          .              .              .            -1.2477      
-1.4          .              .              .            -0.1560      
-1.5          .              .              .         -2370.5594      
-1.6          .              .              .              .          
-2.1          .              .              .            -3.4286      
-2.2          .              .              .            -8.4005      
-2.3          .              .              .            -1.1159      
-2.4          .              .              .            -0.1395      
-2.5          .              .              .         -2120.2366      
-2.6          .              .              .              .          
-3.1          .              .              .            -1.3827      
-3.2          .              .              .            -3.3877      
-3.3          .              .              .            -0.4500      
-3.4          .              .              .            -0.0563      
-3.5          .              .              .          -855.0378      
-3.6          .              .              .              .          
-4.1          .              .              .            -1.5068      
-4.2          .              .              .            -3.6919      
-4.3          .              .              .            -0.4904      
-4.4          .              .              .            -0.0613      
-4.5          .              .              .          -931.8000      
-4.6          .              .              .              .          
-5.1          .              .              .            -0.0138      
-5.2          .              .              .            -0.0339      
-5.3          .              .              .            -0.0045      
-5.4          .              .              .            -0.0006      
+1.1          .              .              .              .          
+1.2          .              .              .              .          
+1.3          .              .              .            -0.1053      
+1.4          .              .              .            -0.2632      
+1.5          .              .              .              .          
+1.6          .              .              .          -500.0000      
+2.1          .              .              .              .          
+2.2          .              .              .              .          
+2.3          .              .              .            -0.1053      
+2.4          .              .              .            -0.2632      
+2.5          .              .              .              .          
+2.6          .              .              .          -500.0000      
+3.1          .              .              .            -0.2877      
+3.2          .              .              .            -0.7048      
+3.3          .              .              .            -0.0262      
+3.4          .              .              .            -0.0656      
+3.5          .              .              .              .          
+3.6          .              .              .          -124.6711      
+4.1          .              .              .            -0.2047      
+4.2          .              .              .            -0.5014      
+4.3          .              .              .            -0.0187      
+4.4          .              .              .            -0.0467      
+4.5          .              .              .              .          
+4.6          .              .              .           -88.6842      
+5.1          .              .              .            -0.0020      
+5.2          .              .              .            -0.0050      
+5.3          .              .              .            -0.0002      
+5.4          .              .              .            -0.0005      
 5.5        -INF            1.0000        +INF             .          
 5.6        -INF            2.0000        +INF             .          
 
@@ -1515,9 +1515,9 @@ Solution Report     SOLVE P2PRNFA Using NLP From line 469
 1.1        -INF            0.7000        +INF             .          
 1.2        -INF           -0.2857        +INF             .          
 1.3        -INF             .            +INF             .          
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 30
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 30
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
      VAR X  
@@ -1527,8 +1527,8 @@ Solution Report     SOLVE P2PRNFA Using NLP From line 469
 1.4        -INF             .            +INF             .          
 1.5        -INF             .            +INF             .          
 1.6        -INF             .            +INF             .          
-2.1        -INF           -0.5960        +INF             .          
-2.2        -INF            0.8576        +INF             .          
+2.1        -INF           -0.5992        +INF             .          
+2.2        -INF            0.8590        +INF             .          
 2.3        -INF           -4.0000        +INF             .          
 2.4        -INF           -5.0000        +INF             .          
 2.5        -INF             .            +INF             .          
@@ -1556,28 +1556,28 @@ Solution Report     SOLVE P2PRNFA Using NLP From line 469
 
            LOWER          LEVEL          UPPER         MARGINAL
 
-1.1        -INF            0.3959        +INF             .          
-1.2        -INF            1.1410        +INF             .          
-1.3          .              .              .             0.5263      
-1.4          .              .              .             0.0658      
-1.5          .              .              .          1000.0000      
+1.1        -INF            0.3992        +INF             .          
+1.2        -INF            1.1356        +INF             .          
+1.3          .              .              .              .          
+1.4          .              .              .              .          
+1.5          .              .              .              .          
 1.6          .              .              .              .          
-2.1          .              .              .             1.6171      
-2.2          .              .              .             3.9621      
-2.3         4.0000         4.0000         4.0000         0.5263      
-2.4        20.0000        20.0000        20.0000         0.0658      
-2.5          .              .              .          1000.0000      
+2.1          .              .              .              .          
+2.2          .              .              .              .          
+2.3         4.0000         4.0000         4.0000          .          
+2.4        20.0000        20.0000        20.0000          .          
+2.5          .              .              .              .          
 2.6          .              .              .              .          
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 31
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 31
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE P2PRNFA Using NLP From line 469
+Solution Report     SOLVE P2PRNFA Using NLP From line 466
 
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR CO2Eq             -INF            8.5822        +INF             .          
----- VAR costIn            -INF            2.4934        +INF             .          
----- VAR LCC               -INF            2.4934        +INF             .          
+---- VAR CO2Eq             -INF            9.3546        +INF             .          
+---- VAR costIn            -INF            1.7737        +INF             .          
+---- VAR LCC               -INF            1.7737        +INF             .          
 ---- VAR dumm              -INF             .            +INF             .          
 
 
@@ -1585,14 +1585,14 @@ Solution Report     SOLVE P2PRNFA Using NLP From line 469
                              0 INFEASIBLE
                              0  UNBOUNDED
                              0     ERRORS
-GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/03/21 19:12:37 Page 32
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                     02/08/21 22:56:10 Page 32
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
 ----    480 VARIABLE m.L  
 
-1    1.617,    2    3.962,    3    0.526,    4    0.066,    5 1000.000
+1   1.154,    2   2.827,    3   0.105,    4   0.263,    6 500.000
 
 
 ----    481 VARIABLE f.L  
@@ -1602,31 +1602,31 @@ E x e c u t i o n
 
 ----    482 VARIABLE g.L  
 
-1 5.161,    2 3.421
+1 3.670,    2 5.684
 
 
 ----    487 PARAMETER diffCalc1  
 
             1           2
 
-1      -0.184
-2                  -0.033
+1      -0.037
+2                  -0.132
 
 
 ----    487 PARAMETER diffCalc2  
 
             1           2
 
-1      -0.079      -0.005
-2      -2.132      -0.336
+1      -0.016      -0.021
+2      -0.426      -1.342
 
 
 **** REPORT FILE SUMMARY
 
-pareto /home/vyom/P2P-RNFA/P2P-RNFA/paretotoyMILP.txt
+pareto /home/vyom/P2P-RNFA/P2P-RNFA/paretodelete.txt
 
 
-EXECUTION TIME       =        0.522 SECONDS      3 MB  24.7.4 r58773 LEX-LEG
+EXECUTION TIME       =        0.505 SECONDS      3 MB  24.7.4 r58773 LEX-LEG
 
 
 USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
