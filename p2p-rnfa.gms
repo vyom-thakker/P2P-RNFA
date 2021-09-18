@@ -14,7 +14,7 @@ econ_rJ(j) commodities I     /1*385/
 vc_r(i) elements K          /386*394/  
 rnfa_r(i) chemicals M       /395*417/
 econ_c(j) sectors J         /1*385/
-vc_c(j) processes L        /386*397/  
+vc_c(j) value-chain processes L        /386*397/  
 rnfa_c(j) reactions N        /398*425/
 econ_int(k) interventions /1*21/
 vc_int(k) vc interventions/22*24/;
@@ -42,26 +42,31 @@ PfU(i,i)
 Pp(j,j)
 Pb(k,k);
 
-*vcV(vc_c,vc_r)
-*vcU(vc_r,vc_c)
-*vcB(k,vc_c)
-*econV(econ_c,econ_r)
-*econU(econ_r,econ_c)
-*econB(k,econ_rJ)
-*rnfaV(rnfa_c,rnfa_r)
-*rnfaU(rnfa_r,rnfa_c)
-*dcUvc(vc_r,econ_c)
-*dcUrnfa(rnfa_r,econ_c)
-*dcVCrnfa(rnfa_r,vc_c)
-*ucUvc(econ_r,vc_c)
-*ucUrnfa(econ_r,rnfa_c)
-*ucVCrnfa(vc_r,rnfa_c)
-*p(vc_c)
-*phat(vc_c,vc_c)
-*Pf(econ_rJ,vc_r)
-*PfU(econ_r,vc_r)
-*Pp(vc_c,econ_c);
 
+******Legend - Dimensions and meaning of each sub-matrix in mutli-scale matrix 
+
+*vcV(vc_c,vc_r) Value-Chain Make matrix
+*vcU(vc_r,vc_c) Value-Chain USe matrix
+*vcB(k,vc_c) Value-Chain Intervention matrix
+*econV(econ_c,econ_r) Economy scale Make matrix
+*econU(econ_r,econ_c) Economy scale Use matrix
+*econB(k,econ_rJ) Economy scale Intervention matrix
+*rnfaV(rnfa_c,rnfa_r) Reaction scale Make matrix
+*rnfaU(rnfa_r,rnfa_c) Reaction scale Use matrix
+*dcUvc(vc_r,econ_c) Downstream cut-off Economy to Value-chain
+*dcUrnfa(rnfa_r,econ_c) Downstream cut-off Economy to Reaction scale
+*dcVCrnfa(rnfa_r,vc_c) Downstream Value-chain to Reaction scale
+*ucUvc(econ_r,vc_c) Upstream Economy to Value-chain scale
+*ucUrnfa(econ_r,rnfa_c) Upstream Economy to Reaction scale
+*ucVCrnfa(vc_r,rnfa_c) Upstream Value-chain to Reaction scale
+*p(vc_c) Price of commodities from the value-chain scale
+*phat(vc_c,vc_c) Diagonalized price vector
+*Pf(econ_rJ,vc_r) Permutation matrix wrt flows
+*PfU(econ_r,vc_r) Aliased permutation matrix wrt flows
+*Pp(vc_c,econ_c) Permutation matrix wrt processes
+
+
+* Initialization of sparse sub-matrices to zero
 dcUvc(vc_r,econ_c)=0;
 dcUrnfa(rnfa_r,econ_c)=0;
 ucUvc(econ_r,vc_c)=0;
@@ -92,15 +97,7 @@ $include ./incFiles/Pb.inc
 $include ./incFiles/A.inc
 $onlisting
 
-
-*ucUrnfa('93','422')=-50;
-*ucUrnfa('92','411')=-0.0
-
-
-*ucUrnfa('92','411')=-0.03;
-ucUrnfa('92','417')=-0.021;
-ucUrnfa('92','421')=-0.021;
-
+*Disaggregated parameters
 parameters
 vcVstar(j,i)
 vcUstar(i,j)
@@ -109,6 +106,7 @@ econUstar(i,j)
 econBstar(k,j)
 econR(k,j);
 
+*transpose
 parameters
 PfT(i,j)
 PpT(j,j);
@@ -116,7 +114,9 @@ PpT(j,j);
 PfT(vc_r,econ_rJ)=Pf(econ_rJ,vc_r);
 PpT(econ_c,vc_c)=Pp(vc_c,econ_c);
 phat(vc_c,vc_c)=p(vc_c);
-*rnfaV(rnfa_c,'417')=0;
+
+
+*****Parametric dissaggregation equations for the pathway with corn in value-chain
 
 alias(i,id1,id2);
 alias(k,kd1,kd2);
@@ -124,7 +124,6 @@ alias(j,jd1,jd2,jd3);
 econVstar(econ_c,econ_rJ)=econV(econ_c,econ_rJ)-sum(jd1$vc_c(jd1),PpT(econ_c,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*sum(id1$vc_r(id1),vcV(jd2,id1)*PfT(id1,econ_rJ))));
 
 econR(econ_int,econ_c)=econB(econ_int,econ_c)*sum(econ_rJ,econV(econ_c,econ_rJ)); 
-
 
 
 econUstar(econ_r,econ_c)=econU(econ_r,econ_c)-(sum(id1$vc_r(id1),PfU(econ_r,id1)*sum(jd1$vc_c(jd1),vcU(id1,jd1)*sum(jd2$vc_c(jd2),phat(jd1,jd2)*Pp(jd2,econ_c))))+sum(id2$vc_r(id2),PfU(econ_r,id2)*dcUvc(id2,econ_c))+sum(jd3$vc_c(jd3),ucUvc(econ_r,jd3)*Pp(jd3,econ_c)));
@@ -139,10 +138,11 @@ econVTstarOne(econ_c)=sum(econ_rJ,econVTstar(econ_rJ,econ_c));
 
 econBstar(econ_int,econ_c)=(econR(econ_int,econ_c)-sum(kd1$vc_int(kd1),Pb(econ_int,kd1)*sum(jd1$vc_c(jd1),vcB(kd1,jd1)*Pp(jd1,econ_c))))/econVTstarOne(econ_c);
 
-parameter econVTstarInv(econ_c,econ_rJ);
+******End of disaggregation equations (Note: In the decomposition algorithm paramteric decomposition will be performed for each of the pathways)
 
 
 
+*Recovering from stored disaggregated matrix - need if algorithm implemented
 
 *execute_unload 'econVstar.gdx', i,j,econVstar;
 *execute '=invert.exe econVstar.gdx i j econVstar econVstarInv.gdx econVstarInv';
@@ -152,8 +152,12 @@ parameter econVTstarInv(econ_c,econ_rJ);
 *$include inverseMat.gms
 *$onlisting
 
-Alias (econ_rJ,ip), (econ_c,jp);
 
+
+*Inverse operation of the disaggregated economy scale make matrix econV
+
+Alias (econ_rJ,ip), (econ_c,jp);
+parameter econVTstarInv(econ_c,econ_rJ);
 
 Parameter
    bp(econ_rJ,econ_c)   'permuted and transposed inverse of a'
@@ -201,10 +205,15 @@ econVTstarInv(econ_c,econ_rJ) = sum((ip,jp)$(pair(econ_rJ,jp) and pair(ip,econ_c
 
 *econVTstarInv(econ_c,econ_r)=round(econVTstarInv(econ_c,econ_r),4);
 
+
 Alias(econ_c,econ_c_d1);
 parameter Astar(econ_r,econ_rJ);
 Astar(econ_r,econ_rJ)=sum(econ_c_d1,econUstar(econ_r,econ_c_d1)*econVTstarInv(econ_c_d1,econ_rJ));
 
+****** End of inversion of disaggregated economy scale make matrix
+
+
+*Inverse operation of the parametric economy scale make matrix econV (pathway without corn)
 
 
 parameter econVTInv(econ_c,econ_rJ);
@@ -245,6 +254,7 @@ econVTInv(econ_c,econ_rJ) = sum((ip,jp)$(pair(econ_rJ,jp) and pair(ip,econ_c)), 
 parameter A1(econ_r,econ_rJ);
 A1(econ_r,econ_rJ)=sum(econ_c_d1,econU(econ_r,econ_c_d1)*econVTInv(econ_c_d1,econ_rJ));
 
+****** End of inversion of economy scale make matrix (pathway without corn)
 
 Alias(econ_r,econ_r_d1);
 Alias(econ_rJ,econ_rJ_d1);
@@ -266,6 +276,13 @@ rnfaVT(i,j)=rnfaV(j,i);
 parameter RNFA(i,j);
 RNFA(i,j)=rnfaVT(i,j)-rnfaU(i,j);
 
+
+
+*For this case study, they 2 pathways recognized - with and without corn selection for itaconic acid
+* 1. XSTAR denotes diagggregated matrix with corn removed from economy because it was used in value-chain;
+* 2. X denotes matrix without disaggation since corn is not produced in value-chain 
+
+*The algorithm stated in the paper recognizies these two pathways
 
 parameter XSTAR(i,j);
 parameter X(i,j);
@@ -293,8 +310,12 @@ variable g(k);
 
 f.lo(i)$(posb(i)) =0;
 f.fx(i)$(vc_r(i)) =0;
+
+*To ensure that no excess monetary returns from economy which are not required (slack of 100 USD added for convergence)
 f.lo(i)$(econ_r(i)) =0;
 f.up(i)$(econ_r(i)) =100;
+
+*Setting irrelevant value-chain processes to zero
 f.fx('417')=0;
 m.fx('397')=0;
 m.fx('386')=0;
@@ -303,6 +324,7 @@ m.fx('410')=0;
 *m.fx('413')=0;
 *m.fx('408')=0;
 
+****** Adding integer variables corresponding to the two pathway families (with and without corn disaggregation)
 
 *positive variable y;
 *equation lineqn;
@@ -324,8 +346,10 @@ bineqn2.. m('394')=g=1000*y;
 
 
 
-*Enter Bases in mol/sec
+*User input of Basis (Net final demand from the system) in mol/sec
 $if not set basis $set basis 1
+
+
 
 parameter diffCalcV(econ_c,econ_rJ);
 parameter diffCalcU(econ_r,econ_c);
@@ -479,6 +503,7 @@ flows(i,j)$(not econset(i,j))=(y.l*Xstar(i,j)+(1-y.l)*X(i,j))*m.l(j);
 
 
 
+$onText
 
 File chorddiag /chorddiag%fileS%.txt/;
 chorddiag.ap=1;
@@ -513,7 +538,6 @@ put /;
 
 execute_unload '%fileS%.gdx', flows, m, y;
 
-$onText
 
 File pareto /pareto%file%.txt/;
 pareto.ap=1;
