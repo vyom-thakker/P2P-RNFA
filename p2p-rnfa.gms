@@ -308,7 +308,10 @@ positive variable m(j);
 variable f(i);
 variable g(k);
 
+*economy scale final demands constrainted to  be positive
 f.lo(i)$(posb(i)) =0;
+
+*Flow conservation for value-chain scale
 f.fx(i)$(vc_r(i)) =0;
 
 *To ensure that no excess monetary returns from economy which are not required (slack of 100 USD added for convergence)
@@ -346,9 +349,8 @@ bineqn2.. m('394')=g=1000*y;
 
 
 
-*User input of Basis (Net final demand from the system) in mol/sec
+*********User input of Basis (Net final demand from the system) in mol/sec
 $if not set basis $set basis 1
-
 
 
 parameter diffCalcV(econ_c,econ_rJ);
@@ -360,32 +362,25 @@ diffCalcB(econ_int,econ_c)=round(econBstar(econ_int,econ_c)-econB(econ_int,econ_
 parameter diffCalcX(i,j);
 diffCalcX(i,j)=round(Xstar(i,j)-X(i,j),3);
 
-
+*******Multi-scale transactions as constraint to ensure flow conservation
 equation LCModel(i);
-
 LCModel(i).. sum(j,(y*Xstar(i,j)+(1-y)*X(i,j))*m(j))=e=f(i);
 *LCModel(i).. sum(j,(Xstar(i,j))*m(j))=e=f(i);
 
 equation LCIntModel(k);
-
 LCIntModel(k)..sum(j,(y*Bstar(k,j)+(1-y)*B(k,j))*m(j))=e=g(k);
 *LCIntModel(k)..sum(j,Bstar(k,j)*m(j))=e=g(k);
 
+
+*******Yield constraint from RNFA scale
 equation yeildConstr(j,i);
 yeildConstr(j,i)$li(j,i).. m(j)=l= yei(j)*sum(jd1,X(i,jd1)*m(jd1))/(abs(X(i,j))*(1-yei(j)));
 
 
-
+*******Setting yield constraint to zero and reaction scale variables
 equation MTHFProd;
 MTHFProd.. f('399')=e=%basis%;
 
-
-equation CO2EqConstr;
-variable CO2Eq;
-CO2EqConstr.. CO2Eq=e=g('4')+g('22');
-equation kgPConstr;
-variable kgP;
-kgPConstr.. kgP=e=g('2')+g('23');
 
 set A1f1(j,i) /399.395, 400.395, 401.395, 417.413, 421.413, 411.414, #rnfa_c.415/;
 set A3f3(j,i) /409.399,410.399/;
@@ -426,10 +421,21 @@ landAreaEq.. landArea=e=g('14')+g('24');
 *posLand.. landArea=g=100;
 
 
+*******Defining Envt Objectives
+
+equation CO2EqConstr;
+variable CO2Eq;
+CO2EqConstr.. CO2Eq=e=g('4')+g('22');
+equation kgPConstr;
+variable kgP;
+kgPConstr.. kgP=e=g('2')+g('23');
+
+********Add constraints if fruits cant supply enough itaconinc acid
 *equation fruitConstr1,fruitConstr2;
 *fruitConstr1.. m('395')=l=0.3*(m('394')+m('395')+m('396'));
 *fruitConstr2.. m('396')=l=0.3*(m('394')+m('395')+m('396'));
 
+*******Defining Economic objectives
 equation LCCConstr;
 variable LCC;
 *LCCConstr.. LCC=e=costIn;
@@ -443,6 +449,8 @@ LCCConstr.. LCC=e=costIn+0.01*totalEconf;
 
 *(IC*intrate/(1-(1+intrate)**(-5)))
 
+
+**********Begin Multi-Obj optimization - gets inputs of scalarized grids (epsilons) from bash script
 parameters LCCDummy,NPVDummy,CO2Dummy,co2;
 
 $if not set eco2 $set eco2 -1;
@@ -455,22 +463,18 @@ eCons$(co2>0).. CO2Eq=l=co2;
     Option MINLP=BARON;
     Option LP=BARON;
     Option NLP=BARON;
-*    Solve P2PRNFA using MINLP maximizing NPV; 
-*     NPVDummy=NPV.l;
-*    NPV.lo=NPVDummy;
-*  Solve P2PRNFA using LP minimizing CO2Eq; 
 
+*    Solve P2PRNFA using MINLP maximizing NPV; 
   Solve P2PRNFA using MINLP minimizing LCC;
-*     LCCDummy=LCC.l;
-*    LCC.up=LCCDummy;
-*  Solve P2PRNFA using MINLP minimizing CO2Eq; 
-* Solve P2PRNFA using LP minimizing CO2Eq; 
-*  Solve P2PRNFA using MINLP minimizing kgP; 
-*   Solve P2PRNFA using MINLP minimizing landArea; 
-*  Solve P2PRNFA using MINLP minimizing CO2Eq; 
-*   CO2Dummy=CO2Eq.l;
-*   CO2Eq.up=CO2Dummy;
-*   Solve P2PRNFA using MINLP minimizing LCC; 
+* Solve P2PRNFA using MINLP minimizing CO2Eq;  
+* Solve P2PRNFA using MINLP minimizing kgP; 
+* Solve P2PRNFA using MINLP minimizing landArea; 
+
+
+
+
+
+************Displaying results
 
 *Display econVTstarInv;
 *Display Astar,rank;
@@ -478,9 +482,16 @@ Display m.l;
 Display f.l;
 Display y.l;
 
+************Parsing results to txt files
+
+
+
+*****Remove comment from next line if you want to create output files
+*$onText
+
 $if not set file $set file 0
 
-
+*Finding all flows in the network
 parameter flows(i,j);
 set econset(i,j) /#econ_r.#econ_rJ/;
 flows(i,j)$(ord(i)<>ord(j) and econset(i,j))=-1*(y.l*Xstar(i,j)+(1-y.l)*X(i,j))*m.l(j);
@@ -488,22 +499,6 @@ flows(i,j)$(ord(i)=ord(j) and econset(i,j))=m.l(j)-((y.l*Xstar(i,j)+(1-y.l)*X(i,
 flows(i,j)$(not econset(i,j))=(y.l*Xstar(i,j)+(1-y.l)*X(i,j))*m.l(j);
 *flows(i,j) $( flows(i,j)<0)=0;
 
-
-*set sankey(i,j) /#vc_r.#vc_c, #rnfa_r.#rnfa_c, 393.#rnfa_c, 394.#rnfa_c/;
-
-*set from /'corn','apple','banana', S1*S23/;
-*set to /S1*S23/;
-*variable sankey(from,to);
-*sankey('corn',S1)=flows('390','394');
-*sankey('apple',S1)=flows('391','395');
-*sankey('banana',S1)=flows('392','396');
-
-*ets ag(i) /1*13/,mini(i) /14*21/,uti(i) /22*24/,cons(i) //,manu(i) //,who(i) //,tran(i) //,inf(i) //,was(i) //,ed(i) //,art(i) //,oth(i) //,gov(i) //;
-*ets agj(j),minij(i),utij(j),consj(j),manuj(j),whoj(j),tranj(j),infj(j),wasj(j),edj(j),artj(j),othj(j),govj(j);
-
-
-
-$onText
 
 File chorddiag /chorddiag%fileS%.txt/;
 chorddiag.ap=1;
@@ -595,6 +590,9 @@ loop(j$rnfa_c(j),put m.l(j)",");
 put "";
 put /;
 
+
+
+****(Keep commented) Export matrices to file - for steps 1-3 in decomposition algorithms
 
 $ontext
 *execute_unload 'XNEW.gdx', X,Astar,VCstar,RNFA,m;

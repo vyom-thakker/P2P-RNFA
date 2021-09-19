@@ -1,23 +1,10 @@
 $onText
-Preparing the RNFA-P2P for 3-MTHF Example
+Implementing P2P-RNFA with decomposition algorithm to get different multi-scale matrices corresponding to pathways
+ ----- To apply NLP formulation (without decomposition) - Remove binary variables and use simple LCModel as constraint  
 Author: Vyom
-Date: 02/02/2020
+Date: 01/15/2020
 $OffText
 
-*
-*Sets
-*i rows                    /1*417/          
-*j columns                 /1*425/
-*k rowsOfB                 /1*24/
-*econ_r(i) commodities I     /1*385/
-*econ_rJ(j) commodities I     /1*385/
-*vc_r(i) elements K          /386*394/  
-*rnfa_r(i) chemicals M       /395*417/
-*econ_c(j) sectors J         /1*385/
-*vc_c(j) processes L        /386*397/  
-*rnfa_c(j) reactions N        /398*425/
-*econ_int(k) interventions  /1*21/
-*vc_int(k) vc interventions /22*24/;
 
 Sets
 i rows                    /1*5/          
@@ -77,55 +64,38 @@ Pf(j,i)=0;
 PfU(i,i)=0;
 Pp(j,j)=0;
 Pb(k,k)=0;
-*vcV(vc_c,vc_r)
-*vcU(vc_r,vc_c)
-*vcB(k,vc_c)
-*econV(econ_c,econ_r)
-*econU(econ_r,econ_c)
-*econB(k,econ_rJ)
-*rnfaV(rnfa_c,rnfa_r)
-*rnfaU(rnfa_r,rnfa_c)
-*dcUvc(vc_r,econ_c)
-*dcUrnfa(rnfa_r,econ_c)
-*dcVCrnfa(rnfa_r,vc_c)
-*ucUvc(econ_r,vc_c)
-*ucUrnfa(econ_r,rnfa_c)
-*ucVCrnfa(vc_r,rnfa_c)
-*p(vc_c)
-*phat(vc_c,vc_c)
-*Pf(econ_rJ,vc_r)
-*PfU(econ_r,vc_r)
-*Pp(vc_c,econ_c);
 
+******Legend - Dimensions and meaning of each sub-matrix in mutli-scale matrix 
+
+*vcV(vc_c,vc_r) Value-Chain Make matrix
+*vcU(vc_r,vc_c) Value-Chain USe matrix
+*vcB(k,vc_c) Value-Chain Intervention matrix
+*econV(econ_c,econ_r) Economy scale Make matrix
+*econU(econ_r,econ_c) Economy scale Use matrix
+*econB(k,econ_rJ) Economy scale Intervention matrix
+*rnfaV(rnfa_c,rnfa_r) Reaction scale Make matrix
+*rnfaU(rnfa_r,rnfa_c) Reaction scale Use matrix
+*dcUvc(vc_r,econ_c) Downstream cut-off Economy to Value-chain
+*dcUrnfa(rnfa_r,econ_c) Downstream cut-off Economy to Reaction scale
+*dcVCrnfa(rnfa_r,vc_c) Downstream Value-chain to Reaction scale
+*ucUvc(econ_r,vc_c) Upstream Economy to Value-chain scale
+*ucUrnfa(econ_r,rnfa_c) Upstream Economy to Reaction scale
+*ucVCrnfa(vc_r,rnfa_c) Upstream Value-chain to Reaction scale
+*p(vc_c) Price of commodities from the value-chain scale
+*phat(vc_c,vc_c) Diagonalized price vector
+*Pf(econ_rJ,vc_r) Permutation matrix wrt flows
+*PfU(econ_r,vc_r) Aliased permutation matrix wrt flows
+*Pp(vc_c,econ_c) Permutation matrix wrt processes
+******incFiles folder contains all these matrices in a single incToy.inc file
 $offlisting
-*$include ./incFiles/vcV.inc
-*$include ./incFiles/vcU.inc
-*$include ./incFiles/vcB.inc
-*$include ./incFiles/econV.inc
-*$include ./incFiles/econU.inc
-*$include ./incFiles/econB.inc
-*$include ./incFiles/rnfaV.inc
-*$include ./incFiles/rnfaU.inc
-*$include ./incFiles/dcUvc.inc
-*$include ./incFiles/dcUrnfa.inc
-*$include ./incFiles/dcVCrnfa.inc
-*$include ./incFiles/ucUvc.inc
-*$include ./incFiles/ucUrnfa.inc
-*$include ./incFiles/ucVCrnfa.inc
-*$include ./incFiles/p.inc
-*$include ./incFiles/Pf.inc
-*$include ./incFiles/PfU.inc
 $include ./incFiles/incToy.inc
 $onlisting
-
-
 
 
 
 positive variable m(j);
 variable f(i);
 variable g(k);
-
 
 
 variables
@@ -448,7 +418,7 @@ put "%textval%";
 put "";
 put /;
 
-
+****Exporting X.csv as multi-scale matrices for chosen pathways
 execute_unload 'X.gdx', X;
 execute 'gdxdump X.gdx output=X.csv symb=X format=csv'
 
