@@ -1,5 +1,7 @@
 # P2P-RNFA Documentation
 
+Manuscript Folder - contains proof version of the paper
+
 Checkout the branch 'code_forSharing'
 
 Toy problem is solved in p2p-rnfa-trial.gms for 
